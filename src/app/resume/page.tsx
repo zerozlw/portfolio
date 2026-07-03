@@ -25,7 +25,7 @@ export default function ResumePage() {
               </div>
               <a
                 href="/resume.pdf"
-                download
+                download="曾政-平台_AI产品-2年产品经验.pdf"
                 className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted transition-colors hover:text-foreground"
               >
                 <Download size={14} />
