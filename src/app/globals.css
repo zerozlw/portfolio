@@ -54,13 +54,15 @@ body {
 .prose h2 {
   margin-top: 3.5rem;
   margin-bottom: 1.25rem;
-  font-size: 1.375rem;
+  font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.35;
   letter-spacing: -0.01em;
   color: var(--foreground);
-  padding-bottom: 0.875rem;
-  border-bottom: 1px solid var(--border);
+  padding: 0.625rem 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
 }
 
 .prose h3 {
