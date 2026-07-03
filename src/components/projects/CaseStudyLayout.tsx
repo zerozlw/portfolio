@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Container } from "@/components/layout/Container";
+import { FadeIn } from "@/components/shared/FadeIn";
+import { FadeInSection } from "@/components/shared/FadeInSection";
 import { formatDate } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-context";
 import type { Project } from "@/types";
@@ -32,46 +34,61 @@ export function CaseStudyLayout({ project, children }: CaseStudyLayoutProps) {
       {/* Hero */}
       <Container className="mb-16">
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 text-sm text-muted">
-            <time dateTime={project.date}>{formatDate(project.date)}</time>
-          </div>
-          <h1 className="mt-4 text-4xl font-normal tracking-tight text-foreground sm:text-5xl">
-            {locale === "zh" ? project.titleZh : project.title}
-          </h1>
-          <p className="mt-4 text-xl text-muted">
-            {locale === "zh" ? project.descriptionZh : project.description}
-          </p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {(locale === "zh" ? project.tagsZh : project.tags).map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full bg-muted/50 px-3 py-1 text-xs text-muted"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+          <FadeIn>
+            <div className="flex items-center gap-3 text-sm text-muted">
+              <time dateTime={project.date}>{formatDate(project.date)}</time>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.05}>
+            <h1 className="mt-4 text-4xl font-normal tracking-tight text-foreground sm:text-5xl">
+              {locale === "zh" ? project.titleZh : project.title}
+            </h1>
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            <p className="mt-4 text-xl text-muted">
+              {locale === "zh" ? project.descriptionZh : project.description}
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.15}>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {(locale === "zh" ? project.tagsZh : project.tags).map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full bg-muted/50 px-3 py-1 text-xs text-muted"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </Container>
 
       {/* Hero Image */}
       <Container className="mb-16">
-        <div className="relative aspect-video overflow-hidden rounded-xl bg-muted">
-          <Image
-            src={project.image}
-            alt={locale === "zh" ? project.titleZh : project.title}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+        <FadeIn delay={0.2}>
+          <div className="relative aspect-video overflow-hidden rounded-xl bg-muted">
+            <Image
+              src={project.image}
+              alt={locale === "zh" ? project.titleZh : project.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </FadeIn>
       </Container>
 
-      {/* Content */}
+      {/* Content with scroll fade-in */}
       <Container>
-        <div className="mx-auto max-w-3xl prose prose-neutral dark:prose-invert prose-headings:font-normal prose-headings:tracking-tight prose-p:text-muted prose-li:text-muted prose-strong:text-foreground prose-a:text-foreground prose-pre:bg-muted/50 prose-pre:border prose-pre:border-border">
-          {children}
-        </div>
+        <FadeInSection>
+          <div className="mx-auto max-w-3xl prose prose-neutral dark:prose-invert prose-headings:font-normal prose-headings:tracking-tight prose-p:text-muted prose-li:text-muted prose-strong:text-foreground prose-a:text-foreground prose-pre:bg-muted/50 prose-pre:border prose-pre:border-border">
+            {children}
+          </div>
+        </FadeInSection>
       </Container>
     </article>
   );
