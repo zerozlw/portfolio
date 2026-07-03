@@ -35,7 +35,7 @@ export function CaseStudyLayout({ project, children }: CaseStudyLayoutProps) {
           <div className="flex items-center gap-3 text-sm text-muted">
             <time dateTime={project.date}>{formatDate(project.date)}</time>
           </div>
-          <h1 className="mt-4 text-4xl font-normal tracking-tight text-foreground sm:text-5xl">
+          <h1 className="mt-4 text-5xl font-normal tracking-tight text-foreground sm:text-6xl">
             {locale === "zh" ? project.titleZh : project.title}
           </h1>
           <p className="mt-4 text-xl text-muted">

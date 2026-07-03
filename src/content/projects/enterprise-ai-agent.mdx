@@ -11,6 +11,8 @@ featured: true
 order: 1
 ---
 
+<En>
+
 ## Background
 
 ### The Problem
@@ -20,11 +22,33 @@ The Parts Full Lifecycle Platform (IDP) is Xiaomi EV's core parts management sys
 - Product team: **1.5-2 days/week** on maintenance
 - Engineering team: **0.5-1 day/week** on debugging
 
-The problems are individually simple but collectively overwhelming: "How do I check part status?" "DVP is archived, can I still modify it?" "What's the EA completion rate?" "Where is the TKO process stuck?" These questions appear daily in Feishu groups and DMs, with answers often requiring cross-system investigation — reading code, querying databases,翻阅 manuals.
+The problems are individually simple but collectively overwhelming: "How do I check part status?" "DVP is archived, can I still modify it?" "What's the EA completion rate?" "Where is the TKO process stuck?" These questions appear daily in Feishu groups and DMs, with answers often requiring cross-system investigation — reading code, querying databases, and flipping through manuals.
 
 ### The Insight
 
 I noticed something interesting: as a product manager, I was already spending time writing small AI tools to help myself — a SQL query script, a manual-reading prompt, a permission debugging workflow. These were individual Skills, but I realized they could be **orchestrated into a complete Agent**. I mapped out **5 high-frequency scenarios**, trained **4 reusable Skills**, and built the IDP Agent from scratch.
+
+</En>
+
+<Zh>
+
+## 背景
+
+### 问题
+
+零部件全生命周期平台（IDP）是小米汽车零部件管理的核心系统，覆盖 DVP（设计验证计划）、EA（工程审批）、TKO（技术开工）等关键业务流程。平台用户超过 800 人，但日常运维中存在大量重复性人工操作——系统排查、数据查询、操作指引、数据看板统计。**产品团队每周在运维上投入 1.5-2 天，研发团队投入 0.5-1 天**，亟需通过 AI 提效。
+
+### 灵感
+
+我没有从零设计一个 AI 产品，而是**从自己的日常工作切入**。
+
+作为产品经理，我每天也在处理这些问题。于是我开始用 Claude Code 写 Skill——先是一个查数仓的脚本，然后是一个读手册的 Prompt，再然后是一个排查权限问题的工作流。写得多了，我意识到这些零散的 Skill 可以**串联成一个完整的 Agent**。我梳理了 **5 大高频场景**，训练了 **4 个可复用 Skill**，从零搭建了 IDP Agent。
+
+</Zh>
+
+---
+
+<En>
 
 ## What I Did
 
@@ -48,6 +72,38 @@ I noticed something interesting: as a product manager, I was already spending ti
 - **Observability**: OneTrack analytics + Shujing BI dashboard — monitoring request volume, success rate, latency, and token consumption
 - **CLI Extension**: **106 CLI commands** developed, encapsulating core platform capabilities as command-line tools
 
+</En>
+
+<Zh>
+
+## 我的行动
+
+### 4 个可复用 Skill
+
+| 场景 | Skill | 核心能力 |
+|---|---|---|
+| 系统排查 | idp-debug | Agent 按 6 步规范化完成 debug，从前端→后端→数据层逐层定位根因 |
+| 数据查询 | 自然语言查询 | 支持零件号、工作台、DVP/EA 状态查询，一句话直接查数仓 |
+| 操作指引 | 专家 Skill | 接入 8 份操作手册，自动生成运营手册和操作步骤 |
+| 数据看板 | 数据分析 Skill | 基于前端埋点数据，自动生成数据分析看板 |
+| SOP 自动化 | 复杂表格处理 Skill | 将飞书办公复杂 SOP 封装为可复用 Skill |
+
+### 技术架构
+
+- **飞书入口**：私聊、群聊 @、话题回复三种交互方式，用户零门槛使用
+- **Agent 框架**：基于 Claude Code Agent SDK，支持 20 轮多轮对话、截图理解、文件回传
+- **知识库**：8 份 Markdown 操作手册 + 数仓表结构完整梳理 + 业务源码 submodule
+- **数据能力**：接入 DataWorks 只读 Token，Agent 直接查数仓回答
+- **部署**：Matrix（Pre/Prod）+ Docker + CI/CD 自动化流水线
+- **可观测性**：OneTrack 埋点 + 数鲸 BI 看板，监控请求量、成功率、耗时、token 消耗
+- **CLI 扩展**：累计完成 **106 个 CLI 命令**，将平台核心能力封装为命令行工具
+
+</Zh>
+
+---
+
+<En>
+
 ### What I Innovated
 
 **From Personal Tool to Replicable Framework.** The proudest outcome isn't the IDP Agent itself — it's the "Copy to System X" operational guide I wrote (14 steps). Any business team can swap Skills, knowledge bases, source code, and data sources to quickly build an Agent for their own system. This makes IDP Agent not just a product feature, but a **reusable enterprise AI Agent framework**.
@@ -57,6 +113,72 @@ I noticed something interesting: as a product manager, I was already spending ti
 **Product Manager Trains the Skill.** The traditional workflow is: engineers write code, PMs write requirements. But in this project, I — as a product manager — independently trained the debug Skill and integrated it into the Feishu bot. This broke the assumption that "AI must be built by engineers." **Product managers can train Agents too, and they understand the business context better.**
 
 **Human-AI Collaboration Boundaries.** I explicitly designed what the Agent "cannot do" — it cannot modify data, cannot operate the system on behalf of users, and complex business logic is redirected to the domain expert. Every response includes an AI disclaimer, ensuring users understand it's an assistant, not a decision-maker.
+
+</En>
+
+<Zh>
+
+### 我的创新
+
+**从个人工具到可复制框架。** 最让我自豪的不是 IDP Agent 本身，而是我把整个架构抽象成了一套「复制到系统 X」的实操指南（14 步）。任何业务团队只要替换 Skill、知识库、源码和数据源，就能快速搭建面向自己系统的 Agent。这意味着 IDP Agent 不只是一个产品功能，而是一个**可复用的企业 AI Agent 框架**。
+
+**Skill-first 的 Agent 设计思路。** 不同于传统的 RAG 或微调方案，我选择了 Skill-based 架构：每个业务能力封装为独立的 Skill，Agent 根据用户意图自动路由到对应 Skill。扩展一个新场景只需写一个 Skill，不需要改 Agent 核心代码。
+
+**产品经理训练 Skill 的范式突破。** 传统思路是研发写代码、产品写需求。但在这个项目中，我作为产品经理独立训练了 debug Skill，直接接入飞书机器人实现智能问答。这打破了「AI 必须由研发来做」的惯性认知——**产品经理也可以训练 Agent，而且更懂业务场景**。
+
+**人机协作的边界设计。** Agent 不是万能的。我明确设计了它「不能做」的事——不能改数据、不能代替操作、复杂业务逻辑引导咨询流程专家。每条回答都附带 AI 免责声明，确保用户知道这是辅助工具而非决策者。
+
+</Zh>
+
+---
+
+<En>
+
+## What Users Get
+
+<div className="not-prose grid grid-cols-1 gap-6 md:grid-cols-2 my-8">
+<div>
+
+- **Problem Diagnosis**: From "find someone to ask, wait for reply" → "ask Agent, instant response" with screenshot recognition and multi-turn follow-up
+- **Operation Guides**: From "search manuals, browse docs" → "ask in natural language, get steps and Feishu links directly"
+- **Data Queries**: From "submit request, wait for report" → "say one sentence, auto-query + generate dashboard"
+- **Access**: Feishu private chat, group @mention, topic threads — three modes covering different work scenarios
+
+</div>
+<div>
+
+<img src="/images/projects/idp-agent-promo.jpg" alt="IDP Agent Promo" className="rounded-xl border border-border w-full" />
+
+</div>
+</div>
+
+</En>
+
+<Zh>
+
+## 给用户带来了什么
+
+<div className="not-prose grid grid-cols-1 gap-6 md:grid-cols-2 my-8">
+<div>
+
+- **问题排查**：从"找人问、等回复"变成"问 Agent、秒级响应"，支持截图识别和多轮追问
+- **操作指引**：从"翻手册、搜文档"变成"自然语言问、直接给步骤和飞书链接"
+- **数据查询**：从"提需求、等报表"变成"说一句话、自动查数+生成看板"
+- **使用方式**：飞书私聊、群聊 @、话题回复，三种方式覆盖不同工作场景
+
+</div>
+<div>
+
+<img src="/images/projects/idp-agent-promo.jpg" alt="IDP Agent 宣发图" className="rounded-xl border border-border w-full" />
+
+</div>
+</div>
+
+</Zh>
+
+---
+
+<En>
 
 ## Results
 
@@ -68,8 +190,6 @@ I noticed something interesting: as a product manager, I was already spending ti
 | Manual generation | 1-2 days manual work | 10 min auto-generated | **50x+** |
 | Data dashboard | R&D involvement for 1 sprint | 30 seconds | — |
 | Complex SOP processing | 2 hours/project | 30 minutes | **75%** |
-
-<img src="/images/projects/idp-agent-promo.jpg" alt="IDP Agent 宣发图" className="rounded-xl border border-border my-8" />
 
 ### Scale of Output
 
@@ -86,3 +206,36 @@ This project changed how I think about product management. The traditional PM ro
 The key lesson: start from your own pain points. I didn't design an AI product in a vacuum. I built tools to solve my daily problems first, then generalized them into an Agent. This bottom-up approach is more likely to produce something people actually use.
 
 The framework I built — the "Copy to System X" guide — is perhaps the most lasting contribution. It means every team in the organization can now build their own AI Agent in days, not months. That's the real leverage of AI in the enterprise.
+
+</En>
+
+<Zh>
+
+## 项目收益
+
+| 指标 | Before | After | 提效幅度 |
+|---|---|---|---|
+| 产品运维投入 | 1.5-2 天/周 | 0.5-1 天/周 | **60%+** |
+| 单零件查询 | 5+ 次页面切换，2-3 分钟 | 10 秒 | **100 倍+** |
+| 批量 10 个零件查询 | 50+ 次操作，20-30 分钟 | 15 秒 | **100 倍+** |
+| 运营手册生成 | 手动整理 1-2 天 | AI 自动生成 10 分钟 | **50 倍+** |
+| 数据分析看板 | 研发介入约 1 个迭代 | 30 秒完成 | — |
+| 复杂 SOP 处理 | 2 小时/项目 | 30 分钟 | **75%** |
+
+### 规模化产出
+
+- **4 个可复用 Skill** — 其中 2 个已上线 GarageHub 平台供团队直接调用
+- **106 个 CLI 命令** — 覆盖平台核心能力
+- **1 个飞书 Bot** — 支持私聊/群聊/话题三种交互
+- **知识资产** — 数据库表结构完整梳理、TKO 模块操作手册
+- **可复制框架** — 已可适配到其他业务系统
+
+## 反思
+
+这个项目改变了我对产品经理角色的理解。传统 PM 是"写需求、交给研发"。但有了 AI 工具，PM 现在可以**自己动手构建产品**——不只是写 PRD。
+
+核心启发：从自己的痛点出发。我没有凭空设计一个 AI 产品，而是先用工具解决自己的日常问题，然后把它们泛化成 Agent。这种自下而上的方式更有可能做出人们真正使用的东西。
+
+我搭建的框架——「复制到系统 X」指南——可能是最持久的贡献。它意味着组织内每个团队都可以在几天内搭建自己的 AI Agent，而不是几个月。这才是 AI 在企业中的真正杠杆。
+
+</Zh>

@@ -1,5 +1,6 @@
 import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
 import { CopyButton } from "@/components/ui/CopyButton";
+import { En, Zh } from "@/components/writing/BilingualContent";
 
 function Pre({ children, ...props }: React.HTMLAttributes<HTMLPreElement>) {
   const text =
@@ -24,6 +25,8 @@ function Pre({ children, ...props }: React.HTMLAttributes<HTMLPreElement>) {
 
 const components = {
   pre: Pre,
+  En,
+  Zh,
 };
 
 interface MDXContentProps {
