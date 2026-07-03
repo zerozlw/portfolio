@@ -14,7 +14,7 @@ const featuredProjects = [
     titleZh: "企业 AI Agent",
     descriptionEn: "An AI agent that automates complex enterprise workflows",
     descriptionZh: "自动化复杂企业工作流的 AI Agent",
-    image: "/images/projects/ai-agent-hero.png",
+    image: "/images/projects/arch-en.svg",
   },
   {
     slug: "nl-query",
@@ -22,7 +22,7 @@ const featuredProjects = [
     titleZh: "自然语言查询",
     descriptionEn: "Ask questions in plain English, get answers from your data",
     descriptionZh: "用自然语言提问，从数据中获取答案",
-    image: "/images/projects/nl-query-hero.png",
+    image: "/images/projects/flow-en.svg",
   },
   {
     slug: "knowledge-expert",
@@ -30,7 +30,7 @@ const featuredProjects = [
     titleZh: "知识专家",
     descriptionEn: "AI-powered knowledge base for engineering teams",
     descriptionZh: "面向工程团队的 AI 知识库",
-    image: "/images/projects/knowledge-hero.png",
+    image: "/images/projects/idp-agent-promo.jpg",
   },
 ];
 
@@ -46,8 +46,8 @@ export function FeaturedProjects() {
           {featuredProjects.map((project, index) => (
             <FadeIn key={project.slug} delay={index * 0.1}>
               <Link href={`/projects/${project.slug}`} className="group block">
-                <div className="overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg">
-                  <div className="relative aspect-video overflow-hidden bg-muted">
+                <div className="overflow-hidden rounded-xl border border-border bg-white/70 transition-all duration-300 hover:shadow-lg hover:bg-white/90">
+                  <div className="relative aspect-video overflow-hidden bg-white/50">
                     <Image
                       src={project.image}
                       alt={locale === "zh" ? project.titleZh : project.titleEn}
