@@ -120,41 +120,31 @@ function XiaomiLogo() {
 
 function MonicaLogo() {
   return (
-    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded bg-[#6C5CE7] text-[8px] font-bold text-white">
-      M
-    </div>
+    <img src="/images/logos/monica.png" alt="Monica" className="h-5 w-5 flex-shrink-0 rounded object-contain" />
   );
 }
 
 function MomentaLogo() {
   return (
-    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded bg-[#00B894] text-[8px] font-bold text-white">
-      Mo
-    </div>
+    <img src="/images/logos/momenta.png" alt="Momenta" className="h-5 w-5 flex-shrink-0 rounded object-contain" />
   );
 }
 
 function WuhanLogo() {
   return (
-    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-muted/30 bg-muted/10 text-[7px] font-bold text-muted">
-      武
-    </div>
+    <img src="/images/logos/wuhan.webp" alt="Wuhan Univ" className="h-5 w-5 flex-shrink-0 rounded-full object-contain" />
   );
 }
 
 function CquLogo() {
   return (
-    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-muted/30 bg-muted/10 text-[7px] font-bold text-muted">
-      重
-    </div>
+    <img src="/images/logos/cqu.webp" alt="Chongqing Univ" className="h-5 w-5 flex-shrink-0 rounded-full object-contain" />
   );
 }
 
 function CsunLogo() {
   return (
-    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-muted/30 bg-muted/10 text-[7px] font-bold text-muted">
-      民
-    </div>
+    <img src="/images/logos/csun.jpg" alt="CSUN" className="h-5 w-5 flex-shrink-0 rounded-full object-contain" />
   );
 }
 
