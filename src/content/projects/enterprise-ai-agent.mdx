@@ -1,93 +1,86 @@
 ---
 title: "Enterprise AI Agent"
 titleZh: "企业 AI Agent"
-description: "An AI agent that automates complex enterprise workflows, reducing manual effort by 60%."
-descriptionZh: "自动化复杂企业工作流的 AI Agent，减少 60% 人工操作。"
+description: "An AI Agent that transforms enterprise platform operations — from manual workflows to intelligent automation."
+descriptionZh: "让企业平台运维从人工走向智能的 AI Agent，效率提升 60%-100 倍。"
 date: "2024-03-15"
-image: "/images/projects/ai-agent-hero.png"
-tags: ["AI Agent", "Enterprise", "Workflow"]
-tagsZh: ["AI Agent", "企业", "工作流"]
+image: "/images/projects/idp-agent-promo.jpg"
+tags: ["AI Agent", "Enterprise", "Feishu", "LLM"]
+tagsZh: ["AI Agent", "企业", "飞书", "LLM"]
 featured: true
 order: 1
 ---
 
 ## Background
 
-Enterprise engineering teams spend countless hours on repetitive tasks — querying databases, generating reports, managing workflows. These tasks are individually simple but collectively consume significant bandwidth.
+### The Problem
 
-## The Problem
+The Parts Full Lifecycle Platform (IDP) is Xiaomi EV's core parts management system, covering DVP (Design Verification Plan), EA (Engineering Approval), TKO (Technical Kick-Off) and other critical business processes. With 800+ users, the platform faces a growing challenge: **massive amounts of repetitive operational inquiries consume the product and engineering teams' time every week**.
 
-Engineers were spending 40% of their time on tasks that could be automated:
-- Manual database queries for status checks
-- Report generation from multiple data sources
-- Workflow routing and status tracking
-- Documentation updates across systems
+- Product team: **1.5-2 days/week** on maintenance
+- Engineering team: **0.5-1 day/week** on debugging
 
-## Research
+The problems are individually simple but collectively overwhelming: "How do I check part status?" "DVP is archived, can I still modify it?" "What's the EA completion rate?" "Where is the TKO process stuck?" These questions appear daily in Feishu groups and DMs, with answers often requiring cross-system investigation — reading code, querying databases,翻阅 manuals.
 
-We conducted interviews with 30+ engineers across 5 teams and identified key patterns:
+### The Insight
 
-1. **Repetitive queries** — Same SQL patterns repeated daily
-2. **Context switching** — Jumping between 5+ tools for simple tasks
-3. **Knowledge gaps** — New team members struggling to find information
-4. **Manual handoffs** — Status updates requiring human intervention
+I noticed something interesting: as a product manager, I was already spending time writing small AI tools to help myself — a SQL query script, a manual-reading prompt, a permission debugging workflow. These were individual Skills, but I realized they could be **orchestrated into a complete Agent**. I mapped out **5 high-frequency scenarios**, trained **4 reusable Skills**, and built the IDP Agent from scratch.
 
-## Product Thinking
+## What I Did
 
-The key insight was that engineers don't need another tool — they need an **assistant** that works within their existing workflow.
+### 4 Reusable Skills
 
-### Design Principles
+| Scenario | Skill | Core Capability |
+|---|---|---|
+| System Debug | idp-debug | Agent follows a 6-step protocol to diagnose issues, tracing from frontend → backend → data layer |
+| Data Query | NL Query | Natural language queries against the data warehouse — parts, workbenches, DVP/EA status |
+| Operation Guide | Expert Skill | 8 operation manuals embedded, generates step-by-step guides with Feishu doc links |
+| Data Dashboard | Analytics Skill | Auto-generates data analysis dashboards from frontend telemetry data |
+| SOP Automation | Table Processing | Complex Feishu spreadsheet SOPs encapsulated as reusable Skills |
 
-- **Invisible by default** — Only surfaces when needed
-- **Transparent reasoning** — Shows its thought process
-- **Human in the loop** — Confirms before critical actions
-- **Learning from context** — Improves with usage
+### Technical Architecture
 
-## Solution
+- **Feishu Entry**: Private chat, group @mention, and topic threads — zero-friction access for all users
+- **Agent Framework**: Built on Claude Code Agent SDK, supporting 20-turn multi-turn conversations, screenshot understanding, and file delivery
+- **Knowledge Base**: 8 Markdown operation manuals + complete data warehouse schema documentation + business source code submodule (GitLab)
+- **Data Access**: DataWorks read-only token, Agent queries the data warehouse directly
+- **Deployment**: Matrix (Pre/Prod) + Docker + CI/CD automated pipeline
+- **Observability**: OneTrack analytics + Shujing BI dashboard — monitoring request volume, success rate, latency, and token consumption
+- **CLI Extension**: **106 CLI commands** developed, encapsulating core platform capabilities as command-line tools
 
-We built an AI agent that:
+### What I Innovated
 
-1. **Understands natural language** — "Show me the status of all pending deployments"
-2. **Executes across systems** — Queries databases, APIs, and internal tools
-3. **Learns patterns** — Suggests automations based on usage
-4. **Reports back** — Generates summaries and alerts
+**From Personal Tool to Replicable Framework.** The proudest outcome isn't the IDP Agent itself — it's the "Copy to System X" operational guide I wrote (14 steps). Any business team can swap Skills, knowledge bases, source code, and data sources to quickly build an Agent for their own system. This makes IDP Agent not just a product feature, but a **reusable enterprise AI Agent framework**.
 
-### Architecture
+**Skill-first Agent Design.** Instead of traditional RAG or fine-tuning, I chose a Skill-based architecture: each business capability is encapsulated as an independent Skill, and the Agent routes to the right Skill based on user intent. Adding a new scenario only requires writing a new Skill — no changes to the Agent core.
 
-```typescript
-// Agent core loop
-async function agentLoop(userIntent: Intent) {
-  const plan = await planner.createPlan(userIntent);
+**Product Manager Trains the Skill.** The traditional workflow is: engineers write code, PMs write requirements. But in this project, I — as a product manager — independently trained the debug Skill and integrated it into the Feishu bot. This broke the assumption that "AI must be built by engineers." **Product managers can train Agents too, and they understand the business context better.**
 
-  for (const step of plan.steps) {
-    const result = await executor.run(step);
-    const shouldContinue = await evaluator.check(result);
-
-    if (!shouldContinue) {
-      return await synthesizer.summarize(plan, results);
-    }
-  }
-}
-```
-
-## Demo
-
-The agent integrates directly into Slack and VS Code:
-
-- **Slack**: `@agent show me yesterday's deployment status`
-- **VS Code**: Right-click → "AI Assistant" → "Explain this query"
+**Human-AI Collaboration Boundaries.** I explicitly designed what the Agent "cannot do" — it cannot modify data, cannot operate the system on behalf of users, and complex business logic is redirected to the domain expert. Every response includes an AI disclaimer, ensuring users understand it's an assistant, not a decision-maker.
 
 ## Results
 
-After 3 months of deployment:
+| Metric | Before | After | Improvement |
+|---|---|---|---|
+| Product maintenance | 1.5-2 days/week | 0.5-1 days/week | **60%+** |
+| Single part query | 5+ page switches, 2-3 min | 10 seconds | **100x+** |
+| Batch 10 parts query | 50+ operations, 20-30 min | 15 seconds | **100x+** |
+| Manual generation | 1-2 days manual work | 10 min auto-generated | **50x+** |
+| Data dashboard | R&D involvement for 1 sprint | 30 seconds | — |
+| Complex SOP processing | 2 hours/project | 30 minutes | **75%** |
 
-- **60% reduction** in repetitive query time
-- **3x faster** onboarding for new team members
-- **45 minutes saved** per engineer per day
-- **92% satisfaction** rating from users
+### Scale of Output
+
+- **4 reusable Skills** — 2 published on GarageHub platform for team use
+- **106 CLI commands** — covering core platform capabilities
+- **1 Feishu Bot** — supporting private chat / group @ / topic threads
+- **Knowledge assets** — complete data warehouse schema documentation, TKO module operation manual
+- **Replicable framework** — already adaptable to other business systems
 
 ## Reflection
 
-The biggest lesson was that **trust is earned through transparency**. Early versions tried to be too autonomous. When we added explainability — showing the agent's reasoning step by step — adoption increased dramatically.
+This project changed how I think about product management. The traditional PM role is "write requirements, hand off to engineering." But with AI tools, a PM can now **build the product themselves** — not just spec it.
 
-The agent isn't replacing engineers. It's giving them back their time to do what they actually enjoy: building things.
+The key lesson: start from your own pain points. I didn't design an AI product in a vacuum. I built tools to solve my daily problems first, then generalized them into an Agent. This bottom-up approach is more likely to produce something people actually use.
+
+The framework I built — the "Copy to System X" guide — is perhaps the most lasting contribution. It means every team in the organization can now build their own AI Agent in days, not months. That's the real leverage of AI in the enterprise.
