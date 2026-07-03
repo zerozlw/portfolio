@@ -1,100 +1,94 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="none">
-  <style>
-    text { font-family: "PingFang SC", Inter, system-ui, sans-serif; }
-    .title { font-size: 11px; font-weight: 600; fill: #111; }
-    .label { font-size: 10px; fill: #555; }
-    .box { rx: 8; ry: 8; }
-  </style>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="none" font-family="PingFang SC,Inter,system-ui,sans-serif">
   <!-- Layer 1: 用户入口 -->
-  <rect x="20" y="20" width="760" height="70" class="box" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="40" y="42" class="title">用户入口</text>
+  <rect x="20" y="20" width="760" height="70" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="40" y="42" font-size="11" font-weight="600" fill="#111">用户入口</text>
   <rect x="40" y="50" width="100" height="28" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="90" y="68" text-anchor="middle" class="label">私聊</text>
+  <text x="90" y="68" text-anchor="middle" font-size="10" fill="#555">私聊</text>
   <rect x="155" y="50" width="100" height="28" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="205" y="68" text-anchor="middle" class="label">群聊 @</text>
+  <text x="205" y="68" text-anchor="middle" font-size="10" fill="#555">群聊 @</text>
   <rect x="270" y="50" width="100" height="28" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="320" y="68" text-anchor="middle" class="label">话题回复</text>
+  <text x="320" y="68" text-anchor="middle" font-size="10" fill="#555">话题回复</text>
   <rect x="385" y="50" width="100" height="28" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="435" y="68" text-anchor="middle" class="label">CLI</text>
+  <text x="435" y="68" text-anchor="middle" font-size="10" fill="#555">CLI</text>
 
-  <!-- Arrow down -->
-  <line x1="400" y1="90" x2="400" y2="115" stroke="#eaeaea" stroke-width="1.5"/>
-  <polygon points="396,115 404,115 400,122" fill="#eaeaea"/>
+  <!-- Arrow -->
+  <line x1="400" y1="90" x2="400" y2="115" stroke="#d0d0d0" stroke-width="1.5"/>
+  <polygon points="396,115 404,115 400,122" fill="#d0d0d0"/>
 
-  <!-- Layer 2: 消息处理 -->
-  <rect x="20" y="120" width="760" height="55" class="box" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="40" y="142" class="title">消息处理层</text>
-  <text x="40" y="158" class="label">路由 · 历史 · 卡片渲染 · 反馈 · 埋点</text>
+  <!-- Layer 2: 消息处理层 -->
+  <rect x="20" y="120" width="760" height="55" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="40" y="142" font-size="11" font-weight="600" fill="#111">消息处理层</text>
+  <text x="40" y="158" font-size="10" fill="#555">路由 · 历史 · 卡片渲染 · 反馈 · 埋点</text>
 
-  <!-- Arrow down -->
-  <line x1="400" y1="175" x2="400" y2="200" stroke="#eaeaea" stroke-width="1.5"/>
-  <polygon points="396,200 404,200 400,207" fill="#eaeaea"/>
+  <!-- Arrow -->
+  <line x1="400" y1="175" x2="400" y2="200" stroke="#d0d0d0" stroke-width="1.5"/>
+  <polygon points="396,200 404,200 400,207" fill="#d0d0d0"/>
 
   <!-- Layer 3: Agent 核心 -->
-  <rect x="20" y="205" width="760" height="80" class="box" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="40" y="227" class="title">Agent 核心 (Claude Code SDK)</text>
+  <rect x="20" y="205" width="760" height="80" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="40" y="227" font-size="11" font-weight="600" fill="#111">Agent 核心 (Claude Code SDK)</text>
   <rect x="40" y="237" width="120" height="32" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="100" y="257" text-anchor="middle" class="label">System Prompt</text>
+  <text x="100" y="257" text-anchor="middle" font-size="10" fill="#555">System Prompt</text>
   <rect x="175" y="237" width="100" height="32" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="225" y="257" text-anchor="middle" class="label">Skill 路由</text>
+  <text x="225" y="257" text-anchor="middle" font-size="10" fill="#555">Skill 路由</text>
   <rect x="290" y="237" width="100" height="32" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="340" y="257" text-anchor="middle" class="label">会话管理</text>
+  <text x="340" y="257" text-anchor="middle" font-size="10" fill="#555">会话管理</text>
   <rect x="405" y="237" width="100" height="32" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="455" y="257" text-anchor="middle" class="label">截图识别</text>
+  <text x="455" y="257" text-anchor="middle" font-size="10" fill="#555">截图识别</text>
   <rect x="520" y="237" width="100" height="32" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="570" y="257" text-anchor="middle" class="label">文件回传</text>
+  <text x="570" y="257" text-anchor="middle" font-size="10" fill="#555">文件回传</text>
   <rect x="635" y="237" width="100" height="32" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="685" y="257" text-anchor="middle" class="label">OAuth</text>
+  <text x="685" y="257" text-anchor="middle" font-size="10" fill="#555">OAuth</text>
 
-  <!-- Arrow down -->
-  <line x1="400" y1="285" x2="400" y2="310" stroke="#eaeaea" stroke-width="1.5"/>
-  <polygon points="396,310 404,310 400,317" fill="#eaeaea"/>
+  <!-- Arrow -->
+  <line x1="400" y1="285" x2="400" y2="310" stroke="#d0d0d0" stroke-width="1.5"/>
+  <polygon points="396,310 404,310 400,317" fill="#d0d0d0"/>
 
   <!-- Layer 4: Skills -->
-  <rect x="20" y="315" width="760" height="65" class="box" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="40" y="337" class="title">Skills</text>
+  <rect x="20" y="315" width="760" height="65" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="40" y="337" font-size="11" font-weight="600" fill="#111">Skills</text>
   <rect x="40" y="345" width="100" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="90" y="362" text-anchor="middle" class="label">idp-debug</text>
+  <text x="90" y="362" text-anchor="middle" font-size="10" fill="#555">idp-debug</text>
   <rect x="155" y="345" width="100" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="205" y="362" text-anchor="middle" class="label">自然语言查询</text>
+  <text x="205" y="362" text-anchor="middle" font-size="10" fill="#555">自然语言查询</text>
   <rect x="270" y="345" width="100" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="320" y="362" text-anchor="middle" class="label">专家 Skill</text>
+  <text x="320" y="362" text-anchor="middle" font-size="10" fill="#555">专家 Skill</text>
   <rect x="385" y="345" width="100" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="435" y="362" text-anchor="middle" class="label">数据分析</text>
+  <text x="435" y="362" text-anchor="middle" font-size="10" fill="#555">数据分析</text>
   <rect x="500" y="345" width="100" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="550" y="362" text-anchor="middle" class="label">表格处理</text>
+  <text x="550" y="362" text-anchor="middle" font-size="10" fill="#555">表格处理</text>
   <rect x="615" y="345" width="100" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="665" y="362" text-anchor="middle" class="label">UIPuff</text>
+  <text x="665" y="362" text-anchor="middle" font-size="10" fill="#555">UIPuff</text>
 
-  <!-- Arrow down -->
-  <line x1="400" y1="380" x2="400" y2="405" stroke="#eaeaea" stroke-width="1.5"/>
-  <polygon points="396,405 404,405 400,412" fill="#eaeaea"/>
+  <!-- Arrow -->
+  <line x1="400" y1="380" x2="400" y2="405" stroke="#d0d0d0" stroke-width="1.5"/>
+  <polygon points="396,405 404,405 400,412" fill="#d0d0d0"/>
 
-  <!-- Layer 5: 数据 & 基础设施 -->
-  <rect x="20" y="410" width="370" height="95" class="box" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="40" y="432" class="title">数据 & 知识</text>
+  <!-- Layer 5 Left: 数据 & 知识 -->
+  <rect x="20" y="410" width="370" height="95" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="40" y="432" font-size="11" font-weight="600" fill="#111">数据 &amp; 知识</text>
   <rect x="40" y="442" width="105" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="92" y="459" text-anchor="middle" class="label">数仓</text>
+  <text x="92" y="459" text-anchor="middle" font-size="10" fill="#555">数仓</text>
   <rect x="160" y="442" width="90" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="205" y="459" text-anchor="middle" class="label">操作手册</text>
+  <text x="205" y="459" text-anchor="middle" font-size="10" fill="#555">操作手册</text>
   <rect x="265" y="442" width="100" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="315" y="459" text-anchor="middle" class="label">业务源码</text>
+  <text x="315" y="459" text-anchor="middle" font-size="10" fill="#555">业务源码</text>
   <rect x="40" y="474" width="105" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="92" y="491" text-anchor="middle" class="label">飞书文档</text>
+  <text x="92" y="491" text-anchor="middle" font-size="10" fill="#555">飞书文档</text>
   <rect x="160" y="474" width="90" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="205" y="491" text-anchor="middle" class="label">MVPS 分类表</text>
+  <text x="205" y="491" text-anchor="middle" font-size="10" fill="#555">MVPS 分类表</text>
 
-  <rect x="410" y="410" width="370" height="95" class="box" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="430" y="432" class="title">基础设施</text>
+  <!-- Layer 5 Right: 基础设施 -->
+  <rect x="410" y="410" width="370" height="95" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="430" y="432" font-size="11" font-weight="600" fill="#111">基础设施</text>
   <rect x="430" y="442" width="100" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="480" y="459" text-anchor="middle" class="label">Matrix (CI/CD)</text>
+  <text x="480" y="459" text-anchor="middle" font-size="10" fill="#555">Matrix (CI/CD)</text>
   <rect x="545" y="442" width="80" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="585" y="459" text-anchor="middle" class="label">Docker</text>
+  <text x="585" y="459" text-anchor="middle" font-size="10" fill="#555">Docker</text>
   <rect x="640" y="442" width="80" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="680" y="459" text-anchor="middle" class="label">Redis</text>
+  <text x="680" y="459" text-anchor="middle" font-size="10" fill="#555">Redis</text>
   <rect x="430" y="474" width="100" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="480" y="491" text-anchor="middle" class="label">OneTrack</text>
+  <text x="480" y="491" text-anchor="middle" font-size="10" fill="#555">OneTrack</text>
   <rect x="545" y="474" width="100" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="595" y="491" text-anchor="middle" class="label">数鲸 BI</text>
+  <text x="595" y="491" text-anchor="middle" font-size="10" fill="#555">数鲸 BI</text>
 </svg>
