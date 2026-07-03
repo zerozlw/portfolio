@@ -198,3 +198,17 @@ html {
   background: var(--foreground);
   color: var(--background);
 }
+
+/* ========== Images in MDX ========== */
+.not-prose img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.not-prose img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.dark .not-prose img:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
