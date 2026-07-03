@@ -11,7 +11,7 @@ const featuredProjects = [
   {
     slug: "enterprise-ai-agent",
     titleEn: "Enterprise AI Agent",
-    titleZh: "企业 AI Agent",
+    titleZh: "企业级 AI Agent",
     descriptionEn: "An AI agent that automates complex enterprise workflows",
     descriptionZh: "自动化复杂企业工作流的 AI Agent",
     image: "/images/projects/idp-agent-architecture.png",
