@@ -1,0 +1,74 @@
+---
+title: "Natural Language Query"
+titleZh: "自然语言查询"
+description: "Ask questions in plain English, get answers from your data. No SQL required."
+descriptionZh: "用自然语言提问，从数据中获取答案，无需 SQL。"
+date: "2024-01-20"
+image: "/images/projects/nl-query-hero.png"
+tags: ["NLP", "Data", "Query"]
+tagsZh: ["NLP", "数据", "查询"]
+featured: true
+order: 2
+---
+
+## Background
+
+Every team has data locked in databases, but not every team member can write SQL. Product managers, designers, and stakeholders often need data insights but depend on engineers to write queries.
+
+## The Problem
+
+- **Bottleneck**: Engineers spend hours writing ad-hoc queries for non-technical teammates
+- **Delay**: Simple data questions take days to answer
+- **Errors**: Manual query writing leads to inconsistent results
+- **Frustration**: Non-technical team members feel disempowered
+
+## Research
+
+We analyzed 200+ ad-hoc query requests and found:
+- 70% were simple aggregations or lookups
+- 20% involved basic joins
+- Only 10% required complex analytics
+
+## Product Thinking
+
+The goal wasn't to replace SQL — it was to **democratize data access** for common questions.
+
+### Key Decisions
+
+1. **Natural language → SQL → Results**: Translate intent, execute safely
+2. **Show the query**: Always display the generated SQL for transparency
+3. **Learn from corrections**: Users can refine queries through conversation
+4. **Guard rails**: Read-only access, query limits, sensitive data filtering
+
+## Solution
+
+A conversational interface that:
+
+```
+User: How many active users did we have last week?
+Agent: SELECT COUNT(DISTINCT user_id) FROM events
+       WHERE event_date >= '2024-01-08'
+       AND event_date <= '2024-01-14'
+       AND status = 'active';
+
+Result: 12,847 active users
+```
+
+### Technical Approach
+
+1. **Intent parsing** — LLM extracts entities and relationships
+2. **Schema mapping** — Maps natural language to actual table/column names
+3. **Query generation** — Produces safe, read-only SQL
+4. **Result formatting** — Presents data in human-readable format
+5. **Follow-up support** — Handles "what about the week before?" style queries
+
+## Results
+
+- **85% accuracy** on common business questions
+- **5 minutes** average time to answer (down from 2 days)
+- **200+ daily active users** within first month
+- **Zero** data incidents (thanks to guard rails)
+
+## Reflection
+
+The hardest part wasn't the NLP — it was building trust. People are naturally skeptical of AI-generated data answers. Showing the SQL, providing source links, and allowing manual verification were crucial for adoption.

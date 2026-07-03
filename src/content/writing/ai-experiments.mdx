@@ -1,0 +1,57 @@
+---
+title: "AI Experiments"
+titleZh: "AI 实验笔记"
+description: "Notes from trying out new AI tools and techniques."
+descriptionZh: "尝试新 AI 工具和技术的笔记。"
+date: "2024-04-10"
+tags: ["Experiments", "AI", "Tools"]
+tagsZh: ["实验", "AI", "工具"]
+readingTime: "4 min read"
+---
+
+## The Experiment Mindset
+
+The best way to learn AI is to build with it. Here are some recent experiments.
+
+## Experiment 1: Multi-Agent Collaboration
+
+**Goal**: Can multiple AI agents work together better than one?
+
+**Setup**: Three agents with different roles:
+- Planner: Breaks down tasks
+- Executor: Implements solutions
+- Reviewer: Checks quality
+
+**Result**: Surprisingly effective for complex tasks. The key was making each agent's output visible to the others.
+
+**Lesson**: Agent collaboration works when there's clear communication protocol.
+
+## Experiment 2: RAG with Structured Data
+
+**Goal**: Can RAG work with database schemas, not just documents?
+
+**Setup**: Embedded table schemas, column descriptions, and sample queries into a vector store.
+
+**Result**: 85% accuracy on natural language to SQL translation.
+
+**Lesson**: RAG isn't just for unstructured text. Structured data benefits too.
+
+## Experiment 3: AI Code Review
+
+**Goal**: Can AI catch bugs that linters miss?
+
+**Setup**: Fine-tuned model on internal code review comments.
+
+**Result**: Caught 30% of issues that standard linters missed, but had 20% false positive rate.
+
+**Lesson**: AI code review is a supplement, not a replacement. Use it to highlight areas for human review.
+
+## What's Next
+
+- Experimenting with MCP protocol for tool integration
+- Testing multi-modal agents (text + images + code)
+- Exploring AI-assisted architecture decisions
+
+## Conclusion
+
+Experiments don't need to succeed to be valuable. The learning is the point.

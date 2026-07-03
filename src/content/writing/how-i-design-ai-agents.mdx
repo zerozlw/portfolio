@@ -1,0 +1,56 @@
+---
+title: "How I Design AI Agents"
+titleZh: "我是如何设计 AI Agent 的"
+description: "A practical framework for building AI agents that actually work in production."
+descriptionZh: "一个让 AI Agent 真正在生产环境可靠运行的实践框架。"
+date: "2024-03-10"
+tags: ["AI Agent", "Architecture", "Design"]
+tagsZh: ["AI Agent", "架构", "设计"]
+readingTime: "8 min read"
+---
+
+## The Gap Between Demo and Production
+
+Everyone can build an AI agent demo. Few can build one that works reliably in production. The gap isn't technical — it's about **design thinking**.
+
+## My Framework
+
+After building several production agents, I've developed a framework I call **RICE**:
+
+### R — Reasoning Transparency
+
+The agent must explain its reasoning. Not just for debugging — for **trust**.
+
+```typescript
+// Bad: Agent does something, user doesn't know why
+await agent.execute(task);
+
+// Good: Agent explains its plan before executing
+const plan = await agent.plan(task);
+console.log("Here's what I'll do:");
+console.log(plan.steps.map(s => `- ${s.description}`).join('\n'));
+const confirmed = await askUser("Proceed?");
+```
+
+### I — Incremental Execution
+
+Never try to do everything at once. Break tasks into small, verifiable steps.
+
+### C — Context Awareness
+
+The agent needs to understand its environment — what tools are available, what the user's preferences are, what's happened before.
+
+### E — Error Recovery
+
+Things will fail. The agent needs to handle failures gracefully, explain what went wrong, and suggest alternatives.
+
+## Key Principles
+
+1. **Start with the user's mental model** — Not the LLM's capabilities
+2. **Design for failure** — Every tool call can fail
+3. **Keep humans in the loop** — Especially for critical decisions
+4. **Measure everything** — Track success rates, error patterns, user satisfaction
+
+## Conclusion
+
+Building AI agents is 20% ML engineering and 80% product design. The best agents are invisible — they just work.

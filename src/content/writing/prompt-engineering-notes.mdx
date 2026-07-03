@@ -1,0 +1,77 @@
+---
+title: "Prompt Engineering Notes"
+titleZh: "Prompt 工程笔记"
+description: "Practical patterns for writing effective prompts in production."
+descriptionZh: "在生产环境中编写高效 Prompt 的实用模式。"
+date: "2024-01-25"
+tags: ["Prompt Engineering", "LLM", "Practical"]
+tagsZh: ["Prompt 工程", "LLM", "实践"]
+readingTime: "5 min read"
+---
+
+## Beyond the Hype
+
+Prompt engineering isn't magic. It's a discipline with patterns that work reliably.
+
+## Pattern 1: Structured Output
+
+Always specify the output format:
+
+```
+Analyze the following code and return:
+1. Summary (1-2 sentences)
+2. Issues found (list)
+3. Suggestions (list)
+
+Code:
+{code}
+```
+
+## Pattern 2: Few-Shot Examples
+
+Show, don't tell:
+
+```
+Classify the sentiment:
+
+Input: "This product is amazing!" → Positive
+Input: "It's okay, nothing special." → Neutral
+Input: "Terrible experience, never again." → Negative
+
+Input: "{text}" →
+```
+
+## Pattern 3: Chain of Thought
+
+For complex reasoning, ask for step-by-step:
+
+```
+Think through this step by step:
+1. What is the user trying to achieve?
+2. What information do we have?
+3. What's the best approach?
+4. What could go wrong?
+```
+
+## Pattern 4: Constraints
+
+Be explicit about what NOT to do:
+
+```
+Write a commit message that:
+- Is under 72 characters
+- Uses imperative mood
+- Does NOT mention the issue number
+- Does NOT include "Updated" or "Fixed"
+```
+
+## What Actually Matters
+
+1. **Iteration** — Your first prompt won't be perfect
+2. **Testing** — Test with real inputs, not ideal ones
+3. **Versioning** — Track prompt changes and their effects
+4. **Monitoring** — Watch for drift in production
+
+## Conclusion
+
+Good prompts are clear, specific, and tested. That's it.

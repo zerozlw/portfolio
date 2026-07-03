@@ -1,0 +1,72 @@
+---
+title: "Product Thinking"
+titleZh: "产品思维"
+description: "How to think about AI products differently than traditional software."
+descriptionZh: "如何用不同于传统软件的方式思考 AI 产品。"
+date: "2024-03-20"
+tags: ["Product", "AI", "Strategy"]
+tagsZh: ["产品", "AI", "策略"]
+readingTime: "6 min read"
+---
+
+## AI Products Are Different
+
+Traditional software does exactly what you tell it. AI products do what they think you want. This fundamental difference changes everything.
+
+## The Probabilistic Mindset
+
+With traditional software:
+- Input A → Output B (always)
+- Bugs are deterministic
+- Testing is straightforward
+
+With AI products:
+- Input A → Output B (usually)
+- "Bugs" are probabilistic
+- Testing requires statistical thinking
+
+## Design Implications
+
+### 1. Embrace Uncertainty
+
+Don't fight it — design for it:
+
+```
+Instead of: "The answer is X"
+Try: "Based on the available information, X seems most likely.
+      Here's my confidence level and reasoning."
+```
+
+### 2. Feedback Loops Are Everything
+
+AI products improve with usage. Design for feedback from day one:
+
+- Was this helpful? 👍/👎
+- Was this accurate?
+- What were you actually looking for?
+
+### 3. Graceful Degradation
+
+When the AI isn't sure, it should:
+1. Say so clearly
+2. Offer alternatives
+3. Escalate to humans when needed
+
+### 4. Measure What Matters
+
+Traditional metrics (uptime, latency) still apply, but add:
+- **Accuracy** — Is the output correct?
+- **Usefulness** — Did it help the user?
+- **Trust** — Does the user believe the output?
+
+## The Product Manager's Role
+
+In AI products, the PM's job is to:
+1. **Set boundaries** — What should the AI try? What should it avoid?
+2. **Design guardrails** — Safety rails that don't kill UX
+3. **Define success** — What does "good enough" look like?
+4. **Iterate fast** — AI products need rapid experimentation
+
+## Conclusion
+
+AI product thinking is about embracing uncertainty while building trust. It's harder than traditional product work, but also more rewarding.

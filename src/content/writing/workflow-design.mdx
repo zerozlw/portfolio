@@ -1,0 +1,71 @@
+---
+title: "Workflow Design"
+titleZh: "工作流设计"
+description: "How to design AI workflows that people actually want to use."
+descriptionZh: "如何设计人们真正愿意使用的 AI 工作流。"
+date: "2024-04-01"
+tags: ["Workflow", "UX", "Design"]
+tagsZh: ["工作流", "UX", "设计"]
+readingTime: "7 min read"
+---
+
+## The Invisible Workflow
+
+The best workflow is one you don't notice. It just happens.
+
+## Design Principles
+
+### 1. Start with the Happy Path
+
+Design for the 80% case first. Handle edge cases later.
+
+```
+Happy path: User asks → Agent answers → Done
+Edge cases: Ambiguous → Clarify → Then answer
+            Dangerous → Confirm → Then execute
+            Failed → Explain → Suggest alternatives
+```
+
+### 2. Make Progress Visible
+
+Users need to know what's happening:
+
+```
+✗ Bad: [spinner for 30 seconds]
+✓ Good: "Searching across 3 databases..."
+       "Found 12 relevant documents..."
+       "Analyzing results..."
+       "Here's what I found:"
+```
+
+### 3. Design for Interruption
+
+Users will change their mind mid-workflow. Support cancellation and modification.
+
+### 4. Fail Gracefully
+
+Every step can fail. Design for failure at every point:
+
+```typescript
+try {
+  const result = await step.execute();
+  return { success: true, data: result };
+} catch (error) {
+  return {
+    success: false,
+    message: `Failed at step ${step.name}: ${error.message}`,
+    suggestion: step.getSuggestion(error),
+  };
+}
+```
+
+## Anti-Patterns
+
+1. **Black boxes** — Users don't know what's happening
+2. **All-or-nothing** — No partial progress or intermediate results
+3. **Brittle flows** — One failure stops everything
+4. **No undo** — Actions can't be reversed
+
+## Conclusion
+
+Good workflow design is good UX design. The technology should be invisible.
