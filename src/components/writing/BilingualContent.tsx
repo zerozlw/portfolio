@@ -8,12 +8,18 @@ interface LangSectionProps {
 
 export function En({ children }: LangSectionProps) {
   const { locale } = useLanguage();
-  if (locale !== "en") return null;
-  return <>{children}</>;
+  return (
+    <div style={{ display: locale === "en" ? "block" : "none" }}>
+      {children}
+    </div>
+  );
 }
 
 export function Zh({ children }: LangSectionProps) {
   const { locale } = useLanguage();
-  if (locale !== "zh") return null;
-  return <>{children}</>;
+  return (
+    <div style={{ display: locale === "zh" ? "block" : "none" }}>
+      {children}
+    </div>
+  );
 }
