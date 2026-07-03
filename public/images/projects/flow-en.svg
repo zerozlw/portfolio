@@ -1,62 +1,73 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 440" fill="none" font-family="Inter,system-ui,sans-serif">
   <!-- Title -->
-  <text x="350" y="30" text-anchor="middle" font-size="13" font-weight="600" fill="#111">IDP-Debug Skill — Problem Processing Flow</text>
+  <text x="350" y="28" text-anchor="middle" font-size="11" font-weight="500" fill="#999">IDP-Debug Skill — Problem Processing Flow</text>
 
   <!-- Step 1: User Report -->
-  <rect x="250" y="50" width="200" height="44" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="350" y="76" text-anchor="middle" font-size="11" fill="#555">User Reports Issue</text>
-  <text x="350" y="89" text-anchor="middle" font-size="9" fill="#999">Bug / Data Anomaly / Button Missing</text>
-  <line x1="350" y1="94" x2="350" y2="114" stroke="#d0d0d0" stroke-width="1"/>
+  <rect x="250" y="46" width="200" height="40" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="350" y="70" text-anchor="middle" font-size="10" fill="#555">User Reports Issue</text>
+  <line x1="350" y1="86" x2="350" y2="102" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="347,102 353,102 350,107" fill="#d0d0d0"/>
 
   <!-- Step 2: Info Collection -->
-  <rect x="215" y="114" width="270" height="44" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="350" y="134" text-anchor="middle" font-size="11" font-weight="500" fill="#111">Step 1 — Collect Key Info</text>
-  <text x="350" y="148" text-anchor="middle" font-size="9" fill="#555">Page URL · User Role · Error Screenshot · Steps to Reproduce</text>
-  <line x1="350" y1="158" x2="350" y2="178" stroke="#d0d0d0" stroke-width="1"/>
+  <rect x="215" y="107" width="270" height="40" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="350" y="125" text-anchor="middle" font-size="10" font-weight="500" fill="#111">Step 1 — Collect Key Info</text>
+  <text x="350" y="139" text-anchor="middle" font-size="8.5" fill="#999">Page URL · User Role · Error Screenshot · Steps to Reproduce</text>
+  <line x1="350" y1="147" x2="350" y2="163" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="347,163 353,163 350,168" fill="#d0d0d0"/>
 
   <!-- Step 3: Classify -->
-  <rect x="250" y="178" width="200" height="40" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="350" y="202" text-anchor="middle" font-size="11" font-weight="500" fill="#111">Step 2 — Classify Issue</text>
-  <line x1="350" y1="218" x2="350" y2="238" stroke="#d0d0d0" stroke-width="1"/>
+  <rect x="260" y="168" width="180" height="36" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="350" y="190" text-anchor="middle" font-size="10" font-weight="500" fill="#111">Step 2 — Classify Issue</text>
 
-  <!-- 3 branches -->
-  <!-- Left: Frontend -->
-  <rect x="30" y="238" width="170" height="50" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="115" y="258" text-anchor="middle" font-size="10" font-weight="500" fill="#111">Step 3a — Frontend</text>
-  <text x="115" y="272" text-anchor="middle" font-size="8.5" fill="#555">Component · Permission · Route</text>
+  <!-- Lines from classify to 3 branches -->
+  <line x1="310" y1="204" x2="115" y2="222" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="117,219 113,225 111,219" fill="#d0d0d0"/>
+  <line x1="350" y1="204" x2="350" y2="222" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="347,222 353,222 350,227" fill="#d0d0d0"/>
+  <line x1="390" y1="204" x2="585" y2="222" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="583,219 587,225 589,219" fill="#d0d0d0"/>
 
-  <!-- Center: Backend -->
-  <rect x="265" y="238" width="170" height="50" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="350" y="258" text-anchor="middle" font-size="10" font-weight="500" fill="#111">Step 3b — Backend</text>
-  <text x="350" y="272" text-anchor="middle" font-size="8.5" fill="#555">API · Logic · BPM Flow</text>
+  <!-- Step 3a: Frontend -->
+  <rect x="30" y="222" width="170" height="46" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="115" y="241" text-anchor="middle" font-size="10" font-weight="500" fill="#111">Step 3a — Frontend</text>
+  <text x="115" y="255" text-anchor="middle" font-size="8.5" fill="#555">Component · Permission · Route</text>
 
-  <!-- Right: Data -->
-  <rect x="500" y="238" width="170" height="50" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="585" y="258" text-anchor="middle" font-size="10" font-weight="500" fill="#111">Step 3c — Data Layer</text>
-  <text x="585" y="272" text-anchor="middle" font-size="8.5" fill="#555">DB Record · Sync Status</text>
+  <!-- Step 3b: Backend -->
+  <rect x="265" y="222" width="170" height="46" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="350" y="241" text-anchor="middle" font-size="10" font-weight="500" fill="#111">Step 3b — Backend</text>
+  <text x="350" y="255" text-anchor="middle" font-size="8.5" fill="#555">API · Logic · BPM Flow</text>
 
-  <!-- Lines from classify to branches -->
-  <line x1="310" y1="218" x2="115" y2="238" stroke="#d0d0d0" stroke-width="1"/>
-  <line x1="350" y1="218" x2="350" y2="238" stroke="#d0d0d0" stroke-width="1"/>
-  <line x1="390" y1="218" x2="585" y2="238" stroke="#d0d0d0" stroke-width="1"/>
+  <!-- Step 3c: Data -->
+  <rect x="500" y="222" width="170" height="46" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="585" y="241" text-anchor="middle" font-size="10" font-weight="500" fill="#111">Step 3c — Data Layer</text>
+  <text x="585" y="255" text-anchor="middle" font-size="8.5" fill="#555">DB Record · Sync Status</text>
 
-  <!-- Lines from branches down to Step 4 -->
-  <line x1="115" y1="288" x2="115" y2="308" stroke="#d0d0d0" stroke-width="1"/>
-  <line x1="350" y1="288" x2="350" y2="308" stroke="#d0d0d0" stroke-width="1"/>
-  <line x1="585" y1="288" x2="585" y2="308" stroke="#d0d0d0" stroke-width="1"/>
+  <!-- Curved arrows from Step 3 branches to Step 4 -->
+  <!-- Left branch curves right -->
+  <path d="M115,268 C115,290 250,290 330,298" stroke="#d0d0d0" stroke-width="1" fill="none"/>
+  <polygon points="327,295 333,295 330,301" fill="#d0d0d0"/>
+
+  <!-- Center branch goes straight down -->
+  <line x1="350" y1="268" x2="350" y2="298" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="347,298 353,298 350,303" fill="#d0d0d0"/>
+
+  <!-- Right branch curves left -->
+  <path d="M585,268 C585,290 450,290 370,298" stroke="#d0d0d0" stroke-width="1" fill="none"/>
+  <polygon points="367,295 373,295 370,301" fill="#d0d0d0"/>
 
   <!-- Step 4: Root Cause -->
-  <rect x="230" y="308" width="240" height="44" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="350" y="328" text-anchor="middle" font-size="11" font-weight="500" fill="#111">Step 4 — Identify Root Cause</text>
-  <text x="350" y="342" text-anchor="middle" font-size="9" fill="#555">Trace across layers · pinpoint exact issue</text>
-  <line x1="350" y1="352" x2="350" y2="372" stroke="#d0d0d0" stroke-width="1"/>
+  <rect x="230" y="303" width="240" height="40" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="350" y="321" text-anchor="middle" font-size="10" font-weight="500" fill="#111">Step 4 — Identify Root Cause</text>
+  <text x="350" y="335" text-anchor="middle" font-size="8.5" fill="#555">Trace across layers · pinpoint exact issue</text>
+  <line x1="350" y1="343" x2="350" y2="359" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="347,359 353,359 350,364" fill="#d0d0d0"/>
 
   <!-- Step 5: Solution -->
-  <rect x="230" y="372" width="240" height="44" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="350" y="392" text-anchor="middle" font-size="11" font-weight="500" fill="#111">Step 5 — Provide Solution</text>
-  <text x="350" y="406" text-anchor="middle" font-size="9" fill="#555">Fix suggestion · Manual link · Escalation</text>
+  <rect x="230" y="364" width="240" height="40" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="350" y="382" text-anchor="middle" font-size="10" font-weight="500" fill="#111">Step 5 — Provide Solution</text>
+  <text x="350" y="396" text-anchor="middle" font-size="8.5" fill="#555">Fix suggestion · Manual link · Escalation</text>
 
   <!-- Step 6 label -->
-  <rect x="250" y="424" width="200" height="14" rx="4" fill="#e8e8e8"/>
-  <text x="350" y="434" text-anchor="middle" font-size="8" fill="#888">Step 6 — Feedback Loop · Learning</text>
+  <rect x="265" y="414" width="170" height="16" rx="4" fill="#e8e8e8"/>
+  <text x="350" y="425" text-anchor="middle" font-size="8" fill="#888">Step 6 — Feedback Loop · Learning</text>
 </svg>
