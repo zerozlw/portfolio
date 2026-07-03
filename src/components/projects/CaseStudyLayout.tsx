@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { FadeIn } from "@/components/shared/FadeIn";
 import { FadeInSection } from "@/components/shared/FadeInSection";
+import { TableOfContents } from "@/components/projects/TableOfContents";
 import { formatDate } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-context";
 import type { Project } from "@/types";
@@ -90,6 +91,9 @@ export function CaseStudyLayout({ project, children }: CaseStudyLayoutProps) {
           </div>
         </FadeInSection>
       </Container>
+
+      {/* Table of Contents - right side, desktop only */}
+      <TableOfContents />
     </article>
   );
 }
