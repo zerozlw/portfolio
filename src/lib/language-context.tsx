@@ -30,9 +30,17 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const toggleLanguage = () => {
+    const scrollY = window.scrollY;
     const next = locale === "en" ? "zh" : "en";
+    document.documentElement.style.scrollBehavior = "auto";
     setLocale(next);
     localStorage.setItem("locale", next);
+    requestAnimationFrame(() => {
+      window.scrollTo(0, scrollY);
+      requestAnimationFrame(() => {
+        document.documentElement.style.scrollBehavior = "";
+      });
+    });
   };
 
   const t = translations[locale];
