@@ -9,7 +9,7 @@ interface LangSectionProps {
 export function En({ children }: LangSectionProps) {
   const { locale } = useLanguage();
   return (
-    <div style={{ display: locale === "en" ? "block" : "none" }}>
+    <div data-lang="en" style={{ display: locale === "en" ? "block" : "none" }}>
       {children}
     </div>
   );
@@ -18,7 +18,7 @@ export function En({ children }: LangSectionProps) {
 export function Zh({ children }: LangSectionProps) {
   const { locale } = useLanguage();
   return (
-    <div style={{ display: locale === "zh" ? "block" : "none" }}>
+    <div data-lang="zh" style={{ display: locale === "zh" ? "block" : "none" }}>
       {children}
     </div>
   );

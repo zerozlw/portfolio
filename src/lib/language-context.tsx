@@ -31,61 +31,52 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const toggleLanguage = useCallback(() => {
-    // Find the section heading closest to viewport center (only visible ones)
-    const headings = Array.from(document.querySelectorAll("h2, h3")).filter(
-      (el) => {
-        const style = window.getComputedStyle(el);
-        return style.display !== "none" && style.visibility !== "hidden";
-      }
+    // Find headings only within the CURRENT language container
+    const currentContainer = document.querySelector(
+      `[data-lang="${locale}"]`
+    );
+    if (!currentContainer) return;
+
+    const headings = Array.from(
+      currentContainer.querySelectorAll("h2, h3")
     );
 
     const viewportCenter = window.scrollY + window.innerHeight / 2;
-    let closestHeading: Element | null = null;
+    let closestIndex = 0;
     let minDistance = Infinity;
 
-    headings.forEach((h) => {
+    headings.forEach((h, i) => {
       const rect = h.getBoundingClientRect();
       const headingCenter = window.scrollY + rect.top + rect.height / 2;
       const distance = Math.abs(headingCenter - viewportCenter);
       if (distance < minDistance) {
         minDistance = distance;
-        closestHeading = h;
+        closestIndex = i;
       }
     });
-
-    // Find the index of this heading among all headings in its parent
-    let headingIndex = -1;
-    if (closestHeading) {
-      const allHeadings = Array.from(
-        closestHeading!.parentElement!.querySelectorAll("h2, h3")
-      );
-      headingIndex = allHeadings.indexOf(closestHeading!);
-    }
 
     // Switch language
     const next = locale === "en" ? "zh" : "en";
     setLocale(next);
     localStorage.setItem("locale", next);
 
-    // After render, scroll to the corresponding heading in the new language
-    if (headingIndex >= 0) {
+    // After render, find the same-indexed heading in the NEW language container
+    requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          const newHeadings = Array.from(
-            document.querySelectorAll("h2, h3")
-          ).filter((el) => {
-            const style = window.getComputedStyle(el);
-            return style.display !== "none" && style.visibility !== "hidden";
-          });
+        const newContainer = document.querySelector(`[data-lang="${next}"]`);
+        if (!newContainer) return;
 
-          if (newHeadings[headingIndex]) {
-            const rect = newHeadings[headingIndex].getBoundingClientRect();
-            const targetY = window.scrollY + rect.top - 80; // 80px offset for navbar
-            window.scrollTo({ top: targetY, behavior: "instant" });
-          }
-        });
+        const newHeadings = Array.from(
+          newContainer.querySelectorAll("h2, h3")
+        );
+
+        if (newHeadings[closestIndex]) {
+          const rect = newHeadings[closestIndex].getBoundingClientRect();
+          const targetY = window.scrollY + rect.top - 80;
+          window.scrollTo({ top: targetY, behavior: "instant" });
+        }
       });
-    }
+    });
   }, [locale]);
 
   const t = translations[locale];
