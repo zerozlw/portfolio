@@ -13,7 +13,7 @@ export default function ResumePage() {
     <section className="pt-28 pb-32">
       <Container>
         <FadeIn>
-          <div className="mb-16 max-w-[42rem]">
+          <div className="mx-auto mb-16 max-w-[42rem]">
             <div className="flex items-start justify-between">
               <div>
                 <h1 className="text-4xl font-semibold tracking-tight text-foreground">
