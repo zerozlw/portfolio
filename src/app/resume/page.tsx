@@ -60,19 +60,22 @@ function ExperienceCard({
   company,
   role,
   period,
+  logo,
   children,
 }: {
   company: string;
   role: string;
   period: string;
+  logo?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
     <div className="mb-8 last:mb-0">
-      <div className="flex items-baseline justify-between gap-4">
-        <div>
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-2.5">
+          {logo}
           <span className="font-medium text-foreground">{company}</span>
-          <span className="ml-2 text-sm text-muted">— {role}</span>
+          <span className="text-sm text-muted">— {role}</span>
         </div>
         <span className="flex-shrink-0 text-xs text-muted/60">{period}</span>
       </div>
@@ -104,6 +107,57 @@ function SkillTag({ label }: { label: string }) {
   );
 }
 
+function XiaomiLogo() {
+  return (
+    <svg viewBox="0 0 160 160" className="h-5 w-5 flex-shrink-0" fill="none">
+      <path fillRule="evenodd" clipRule="evenodd" d="M143.324 16.7167C128.228 1.67933 106.524 0 80.0003 0C53.4425 0 31.7071 1.69964 16.6177 16.7756C1.53196 31.8489 0 53.55 0 80.0781C0 106.606 1.53196 128.318 16.624 143.394C31.7139 158.474 53.4446 160 80.0003 160C106.555 160 128.286 158.474 143.376 143.394C158.466 128.314 160 106.606 160 80.0781C160 53.5161 158.448 31.79 143.324 16.7167Z" fill="#FF6900"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M74.1113 109.649C74.1113 110.186 73.6593 110.631 73.1089 110.631H59.464C58.9048 110.631 58.4507 110.186 58.4507 109.649V73.967C58.4507 73.4254 58.9048 72.9823 59.464 72.9823H73.1089C73.6593 72.9823 74.1113 73.4254 74.1113 73.967V109.649Z" fill="white"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M100.827 109.649C100.827 110.186 100.373 110.631 99.8204 110.631H86.8326C86.2754 110.631 85.8213 110.186 85.8213 109.649V109.516V78.8633C85.8078 73.4884 85.5006 67.9641 82.7256 65.1876C80.3397 62.7944 75.8907 62.2461 71.2625 62.131H47.7192C47.1636 62.131 46.7147 62.5778 46.7147 63.1151V106.43V109.649C46.7147 110.186 46.2565 110.631 45.7009 110.631H32.7043C32.1492 110.631 31.7024 110.186 31.7024 109.649V50.358C31.7024 49.8138 32.1492 49.3712 32.7043 49.3712H70.2013C80.0012 49.3712 90.2459 49.8185 95.2984 54.8773C100.373 59.959 100.827 70.1855 100.827 79.9964V109.649Z" fill="white"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M127.583 109.649C127.583 110.186 127.124 110.631 126.573 110.631H113.579C113.024 110.631 112.573 110.186 112.573 109.649V50.358C112.573 49.8138 113.024 49.3712 113.579 49.3712H126.573C127.124 49.3712 127.583 49.8138 127.583 50.358V109.649Z" fill="white"/>
+    </svg>
+  );
+}
+
+function MonicaLogo() {
+  return (
+    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded bg-[#6C5CE7] text-[8px] font-bold text-white">
+      M
+    </div>
+  );
+}
+
+function MomentaLogo() {
+  return (
+    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded bg-[#00B894] text-[8px] font-bold text-white">
+      Mo
+    </div>
+  );
+}
+
+function WuhanLogo() {
+  return (
+    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-muted/30 bg-muted/10 text-[7px] font-bold text-muted">
+      武
+    </div>
+  );
+}
+
+function CquLogo() {
+  return (
+    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-muted/30 bg-muted/10 text-[7px] font-bold text-muted">
+      重
+    </div>
+  );
+}
+
+function CsunLogo() {
+  return (
+    <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-muted/30 bg-muted/10 text-[7px] font-bold text-muted">
+      民
+    </div>
+  );
+}
+
 function EnContent() {
   return (
     <>
@@ -114,7 +168,7 @@ function EnContent() {
       </Section>
 
       <Section title="Experience">
-        <ExperienceCard company="Xiaomi EV" role="Product Manager (Platform & AI)" period="2024.06 — Present">
+        <ExperienceCard company="Xiaomi EV" role="Product Manager (Platform & AI)" period="2024.06 — Present" logo={<XiaomiLogo />}>
           <p className="mb-3">Leading supplier digitization, parts R&D platform, and AI Agent development, serving R&D, test verification, and supplier teams. Driving R&D process digitalization and AI intelligence.</p>
 
           <p className="mb-1 font-medium text-foreground text-xs uppercase tracking-wider">Enterprise Platform — R&D Process Optimization</p>
@@ -133,7 +187,7 @@ function EnContent() {
           ]} />
         </ExperienceCard>
 
-        <ExperienceCard company="Monica.ai" role="AI Tool Product Manager (Intern)" period="2023.11 — 2024.03">
+        <ExperienceCard company="Monica.ai" role="AI Tool Product Manager (Intern)" period="2023.11 — 2024.03" logo={<MonicaLogo />}>
           <p className="mb-3">User research, product analysis, and feature design for overseas AI browser extension.</p>
           <BulletList items={[
             'Led full-cycle user research: audience segmentation, online interviews, and result synthesis. Distributed <strong class="text-foreground">20,000 surveys</strong>, received <strong class="text-foreground">187 active user responses</strong>; conducted <strong class="text-foreground">11 deep interviews</strong> with overseas users, identified core non-paying user needs and defined homepage quick-start strategy.',
@@ -141,7 +195,7 @@ function EnContent() {
           ]} />
         </ExperienceCard>
 
-        <ExperienceCard company="Momenta" role="Autonomous Driving Tool PM (Intern)" period="2022.10 — 2023.05">
+        <ExperienceCard company="Momenta" role="Autonomous Driving Tool PM (Intern)" period="2022.10 — 2023.05" logo={<MomentaLogo />}>
           <p className="mb-3">Product manager for autonomous driving data platform Mviz and tool platform.</p>
           <BulletList items={[
             'Collaborated with perception algorithm R&D and simulation teams, analyzed user behavior and requirements. Enhanced Mviz custom configuration, plugin platform capabilities, and team collaboration. Delivered <strong class="text-foreground">15+ features</strong>, <strong class="text-foreground">1,200+ users</strong> issue diagnosis efficiency improved <strong class="text-foreground">10x</strong> (diagnosis time from hour-level to <strong class="text-foreground">0.4~0.6 min</strong>).',
@@ -168,29 +222,38 @@ function EnContent() {
       <Section title="Education">
         <div className="space-y-4">
           <div>
-            <div className="flex items-baseline justify-between">
-              <span className="text-sm font-medium text-foreground">Wuhan University of Technology</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <WuhanLogo />
+                <span className="text-sm font-medium text-foreground">Wuhan University of Technology</span>
+              </div>
               <span className="text-xs text-muted/60">2021 — 2024</span>
             </div>
-            <p className="text-sm text-muted">M.S. Information & Interaction Design · GPA 3.8/4.0</p>
+            <p className="mt-1 text-sm text-muted">M.S. Information & Interaction Design · GPA 3.8/4.0</p>
             <p className="text-xs text-muted/60">Core: User Experience, Service Design, HCI Research</p>
           </div>
 
           <div>
-            <div className="flex items-baseline justify-between">
-              <span className="text-sm font-medium text-foreground">Chongqing University</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <CquLogo />
+                <span className="text-sm font-medium text-foreground">Chongqing University</span>
+              </div>
               <span className="text-xs text-muted/60">2018 — 2019</span>
             </div>
-            <p className="text-sm text-muted">Exchange Student (Computer Science) · Top 5%</p>
+            <p className="mt-1 text-sm text-muted">Exchange Student (Computer Science) · Top 5%</p>
             <p className="text-xs text-muted/60">Core: Data Structures, Algorithm Analysis, Image Processing</p>
           </div>
 
           <div>
-            <div className="flex items-baseline justify-between">
-              <span className="text-sm font-medium text-foreground">Central South University for Nationalities</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <CsunLogo />
+                <span className="text-sm font-medium text-foreground">Central South Univ. for Nationalities</span>
+              </div>
               <span className="text-xs text-muted/60">2017 — 2021</span>
             </div>
-            <p className="text-sm text-muted">B.S. Computer Science · Rank 4/158</p>
+            <p className="mt-1 text-sm text-muted">B.S. Computer Science · Rank 4/158</p>
             <p className="text-xs text-muted/60">Outstanding Student · 4-year National & University Scholarship</p>
           </div>
         </div>
@@ -209,7 +272,7 @@ function ZhContent() {
       </Section>
 
       <Section title="工作经历">
-        <ExperienceCard company="小米汽车" role="产品经理（平台 & AI）" period="2024.06 — 至今">
+        <ExperienceCard company="小米汽车" role="产品经理（平台 & AI）" period="2024.06 — 至今" logo={<XiaomiLogo />}>
           <p className="mb-3">负责供应商数字化、零部件研发数字化平台及 AI Agent 建设，服务研发、测试验证、供应商等业务，推动研发流程数字化与 AI 智能化。</p>
 
           <p className="mb-1 font-medium text-foreground text-xs uppercase tracking-wider">企业平台建设，研发流程效率优化</p>
@@ -228,7 +291,7 @@ function ZhContent() {
           ]} />
         </ExperienceCard>
 
-        <ExperienceCard company="Monica.ai" role="AI 工具产品经理（实习）" period="2023.11 — 2024.03">
+        <ExperienceCard company="Monica.ai" role="AI 工具产品经理（实习）" period="2023.11 — 2024.03" logo={<MonicaLogo />}>
           <p className="mb-3">负责海外 AI 浏览器插件产品的用户研究、产品分析及功能设计。</p>
           <BulletList items={[
             '负责用户调研的群体划分、线上访谈及访谈结果整理全流程。发放 <strong class="text-foreground">2 万份问卷</strong>，获得 <strong class="text-foreground">187 位活跃用户</strong>反馈；深访 <strong class="text-foreground">11 位海外用户</strong>，明确非付费用户核心诉求并确定首页快速引导策略。',
@@ -236,7 +299,7 @@ function ZhContent() {
           ]} />
         </ExperienceCard>
 
-        <ExperienceCard company="Momenta" role="自动驾驶工具产品经理（实习）" period="2022.10 — 2023.05">
+        <ExperienceCard company="Momenta" role="自动驾驶工具产品经理（实习）" period="2022.10 — 2023.05" logo={<MomentaLogo />}>
           <p className="mb-3">负责自动驾驶数据平台 Mviz 产品及工具平台建设。</p>
           <BulletList items={[
             '对接感知算法研发及仿真团队，分析用户行为及需求，提升了 Mviz 自定义配置能力、插件平台化能力、团队协作能力等，新增 <strong class="text-foreground">15+ 个功能</strong>，<strong class="text-foreground">1200+ 用户</strong>问题定位的效率提高 <strong class="text-foreground">10 倍</strong>（用户问题诊断时长从小时级降至 <strong class="text-foreground">0.4～0.6 min</strong>）。',
@@ -263,29 +326,38 @@ function ZhContent() {
       <Section title="教育经历">
         <div className="space-y-4">
           <div>
-            <div className="flex items-baseline justify-between">
-              <span className="text-sm font-medium text-foreground">武汉理工大学</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <WuhanLogo />
+                <span className="text-sm font-medium text-foreground">武汉理工大学</span>
+              </div>
               <span className="text-xs text-muted/60">2021 — 2024</span>
             </div>
-            <p className="text-sm text-muted">信息与交互设计 硕士 · GPA 3.8/4.0</p>
+            <p className="mt-1 text-sm text-muted">信息与交互设计 硕士 · GPA 3.8/4.0</p>
             <p className="text-xs text-muted/60">核心领域：用户体验、服务设计、人机交互研究</p>
           </div>
 
           <div>
-            <div className="flex items-baseline justify-between">
-              <span className="text-sm font-medium text-foreground">重庆大学</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <CquLogo />
+                <span className="text-sm font-medium text-foreground">重庆大学</span>
+              </div>
               <span className="text-xs text-muted/60">2018 — 2019</span>
             </div>
-            <p className="text-sm text-muted">计算机科学与技术 交换生 · 专业前 5%</p>
+            <p className="mt-1 text-sm text-muted">计算机科学与技术 交换生 · 专业前 5%</p>
             <p className="text-xs text-muted/60">技术领域：数据结构、算法分析、计算机图像处理</p>
           </div>
 
           <div>
-            <div className="flex items-baseline justify-between">
-              <span className="text-sm font-medium text-foreground">中南民族大学</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <CsunLogo />
+                <span className="text-sm font-medium text-foreground">中南民族大学</span>
+              </div>
               <span className="text-xs text-muted/60">2017 — 2021</span>
             </div>
-            <p className="text-sm text-muted">计算机科学与技术 学士 · 排名 4/158</p>
+            <p className="mt-1 text-sm text-muted">计算机科学与技术 学士 · 排名 4/158</p>
             <p className="text-xs text-muted/60">校三好学生 · 连续四年国家、校级奖学金</p>
           </div>
         </div>
