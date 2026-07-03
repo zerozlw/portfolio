@@ -70,7 +70,7 @@ export const translations: Record<Locale, Translations> = {
     home: {
       name: "曾政",
       roleLine: "Agent Product Manager | Enterprise Platform | Enterprise AI",
-      expLine: "2 Years of Product Experience | @Xiaomi EV",
+      expLine: "2 Years of Product Experience | Xiaomi EV",
       tagline: "Building AI Products for Enterprise Workflows.",
       viewProjects: "View Projects",
       selectedWork: "Selected Work",
@@ -135,7 +135,7 @@ export const translations: Record<Locale, Translations> = {
     home: {
       name: "曾政",
       roleLine: "Agent 产品经理 | 企业平台产品 | 企业AI",
-      expLine: "2年产品经验 | @小米汽车",
+      expLine: "2年产品经验 | 小米汽车",
       tagline: "构建 AI 产品赋能企业工作流。",
       viewProjects: "查看项目",
       selectedWork: "精选项目",
