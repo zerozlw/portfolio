@@ -5,7 +5,6 @@ import {
   useContext,
   useState,
   useEffect,
-  useCallback,
   type ReactNode,
 } from "react";
 import { translations, type Locale, type Translations } from "@/lib/i18n";
@@ -30,54 +29,54 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  const toggleLanguage = useCallback(() => {
-    // Find headings only within the CURRENT language container
-    const currentContainer = document.querySelector(
-      `[data-lang="${locale}"]`
-    );
-    if (!currentContainer) return;
-
-    const headings = Array.from(
-      currentContainer.querySelectorAll("h2, h3")
-    );
-
-    const viewportCenter = window.scrollY + window.innerHeight / 2;
-    let closestIndex = 0;
-    let minDistance = Infinity;
-
-    headings.forEach((h, i) => {
-      const rect = h.getBoundingClientRect();
-      const headingCenter = window.scrollY + rect.top + rect.height / 2;
-      const distance = Math.abs(headingCenter - viewportCenter);
-      if (distance < minDistance) {
-        minDistance = distance;
-        closestIndex = i;
-      }
-    });
-
-    // Switch language
+  const toggleLanguage = () => {
     const next = locale === "en" ? "zh" : "en";
+
+    try {
+      // Find closest heading in current language container
+      const container = document.querySelector(`[data-lang="${locale}"]`);
+      if (container) {
+        const headings = Array.from(container.querySelectorAll("h2, h3"));
+        const center = window.scrollY + window.innerHeight / 2;
+        let idx = 0;
+        let best = Infinity;
+
+        headings.forEach((h, i) => {
+          const r = h.getBoundingClientRect();
+          const d = Math.abs(window.scrollY + r.top + r.height / 2 - center);
+          if (d < best) {
+            best = d;
+            idx = i;
+          }
+        });
+
+        setLocale(next);
+        localStorage.setItem("locale", next);
+
+        // Scroll to same section in new language
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            const newContainer = document.querySelector(`[data-lang="${next}"]`);
+            if (newContainer) {
+              const newHeadings = Array.from(
+                newContainer.querySelectorAll("h2, h3")
+              );
+              if (newHeadings[idx]) {
+                const r = newHeadings[idx].getBoundingClientRect();
+                window.scrollTo(0, window.scrollY + r.top - 80);
+              }
+            }
+          });
+        });
+        return;
+      }
+    } catch (e) {
+      // fallback
+    }
+
     setLocale(next);
     localStorage.setItem("locale", next);
-
-    // After render, find the same-indexed heading in the NEW language container
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const newContainer = document.querySelector(`[data-lang="${next}"]`);
-        if (!newContainer) return;
-
-        const newHeadings = Array.from(
-          newContainer.querySelectorAll("h2, h3")
-        );
-
-        if (newHeadings[closestIndex]) {
-          const rect = newHeadings[closestIndex].getBoundingClientRect();
-          const targetY = window.scrollY + rect.top - 80;
-          window.scrollTo({ top: targetY, behavior: "instant" });
-        }
-      });
-    });
-  }, [locale]);
+  };
 
   const t = translations[locale];
 
