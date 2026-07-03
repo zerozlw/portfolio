@@ -1,78 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" fill="none" font-family="Inter,system-ui,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 390" fill="none" font-family="Inter,system-ui,sans-serif">
   <!-- Layer 1: User Entry -->
-  <rect x="20" y="10" width="760" height="65" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="40" y="30" font-size="11" font-weight="600" fill="#111">User Entry</text>
-  <rect x="40" y="38" width="100" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="90" y="55" text-anchor="middle" font-size="10" fill="#555">Private Chat</text>
-  <rect x="155" y="38" width="100" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="205" y="55" text-anchor="middle" font-size="10" fill="#555">Group @</text>
-  <rect x="270" y="38" width="100" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="320" y="55" text-anchor="middle" font-size="10" fill="#555">Topic Thread</text>
-  <rect x="385" y="38" width="100" height="26" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="435" y="55" text-anchor="middle" font-size="10" fill="#555">CLI</text>
+  <rect x="20" y="0" width="760" height="60" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="40" y="20" font-size="11" font-weight="600" fill="#111">User Entry</text>
+  <rect x="40" y="28" width="100" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="90" y="44" text-anchor="middle" font-size="10" fill="#555">Private Chat</text>
+  <rect x="155" y="28" width="100" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="205" y="44" text-anchor="middle" font-size="10" fill="#555">Group @</text>
+  <rect x="270" y="28" width="100" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="320" y="44" text-anchor="middle" font-size="10" fill="#555">Topic Thread</text>
+  <rect x="385" y="28" width="100" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="435" y="44" text-anchor="middle" font-size="10" fill="#555">CLI</text>
 
   <!-- Layer 2: Message Handler -->
-  <rect x="20" y="85" width="760" height="50" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="40" y="105" font-size="11" font-weight="600" fill="#111">Message Handler</text>
-  <text x="40" y="120" font-size="10" fill="#555">Route · History · Card Render · Feedback · Analytics</text>
+  <rect x="20" y="72" width="760" height="48" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="40" y="91" font-size="11" font-weight="600" fill="#111">Message Handler</text>
+  <text x="40" y="106" font-size="10" fill="#555">Route · History · Card Render · Feedback · Analytics</text>
 
   <!-- Layer 3: Agent Core -->
-  <rect x="20" y="145" width="760" height="75" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="40" y="165" font-size="11" font-weight="600" fill="#111">Agent Core (Claude Code SDK)</text>
-  <rect x="40" y="175" width="120" height="30" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="100" y="194" text-anchor="middle" font-size="10" fill="#555">System Prompt</text>
-  <rect x="175" y="175" width="100" height="30" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="225" y="194" text-anchor="middle" font-size="10" fill="#555">Skill Router</text>
-  <rect x="290" y="175" width="100" height="30" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="340" y="194" text-anchor="middle" font-size="10" fill="#555">Session Mgr</text>
-  <rect x="405" y="175" width="100" height="30" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="455" y="194" text-anchor="middle" font-size="10" fill="#555">Vision</text>
-  <rect x="520" y="175" width="100" height="30" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="570" y="194" text-anchor="middle" font-size="10" fill="#555">File Delivery</text>
-  <rect x="635" y="175" width="100" height="30" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="685" y="194" text-anchor="middle" font-size="10" fill="#555">OAuth</text>
+  <rect x="20" y="132" width="760" height="72" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="40" y="151" font-size="11" font-weight="600" fill="#111">Agent Core (Claude Code SDK)</text>
+  <rect x="40" y="160" width="115" height="28" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="97" y="178" text-anchor="middle" font-size="10" fill="#555">System Prompt</text>
+  <rect x="170" y="160" width="100" height="28" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="220" y="178" text-anchor="middle" font-size="10" fill="#555">Skill Router</text>
+  <rect x="285" y="160" width="100" height="28" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="335" y="178" text-anchor="middle" font-size="10" fill="#555">Session Mgr</text>
+  <rect x="400" y="160" width="100" height="28" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="450" y="178" text-anchor="middle" font-size="10" fill="#555">Vision</text>
+  <rect x="515" y="160" width="105" height="28" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="567" y="178" text-anchor="middle" font-size="10" fill="#555">File Delivery</text>
+  <rect x="635" y="160" width="100" height="28" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="685" y="178" text-anchor="middle" font-size="10" fill="#555">OAuth</text>
 
   <!-- Layer 4: Skills -->
-  <rect x="20" y="230" width="760" height="60" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="40" y="250" font-size="11" font-weight="600" fill="#111">Skills</text>
-  <rect x="40" y="258" width="100" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="90" y="274" text-anchor="middle" font-size="10" fill="#555">idp-debug</text>
-  <rect x="155" y="258" width="100" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="205" y="274" text-anchor="middle" font-size="10" fill="#555">NL Query</text>
-  <rect x="270" y="258" width="100" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="320" y="274" text-anchor="middle" font-size="10" fill="#555">Expert Skill</text>
-  <rect x="385" y="258" width="100" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="435" y="274" text-anchor="middle" font-size="10" fill="#555">Analytics</text>
-  <rect x="500" y="258" width="100" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="550" y="274" text-anchor="middle" font-size="10" fill="#555">Table Process</text>
-  <rect x="615" y="258" width="100" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="665" y="274" text-anchor="middle" font-size="10" fill="#555">UIPuff</text>
+  <rect x="20" y="216" width="760" height="56" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="40" y="235" font-size="11" font-weight="600" fill="#111">Skills</text>
+  <rect x="40" y="244" width="100" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="90" y="259" text-anchor="middle" font-size="10" fill="#555">idp-debug</text>
+  <rect x="155" y="244" width="100" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="205" y="259" text-anchor="middle" font-size="10" fill="#555">NL Query</text>
+  <rect x="270" y="244" width="100" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="320" y="259" text-anchor="middle" font-size="10" fill="#555">Expert Skill</text>
+  <rect x="385" y="244" width="100" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="435" y="259" text-anchor="middle" font-size="10" fill="#555">Analytics</text>
+  <rect x="500" y="244" width="100" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="550" y="259" text-anchor="middle" font-size="10" fill="#555">Table Process</text>
+  <rect x="615" y="244" width="100" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="665" y="259" text-anchor="middle" font-size="10" fill="#555">UIPuff</text>
 
   <!-- Layer 5 Left: Data -->
-  <rect x="20" y="300" width="370" height="90" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="40" y="320" font-size="11" font-weight="600" fill="#111">Data &amp; Knowledge</text>
-  <rect x="40" y="330" width="105" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="92" y="346" text-anchor="middle" font-size="10" fill="#555">Data Warehouse</text>
-  <rect x="160" y="330" width="90" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="205" y="346" text-anchor="middle" font-size="10" fill="#555">Manuals (MD)</text>
-  <rect x="265" y="330" width="100" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="315" y="346" text-anchor="middle" font-size="10" fill="#555">Source Code</text>
-  <rect x="40" y="360" width="105" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="92" y="376" text-anchor="middle" font-size="10" fill="#555">Feishu Docs</text>
-  <rect x="160" y="360" width="90" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="205" y="376" text-anchor="middle" font-size="10" fill="#555">MVPS Table</text>
+  <rect x="20" y="284" width="370" height="88" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="40" y="303" font-size="11" font-weight="600" fill="#111">Data &amp; Knowledge</text>
+  <rect x="40" y="312" width="105" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="92" y="327" text-anchor="middle" font-size="10" fill="#555">Data Warehouse</text>
+  <rect x="155" y="312" width="95" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="202" y="327" text-anchor="middle" font-size="10" fill="#555">Manuals (MD)</text>
+  <rect x="260" y="312" width="105" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="312" y="327" text-anchor="middle" font-size="10" fill="#555">Source Code</text>
+  <rect x="40" y="340" width="105" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="92" y="355" text-anchor="middle" font-size="10" fill="#555">Feishu Docs</text>
+  <rect x="155" y="340" width="95" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="202" y="355" text-anchor="middle" font-size="10" fill="#555">MVPS Table</text>
 
   <!-- Layer 5 Right: Infra -->
-  <rect x="410" y="300" width="370" height="90" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="430" y="320" font-size="11" font-weight="600" fill="#111">Infrastructure</text>
-  <rect x="430" y="330" width="100" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="480" y="346" text-anchor="middle" font-size="10" fill="#555">Matrix (CI/CD)</text>
-  <rect x="545" y="330" width="80" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="585" y="346" text-anchor="middle" font-size="10" fill="#555">Docker</text>
-  <rect x="640" y="330" width="80" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="680" y="346" text-anchor="middle" font-size="10" fill="#555">Redis</text>
-  <rect x="430" y="360" width="100" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="480" y="376" text-anchor="middle" font-size="10" fill="#555">OneTrack</text>
-  <rect x="545" y="360" width="100" height="24" rx="6" fill="#fff" stroke="#eaeaea"/>
-  <text x="595" y="376" text-anchor="middle" font-size="10" fill="#555">Shujing BI</text>
+  <rect x="410" y="284" width="370" height="88" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="430" y="303" font-size="11" font-weight="600" fill="#111">Infrastructure</text>
+  <rect x="430" y="312" width="100" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="480" y="327" text-anchor="middle" font-size="10" fill="#555">Matrix (CI/CD)</text>
+  <rect x="545" y="312" width="80" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="585" y="327" text-anchor="middle" font-size="10" fill="#555">Docker</text>
+  <rect x="640" y="312" width="80" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="680" y="327" text-anchor="middle" font-size="10" fill="#555">Redis</text>
+  <rect x="430" y="340" width="100" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="480" y="355" text-anchor="middle" font-size="10" fill="#555">OneTrack</text>
+  <rect x="545" y="340" width="100" height="22" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="595" y="355" text-anchor="middle" font-size="10" fill="#555">Shujing BI</text>
 </svg>
