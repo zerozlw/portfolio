@@ -40,7 +40,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {(locale === "zh" ? project.tagsZh : project.tags).map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-muted/50 px-3 py-1 text-xs text-muted"
+                className="rounded-full bg-black/5 dark:bg-white/10 px-3 py-1 text-xs text-black/40 dark:text-white/40"
               >
                 {tag}
               </span>

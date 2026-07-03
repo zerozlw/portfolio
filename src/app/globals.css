@@ -81,6 +81,11 @@ body {
   font-weight: 600;
   line-height: 1.4;
   color: #888 !important;
+  scroll-margin-top: 5rem;
+}
+
+.prose h2 {
+  scroll-margin-top: 5rem;
 }
 
 /* ========== Paragraphs & Lists ========== */

@@ -37,7 +37,7 @@ export function CaseStudyLayout({ project, children }: CaseStudyLayoutProps) {
         <div className="max-w-[42rem]">
           <FadeIn>
             <time dateTime={project.date} className="text-sm text-muted">
-              {formatDate(project.date)}
+              Jul. 2026
             </time>
           </FadeIn>
 

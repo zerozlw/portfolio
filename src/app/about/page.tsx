@@ -4,77 +4,65 @@ import { Container } from "@/components/layout/Container";
 import { FadeIn } from "@/components/shared/FadeIn";
 import { useLanguage } from "@/lib/language-context";
 
-const interestsEn = [
-  "AI Agent",
-  "Workflow Automation",
-  "Knowledge Base",
-  "Developer Tools",
-  "LLM Applications",
-  "Product Strategy",
-];
-
-const interestsZh = [
-  "AI Agent",
-  "工作流自动化",
-  "知识库",
-  "开发者工具",
-  "LLM 应用",
-  "产品策略",
-];
-
 export default function AboutPage() {
-  const { locale, t } = useLanguage();
-  const interests = locale === "zh" ? interestsZh : interestsEn;
+  const { t } = useLanguage();
 
   return (
-    <section className="pt-24 pb-24">
+    <section className="pt-28 pb-32">
       <Container>
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto max-w-[42rem]">
           <FadeIn>
-            <h1 className="text-4xl font-normal tracking-tight text-foreground">
+            <h1 className="text-4xl font-semibold tracking-tight text-foreground">
               {t.about.title}
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <div className="mt-12 space-y-6 text-lg leading-relaxed text-muted">
-              <p>{t.about.greeting}</p>
-              <p>{t.about.intro1}</p>
-              <p>{t.about.intro2}</p>
+            <div className="mt-12">
+              <h2 className="mb-6 text-xs font-semibold uppercase tracking-widest text-muted/60 flex items-center gap-2.5">
+                <span className="inline-block w-[3px] h-[0.75em] bg-[#a78bfa] rounded-sm opacity-50" />
+                {t.about.philosophy}
+              </h2>
+              <ul className="space-y-3">
+                {t.about.philosophyItems.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm leading-relaxed text-muted">
+                    <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-muted/40" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.2}>
             <div className="mt-16">
-              <h2 className="mb-6 text-xl font-normal text-foreground">
-                {t.about.interests}
+              <h2 className="mb-6 text-xs font-semibold uppercase tracking-widest text-muted/60 flex items-center gap-2.5">
+                <span className="inline-block w-[3px] h-[0.75em] bg-[#a78bfa] rounded-sm opacity-50" />
+                {t.about.currently}
               </h2>
-              <div className="flex flex-wrap gap-3">
-                {interests.map((interest) => (
-                  <span
-                    key={interest}
-                    className="rounded-full border border-border px-4 py-2 text-sm text-muted"
-                  >
-                    {interest}
-                  </span>
+              <ul className="space-y-3">
+                {t.about.currentlyItems.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm leading-relaxed text-muted">
+                    <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-muted/40" />
+                    {item}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.3}>
             <div className="mt-16">
-              <h2 className="mb-6 text-xl font-normal text-foreground">
-                {t.about.learning}
+              <h2 className="mb-6 text-xs font-semibold uppercase tracking-widest text-muted/60 flex items-center gap-2.5">
+                <span className="inline-block w-[3px] h-[0.75em] bg-[#a78bfa] rounded-sm opacity-50" />
+                {t.about.connect}
               </h2>
-              <ul className="space-y-3 text-muted">
-                {t.about.learningItems.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-foreground" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <a
+                href="mailto:zooonz@agent.qq.com"
+                className="text-sm text-muted transition-colors hover:text-foreground"
+              >
+                zooonz@agent.qq.com
+              </a>
             </div>
           </FadeIn>
         </div>

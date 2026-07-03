@@ -36,12 +36,11 @@ export interface Translations {
   };
   about: {
     title: string;
-    greeting: string;
-    intro1: string;
-    intro2: string;
-    interests: string;
-    learning: string;
-    learningItems: string[];
+    philosophy: string;
+    philosophyItems: string[];
+    currently: string;
+    currentlyItems: string[];
+    connect: string;
   };
   resume: {
     title: string;
@@ -65,7 +64,7 @@ export const translations: Record<Locale, Translations> = {
       writing: "Writing",
       playground: "Playground",
       about: "About",
-      resume: "Resume",
+      resume: "Experience",
     },
     home: {
       name: "曾政",
@@ -97,21 +96,24 @@ export const translations: Record<Locale, Translations> = {
     },
     about: {
       title: "About",
-      greeting: "Hi, I'm Zheng.",
-      intro1:
-        "I'm an AI Product Manager building enterprise AI products at Xiaomi EV. I focus on making AI practical and useful for engineering teams.",
-      intro2:
-        "Currently, I spend my time thinking about how AI can transform enterprise workflows — not through flashy demos, but through products that people actually use every day.",
-      interests: "Currently interested in",
-      learning: "Currently learning",
-      learningItems: [
-        "Advanced agent architectures and multi-agent systems",
-        "MCP protocol and tool-use patterns",
-        "Building production RAG systems",
+      philosophy: "How I Think",
+      philosophyItems: [
+        "The best AI products are invisible — they just work.",
+        "Start from your own pain points, not from what AI can do.",
+        "A 70% solution that integrates with existing workflows beats a 99% standalone tool.",
+        "Trust is earned through transparency, not accuracy.",
       ],
+      currently: "Currently",
+      currentlyItems: [
+        "Building enterprise AI agents that actually get used",
+        "Exploring how agents can talk to each other across systems",
+        "Learning to ship faster with AI-assisted development",
+        "Reading about how other companies are deploying AI at scale",
+      ],
+      connect: "Let's Connect",
     },
     resume: {
-      title: "Resume",
+      title: "Experience",
       description: "My professional journey and capabilities.",
       experience: "Experience",
       coreSkills: "Core Skills",
@@ -129,8 +131,8 @@ export const translations: Record<Locale, Translations> = {
       projects: "项目",
       writing: "博客",
       playground: "实验室",
-      about: "关于",
-      resume: "简历",
+      about: "关于我",
+      resume: "经历",
     },
     home: {
       name: "曾政",
@@ -159,22 +161,25 @@ export const translations: Record<Locale, Translations> = {
       archived: "已归档",
     },
     about: {
-      title: "关于",
-      greeting: "你好，我是曾政。",
-      intro1:
-        "我是小米汽车的 AI 产品经理，专注于构建企业级 AI 产品。我致力于让 AI 在工程团队中变得实用且好用。",
-      intro2:
-        "目前，我主要思考 AI 如何改变企业工作流——不是通过炫酷的 Demo，而是通过人们每天真正使用的产品。",
-      interests: "目前感兴趣的方向",
-      learning: "正在学习的内容",
-      learningItems: [
-        "高级 Agent 架构与多 Agent 系统",
-        "MCP 协议与工具调用模式",
-        "构建生产级 RAG 系统",
+      title: "关于我",
+      philosophy: "我的产品观",
+      philosophyItems: [
+        "最好的 AI 产品是隐形的——它只是好用。",
+        "从自己的痛点出发，而不是从 AI 能做什么出发。",
+        "一个能融入现有工作流的 70 分方案，比一个 99 分的独立工具更有价值。",
+        "信任来自透明，而不是准确率。",
       ],
+      currently: "目前在做",
+      currentlyItems: [
+        "构建真正被使用的企业 AI Agent",
+        "探索 Agent 之间如何跨系统互通",
+        "用 AI 辅助开发来提升自己的交付速度",
+        "研究其他公司如何在大规模场景下部署 AI",
+      ],
+      connect: "联系我",
     },
     resume: {
-      title: "简历",
+      title: "个人经历",
       description: "我的职业经历与核心能力。",
       experience: "工作经历",
       coreSkills: "核心技能",
