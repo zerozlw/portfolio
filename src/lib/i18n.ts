@@ -10,10 +10,9 @@ export interface Translations {
   };
   home: {
     name: string;
-    tagline1: string;
-    tagline2: string;
-    role: string;
-    subtitle: string;
+    roleLine: string;
+    expLine: string;
+    tagline: string;
     viewProjects: string;
     selectedWork: string;
   };
@@ -70,10 +69,9 @@ export const translations: Record<Locale, Translations> = {
     },
     home: {
       name: "曾政",
-      tagline1: "Building AI Products",
-      tagline2: "for Enterprise Workflows.",
-      role: "AI Product Manager @ Xiaomi EV",
-      subtitle: "I build AI products that help engineers work faster.",
+      roleLine: "Agent Product Manager | Enterprise Platform | Enterprise AI",
+      expLine: "2 Years of Product Experience | @Xiaomi EV",
+      tagline: "Building AI Products for Enterprise Workflows.",
       viewProjects: "View Projects",
       selectedWork: "Selected Work",
     },
@@ -136,10 +134,9 @@ export const translations: Record<Locale, Translations> = {
     },
     home: {
       name: "曾政",
-      tagline1: "构建 AI 产品",
-      tagline2: "赋能企业工作流。",
-      role: "AI 产品经理 @ 小米汽车",
-      subtitle: "我构建帮助工程师更高效工作的 AI 产品。",
+      roleLine: "Agent 产品经理 | 企业平台产品 | 企业AI",
+      expLine: "2年产品经验 | @小米汽车",
+      tagline: "构建 AI 产品赋能企业工作流。",
       viewProjects: "查看项目",
       selectedWork: "精选项目",
     },

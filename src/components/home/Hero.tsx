@@ -19,22 +19,24 @@ export function Hero() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <p className="mt-6 text-2xl font-normal leading-relaxed text-foreground sm:text-3xl">
-              {t.home.tagline1}
-              <br />
-              {t.home.tagline2}
+            <p className="mt-6 text-lg text-muted">
+              {t.home.roleLine}
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.15}>
+            <p className="mt-2 text-lg text-muted">
+              {t.home.expLine}
             </p>
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <p className="mt-4 text-lg text-muted">{t.home.role}</p>
+            <p className="mt-6 text-2xl font-normal leading-relaxed text-foreground sm:text-3xl">
+              {t.home.tagline}
+            </p>
           </FadeIn>
 
           <FadeIn delay={0.3}>
-            <p className="mt-2 text-lg text-muted">{t.home.subtitle}</p>
-          </FadeIn>
-
-          <FadeIn delay={0.4}>
             <div className="mt-10">
               <Link
                 href="/projects"

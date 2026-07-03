@@ -30,7 +30,7 @@ export function Navbar() {
           href="/"
           className="text-lg font-medium tracking-tight text-foreground"
         >
-          Zheng
+          Zoe Zeng
         </Link>
 
         {/* Desktop Nav */}
