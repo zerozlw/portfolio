@@ -166,29 +166,21 @@ Feishu Entry: private chat, group @, topic threads；Agent Framework: Claude Cod
 
 <En>
 
-### What I Innovated
+### Innovation
 
-**From Personal Tool to Replicable Framework.** The proudest outcome isn't the IDP Agent itself — it's the "Copy to System X" operational guide I wrote (14 steps). Any business team can swap Skills, knowledge bases, source code, and data sources to quickly build an Agent for their own system. This makes IDP Agent not just a product feature, but a **reusable enterprise AI Agent framework**.
+**Modular & Replicable Architecture.** Instead of traditional RAG or fine-tuning, I designed a Skill-based architecture where each business capability is encapsulated as an independent Skill, and the Agent routes to the right one based on user intent. Adding a new scenario only requires writing a new Skill — no changes to the Agent core. I then abstracted this into a "Copy to System X" operational guide (14 steps), making IDP Agent a **reusable enterprise AI Agent framework** that any business team can adapt.
 
-**Skill-first Agent Design.** Instead of traditional RAG or fine-tuning, I chose a Skill-based architecture: each business capability is encapsulated as an independent Skill, and the Agent routes to the right Skill based on user intent. Adding a new scenario only requires writing a new Skill — no changes to the Agent core.
-
-**Product Manager Trains the Skill.** The traditional workflow is: engineers write code, PMs write requirements. But in this project, I — as a product manager — independently trained the debug Skill and integrated it into the Feishu bot. This broke the assumption that "AI must be built by engineers." **Product managers can train Agents too, and they understand the business context better.**
-
-**Human-AI Collaboration Boundaries.** I explicitly designed what the Agent "cannot do" — it cannot modify data, cannot operate the system on behalf of users, and complex business logic is redirected to the domain expert. Every response includes an AI disclaimer, ensuring users understand it's an assistant, not a decision-maker.
+**PM-Driven, Human-Designed.** As a product manager, I independently trained the debug Skill and integrated it into the Feishu bot — breaking the assumption that "AI must be built by engineers." I also explicitly designed the Agent's boundaries: it cannot modify data, cannot operate the system on behalf of users, and complex business logic is redirected to the domain expert. Every response includes an AI disclaimer, ensuring it's understood as an assistant, not a decision-maker.
 
 </En>
 
 <Zh>
 
-### 我的创新
+### 创新性
 
-**从个人工具到可复制框架。** 最让我自豪的不是 IDP Agent 本身，而是我把整个架构抽象成了一套「复制到系统 X」的实操指南（14 步）。任何业务团队只要替换 Skill、知识库、源码和数据源，就能快速搭建面向自己系统的 Agent。这意味着 IDP Agent 不只是一个产品功能，而是一个**可复用的企业 AI Agent 框架**。
+**模块化可复制架构。** 不同于传统的 RAG 或微调方案，我设计了 Skill-based 架构：每个业务能力封装为独立 Skill，Agent 根据用户意图自动路由。扩展新场景只需写一个 Skill，无需改动核心代码。我进一步将整套架构抽象为「复制到系统 X」的实操指南（14 步），使 IDP Agent 成为一个**可复用的企业 AI Agent 框架**，任何业务团队都能快速适配。
 
-**Skill-first 的 Agent 设计思路。** 不同于传统的 RAG 或微调方案，我选择了 Skill-based 架构：每个业务能力封装为独立的 Skill，Agent 根据用户意图自动路由到对应 Skill。扩展一个新场景只需写一个 Skill，不需要改 Agent 核心代码。
-
-**产品经理训练 Skill 的范式突破。** 传统思路是研发写代码、产品写需求。但在这个项目中，我作为产品经理独立训练了 debug Skill，直接接入飞书机器人实现智能问答。这打破了「AI 必须由研发来做」的惯性认知——**产品经理也可以训练 Agent，而且更懂业务场景**。
-
-**人机协作的边界设计。** Agent 不是万能的。我明确设计了它「不能做」的事——不能改数据、不能代替操作、复杂业务逻辑引导咨询流程专家。每条回答都附带 AI 免责声明，确保用户知道这是辅助工具而非决策者。
+**产品经理主导，人机边界清晰。** 我作为产品经理独立训练了 debug Skill 并接入飞书机器人，打破了「AI 必须由研发来做」的惯性认知。同时我明确设计了 Agent 的能力边界：不能改数据、不能代替操作、复杂业务逻辑引导咨询流程专家。每条回答附带 AI 免责声明，确保用户理解它是辅助工具而非决策者。
 
 </Zh>
 
