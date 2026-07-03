@@ -17,16 +17,16 @@ order: 1
 
 ### The Problem
 
-The Parts Full Lifecycle Platform (IDP) is Xiaomi EV's core parts management system, covering DVP (Design Verification Plan), EA (Engineering Approval), TKO (Technical Kick-Off) and other critical business processes. With <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">800+ users</span>, the platform faces a growing challenge: **massive amounts of repetitive operational inquiries consume the product and engineering teams' time every week**.
+The Parts Full Lifecycle Platform (IDP) is Xiaomi EV's core parts management system, covering DVP (Design Verification Plan), EA (Engineering Approval), TKO (Technical Kick-Off) and other critical business processes. With **800+ users**, the platform faces a growing challenge: massive amounts of repetitive operational inquiries consume the product and engineering teams' time every week.
 
-- Product team: <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">1.5-2 days/week</span> on maintenance
-- Engineering team: <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">0.5-1 day/week</span> on debugging
+- Product team: **1.5-2 days/week** on maintenance
+- Engineering team: **0.5-1 day/week** on debugging
 
 The problems are individually simple but collectively overwhelming: "How do I check part status?" "DVP is archived, can I still modify it?" "What's the EA completion rate?" "Where is the TKO process stuck?" These questions appear daily in Feishu groups and DMs, with answers often requiring cross-system investigation — reading code, querying databases, and flipping through manuals.
 
 ### The Insight
 
-I noticed something interesting: as a product manager, I was already spending time writing small AI tools to help myself — a SQL query script, a manual-reading prompt, a permission debugging workflow. These were individual Skills, but I realized they could be <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">orchestrated into a complete Agent</span>. I mapped out <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">5 high-frequency scenarios</span>, trained <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">4 reusable Skills</span>, and built the IDP Agent from scratch.
+I noticed something interesting: as a product manager, I was already spending time writing small AI tools to help myself — a SQL query script, a manual-reading prompt, a permission debugging workflow. These were individual Skills, but I realized they could be **orchestrated into a complete Agent**. I mapped out **5 high-frequency scenarios**, trained **4 reusable Skills**, and built the IDP Agent from scratch.
 
 </En>
 
@@ -36,13 +36,13 @@ I noticed something interesting: as a product manager, I was already spending ti
 
 ### 问题
 
-零部件全生命周期平台（IDP）是小米汽车零部件管理的核心系统，覆盖 DVP（设计验证计划）、EA（工程审批）、TKO（技术开工）等关键业务流程。平台用户超过 <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">800 人</span>，但日常运维中存在大量重复性人工操作——系统排查、数据查询、操作指引、数据看板统计。<span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">产品团队每周在运维上投入 1.5-2 天，研发团队投入 0.5-1 天</span>，亟需通过 AI 提效。
+零部件全生命周期平台（IDP）是小米汽车零部件管理的核心系统，覆盖 DVP（设计验证计划）、EA（工程审批）、TKO（技术开工）等关键业务流程。平台用户超过 **800 人**，但日常运维中存在大量重复性人工操作——系统排查、数据查询、操作指引、数据看板统计。**产品团队每周在运维上投入 1.5-2 天，研发团队投入 0.5-1 天**，亟需通过 AI 提效。
 
 ### 灵感
 
 我没有从零设计一个 AI 产品，而是**从自己的日常工作切入**。
 
-作为产品经理，我每天也在处理这些问题。于是我开始用 Claude Code 写 Skill——先是一个查数仓的脚本，然后是一个读手册的 Prompt，再然后是一个排查权限问题的工作流。写得多了，我意识到这些零散的 Skill 可以<span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">串联成一个完整的 Agent</span>。我梳理了 <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">5 大高频场景</span>，训练了 <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">4 个可复用 Skill</span>，从零搭建了 IDP Agent。
+作为产品经理，我每天也在处理这些问题。于是我开始用 Claude Code 写 Skill——先是一个查数仓的脚本，然后是一个读手册的 Prompt，再然后是一个排查权限问题的工作流。写得多了，我意识到这些零散的 Skill 可以**串联成一个完整的 Agent**。我梳理了 **5 大高频场景**，训练了 **4 个可复用 Skill**，从零搭建了 IDP Agent。
 
 </Zh>
 
@@ -64,27 +64,27 @@ I noticed something interesting: as a product manager, I was already spending ti
 <tbody>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">System Debug</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-medium">idp-debug</span></td>
+<td className="py-3 px-4 text-foreground font-medium">idp-debug</td>
 <td className="py-3 px-4 text-muted">Agent follows a 6-step protocol to diagnose issues, tracing from frontend → backend → data layer</td>
 </tr>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">Data Query</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-medium">NL Query</span></td>
+<td className="py-3 px-4 text-foreground font-medium">NL Query</td>
 <td className="py-3 px-4 text-muted">Natural language queries against the data warehouse — parts, workbenches, DVP/EA status</td>
 </tr>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">Operation Guide</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-medium">Expert Skill</span></td>
+<td className="py-3 px-4 text-foreground font-medium">Expert Skill</td>
 <td className="py-3 px-4 text-muted">8 operation manuals embedded, generates step-by-step guides with Feishu doc links</td>
 </tr>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">Data Dashboard</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-medium">Analytics Skill</span></td>
+<td className="py-3 px-4 text-foreground font-medium">Analytics Skill</td>
 <td className="py-3 px-4 text-muted">Auto-generates data analysis dashboards from frontend telemetry data</td>
 </tr>
 <tr className="hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">SOP Automation</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-medium">Table Processing</span></td>
+<td className="py-3 px-4 text-foreground font-medium">Table Processing</td>
 <td className="py-3 px-4 text-muted">Complex Feishu spreadsheet SOPs encapsulated as reusable Skills</td>
 </tr>
 </tbody>
@@ -94,12 +94,12 @@ I noticed something interesting: as a product manager, I was already spending ti
 ### Technical Architecture
 
 - **Feishu Entry**: Private chat, group @mention, and topic threads — zero-friction access for all users
-- **Agent Framework**: Built on Claude Code Agent SDK, supporting <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">20-turn</span> multi-turn conversations, screenshot understanding, and file delivery
-- **Knowledge Base**: <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">8 Markdown operation manuals</span> + complete data warehouse schema documentation + business source code submodule (GitLab)
+- **Agent Framework**: Built on Claude Code Agent SDK, supporting **20-turn** multi-turn conversations, screenshot understanding, and file delivery
+- **Knowledge Base**: **8 Markdown operation manuals** + complete data warehouse schema documentation + business source code submodule (GitLab)
 - **Data Access**: DataWorks read-only token, Agent queries the data warehouse directly
 - **Deployment**: Matrix (Pre/Prod) + Docker + CI/CD automated pipeline
 - **Observability**: OneTrack analytics + Shujing BI dashboard — monitoring request volume, success rate, latency, and token consumption
-- **CLI Extension**: <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">106 CLI commands</span> developed, encapsulating core platform capabilities as command-line tools
+- **CLI Extension**: **106 CLI commands** developed, encapsulating core platform capabilities as command-line tools
 
 </En>
 
@@ -121,27 +121,27 @@ I noticed something interesting: as a product manager, I was already spending ti
 <tbody>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">系统排查</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-medium">idp-debug</span></td>
+<td className="py-3 px-4 text-foreground font-medium">idp-debug</td>
 <td className="py-3 px-4 text-muted">Agent 按 6 步规范化完成 debug，从前端→后端→数据层逐层定位根因</td>
 </tr>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">数据查询</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-medium">自然语言查询</span></td>
+<td className="py-3 px-4 text-foreground font-medium">自然语言查询</td>
 <td className="py-3 px-4 text-muted">支持零件号、工作台、DVP/EA 状态查询，一句话直接查数仓</td>
 </tr>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">操作指引</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-medium">专家 Skill</span></td>
+<td className="py-3 px-4 text-foreground font-medium">专家 Skill</td>
 <td className="py-3 px-4 text-muted">接入 8 份操作手册，自动生成运营手册和操作步骤</td>
 </tr>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">数据看板</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-medium">数据分析 Skill</span></td>
+<td className="py-3 px-4 text-foreground font-medium">数据分析 Skill</td>
 <td className="py-3 px-4 text-muted">基于前端埋点数据，自动生成数据分析看板</td>
 </tr>
 <tr className="hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">SOP 自动化</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-medium">复杂表格处理 Skill</span></td>
+<td className="py-3 px-4 text-foreground font-medium">复杂表格处理 Skill</td>
 <td className="py-3 px-4 text-muted">将飞书办公复杂 SOP 封装为可复用 Skill</td>
 </tr>
 </tbody>
@@ -151,12 +151,12 @@ I noticed something interesting: as a product manager, I was already spending ti
 ### 技术架构
 
 - **飞书入口**：私聊、群聊 @、话题回复三种交互方式，用户零门槛使用
-- **Agent 框架**：基于 Claude Code Agent SDK，支持 <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">20 轮</span>多轮对话、截图理解、文件回传
-- **知识库**：<span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">8 份 Markdown 操作手册</span> + 数仓表结构完整梳理 + 业务源码 submodule
+- **Agent 框架**：基于 Claude Code Agent SDK，支持 **20 轮**多轮对话、截图理解、文件回传
+- **知识库**：**8 份 Markdown 操作手册** + 数仓表结构完整梳理 + 业务源码 submodule
 - **数据能力**：接入 DataWorks 只读 Token，Agent 直接查数仓回答
 - **部署**：Matrix（Pre/Prod）+ Docker + CI/CD 自动化流水线
 - **可观测性**：OneTrack 埋点 + 数鲸 BI 看板，监控请求量、成功率、耗时、token 消耗
-- **CLI 扩展**：累计完成 <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">106 个 CLI 命令</span>，将平台核心能力封装为命令行工具
+- **CLI 扩展**：累计完成 **106 个 CLI 命令**，将平台核心能力封装为命令行工具
 
 </Zh>
 
@@ -164,11 +164,11 @@ I noticed something interesting: as a product manager, I was already spending ti
 
 ### What I Innovated
 
-**From Personal Tool to Replicable Framework.** The proudest outcome isn't the IDP Agent itself — it's the <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">"Copy to System X" operational guide</span> I wrote (14 steps). Any business team can swap Skills, knowledge bases, source code, and data sources to quickly build an Agent for their own system. This makes IDP Agent not just a product feature, but a <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">reusable enterprise AI Agent framework</span>.
+**From Personal Tool to Replicable Framework.** The proudest outcome isn't the IDP Agent itself — it's the "Copy to System X" operational guide I wrote (14 steps). Any business team can swap Skills, knowledge bases, source code, and data sources to quickly build an Agent for their own system. This makes IDP Agent not just a product feature, but a **reusable enterprise AI Agent framework**.
 
 **Skill-first Agent Design.** Instead of traditional RAG or fine-tuning, I chose a Skill-based architecture: each business capability is encapsulated as an independent Skill, and the Agent routes to the right Skill based on user intent. Adding a new scenario only requires writing a new Skill — no changes to the Agent core.
 
-**Product Manager Trains the Skill.** The traditional workflow is: engineers write code, PMs write requirements. But in this project, I — as a product manager — independently trained the debug Skill and integrated it into the Feishu bot. This broke the assumption that "AI must be built by engineers." <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">Product managers can train Agents too, and they understand the business context better.</span>
+**Product Manager Trains the Skill.** The traditional workflow is: engineers write code, PMs write requirements. But in this project, I — as a product manager — independently trained the debug Skill and integrated it into the Feishu bot. This broke the assumption that "AI must be built by engineers." **Product managers can train Agents too, and they understand the business context better.**
 
 **Human-AI Collaboration Boundaries.** I explicitly designed what the Agent "cannot do" — it cannot modify data, cannot operate the system on behalf of users, and complex business logic is redirected to the domain expert. Every response includes an AI disclaimer, ensuring users understand it's an assistant, not a decision-maker.
 
@@ -178,11 +178,11 @@ I noticed something interesting: as a product manager, I was already spending ti
 
 ### 我的创新
 
-**从个人工具到可复制框架。** 最让我自豪的不是 IDP Agent 本身，而是我把整个架构抽象成了一套<span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">「复制到系统 X」的实操指南</span>（14 步）。任何业务团队只要替换 Skill、知识库、源码和数据源，就能快速搭建面向自己系统的 Agent。这意味着 IDP Agent 不只是一个产品功能，而是一个<span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">可复用的企业 AI Agent 框架</span>。
+**从个人工具到可复制框架。** 最让我自豪的不是 IDP Agent 本身，而是我把整个架构抽象成了一套「复制到系统 X」的实操指南（14 步）。任何业务团队只要替换 Skill、知识库、源码和数据源，就能快速搭建面向自己系统的 Agent。这意味着 IDP Agent 不只是一个产品功能，而是一个**可复用的企业 AI Agent 框架**。
 
 **Skill-first 的 Agent 设计思路。** 不同于传统的 RAG 或微调方案，我选择了 Skill-based 架构：每个业务能力封装为独立的 Skill，Agent 根据用户意图自动路由到对应 Skill。扩展一个新场景只需写一个 Skill，不需要改 Agent 核心代码。
 
-**产品经理训练 Skill 的范式突破。** 传统思路是研发写代码、产品写需求。但在这个项目中，我作为产品经理独立训练了 debug Skill，直接接入飞书机器人实现智能问答。这打破了「AI 必须由研发来做」的惯性认知——<span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">产品经理也可以训练 Agent，而且更懂业务场景</span>。
+**产品经理训练 Skill 的范式突破。** 传统思路是研发写代码、产品写需求。但在这个项目中，我作为产品经理独立训练了 debug Skill，直接接入飞书机器人实现智能问答。这打破了「AI 必须由研发来做」的惯性认知——**产品经理也可以训练 Agent，而且更懂业务场景**。
 
 **人机协作的边界设计。** Agent 不是万能的。我明确设计了它「不能做」的事——不能改数据、不能代替操作、复杂业务逻辑引导咨询流程专家。每条回答都附带 AI 免责声明，确保用户知道这是辅助工具而非决策者。
 
@@ -203,7 +203,7 @@ I noticed something interesting: as a product manager, I was already spending ti
 
 </div>
 <div className="md:col-span-2">
-<img src="/images/projects/idp-agent-promo.jpg" alt="IDP Agent Promo" className="rounded-lg border border-border w-full" />
+<img src="/images/projects/idp-agent-promo.jpg" alt="IDP Agent Promo" className="rounded-xl border border-border w-full" />
 </div>
 </div>
 </div>
@@ -225,7 +225,7 @@ I noticed something interesting: as a product manager, I was already spending ti
 
 </div>
 <div className="md:col-span-2">
-<img src="/images/projects/idp-agent-promo.jpg" alt="IDP Agent 宣发图" className="rounded-lg border border-border w-full" />
+<img src="/images/projects/idp-agent-promo.jpg" alt="IDP Agent 宣发图" className="rounded-xl border border-border w-full" />
 </div>
 </div>
 </div>
@@ -251,25 +251,25 @@ I noticed something interesting: as a product manager, I was already spending ti
 <td className="py-3 px-4 text-muted">Product maintenance</td>
 <td className="py-3 px-4 text-muted">1.5-2 days/week</td>
 <td className="py-3 px-4 text-muted">0.5-1 days/week</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-bold">60%+</span></td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">60%+</span></td>
 </tr>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">Single part query</td>
 <td className="py-3 px-4 text-muted">5+ page switches, 2-3 min</td>
 <td className="py-3 px-4 text-muted">10 seconds</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-bold">100x+</span></td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">100x+</span></td>
 </tr>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">Batch 10 parts query</td>
 <td className="py-3 px-4 text-muted">50+ operations, 20-30 min</td>
 <td className="py-3 px-4 text-muted">15 seconds</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-bold">100x+</span></td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">100x+</span></td>
 </tr>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">Manual generation</td>
 <td className="py-3 px-4 text-muted">1-2 days manual work</td>
 <td className="py-3 px-4 text-muted">10 min auto-generated</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-bold">50x+</span></td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">50x+</span></td>
 </tr>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">Data dashboard</td>
@@ -281,7 +281,7 @@ I noticed something interesting: as a product manager, I was already spending ti
 <td className="py-3 px-4 text-muted">Complex SOP processing</td>
 <td className="py-3 px-4 text-muted">2 hours/project</td>
 <td className="py-3 px-4 text-muted">30 minutes</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-bold">75%</span></td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">75%</span></td>
 </tr>
 </tbody>
 </table>
@@ -289,9 +289,9 @@ I noticed something interesting: as a product manager, I was already spending ti
 
 ### Scale of Output
 
-- <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">4 reusable Skills</span> — 2 published on GarageHub platform for team use
-- <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">106 CLI commands</span> — covering core platform capabilities
-- <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">1 Feishu Bot</span> — supporting private chat / group @ / topic threads
+- **4 reusable Skills** — 2 published on GarageHub platform for team use
+- **106 CLI commands** — covering core platform capabilities
+- **1 Feishu Bot** — supporting private chat / group @ / topic threads
 - **Knowledge assets** — complete data warehouse schema documentation, TKO module operation manual
 - **Replicable framework** — already adaptable to other business systems
 
@@ -316,25 +316,25 @@ I noticed something interesting: as a product manager, I was already spending ti
 <td className="py-3 px-4 text-muted">产品运维投入</td>
 <td className="py-3 px-4 text-muted">1.5-2 天/周</td>
 <td className="py-3 px-4 text-muted">0.5-1 天/周</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-bold">60%+</span></td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">60%+</span></td>
 </tr>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">单零件查询</td>
 <td className="py-3 px-4 text-muted">5+ 次页面切换，2-3 分钟</td>
 <td className="py-3 px-4 text-muted">10 秒</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-bold">100 倍+</span></td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">100 倍+</span></td>
 </tr>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">批量 10 个零件查询</td>
 <td className="py-3 px-4 text-muted">50+ 次操作，20-30 分钟</td>
 <td className="py-3 px-4 text-muted">15 秒</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-bold">100 倍+</span></td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">100 倍+</span></td>
 </tr>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">运营手册生成</td>
 <td className="py-3 px-4 text-muted">手动整理 1-2 天</td>
 <td className="py-3 px-4 text-muted">AI 自动生成 10 分钟</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-bold">50 倍+</span></td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">50 倍+</span></td>
 </tr>
 <tr className="border-b border-border/50 hover:bg-card transition-colors">
 <td className="py-3 px-4 text-muted">数据分析看板</td>
@@ -346,7 +346,7 @@ I noticed something interesting: as a product manager, I was already spending ti
 <td className="py-3 px-4 text-muted">复杂 SOP 处理</td>
 <td className="py-3 px-4 text-muted">2 小时/项目</td>
 <td className="py-3 px-4 text-muted">30 分钟</td>
-<td className="py-3 px-4"><span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-2 py-0.5 rounded text-xs font-bold">75%</span></td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">75%</span></td>
 </tr>
 </tbody>
 </table>
@@ -354,9 +354,9 @@ I noticed something interesting: as a product manager, I was already spending ti
 
 ### 规模化产出
 
-- <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">4 个可复用 Skill</span> — 其中 2 个已上线 GarageHub 平台供团队直接调用
-- <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">106 个 CLI 命令</span> — 覆盖平台核心能力
-- <span className="bg-purple-100 dark:bg-purple-900/30 text-foreground px-1.5 py-0.5 rounded font-medium">1 个飞书 Bot</span> — 支持私聊/群聊/话题三种交互
+- **4 个可复用 Skill** — 其中 2 个已上线 GarageHub 平台供团队直接调用
+- **106 个 CLI 命令** — 覆盖平台核心能力
+- **1 个飞书 Bot** — 支持私聊/群聊/话题三种交互
 - **知识资产** — 数据库表结构完整梳理、TKO 模块操作手册
 - **可复制框架** — 已可适配到其他业务系统
 

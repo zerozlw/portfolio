@@ -19,12 +19,12 @@ export function CaseStudyLayout({ project, children }: CaseStudyLayoutProps) {
   const { locale, t } = useLanguage();
 
   return (
-    <article className="pt-24 pb-24">
+    <article className="pt-28 pb-32">
       {/* Back navigation */}
       <Container>
         <Link
           href="/projects"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-foreground"
+          className="mb-12 inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-foreground"
         >
           <ArrowLeft size={14} />
           {t.projects.backToProjects}
@@ -32,22 +32,22 @@ export function CaseStudyLayout({ project, children }: CaseStudyLayoutProps) {
       </Container>
 
       {/* Hero */}
-      <Container className="mb-16">
-        <div className="max-w-3xl">
+      <Container className="mb-20">
+        <div className="max-w-[42rem]">
           <FadeIn>
-            <div className="flex items-center gap-3 text-sm text-muted">
-              <time dateTime={project.date}>{formatDate(project.date)}</time>
-            </div>
+            <time dateTime={project.date} className="text-sm text-muted">
+              {formatDate(project.date)}
+            </time>
           </FadeIn>
 
           <FadeIn delay={0.05}>
-            <h1 className="mt-4 text-4xl font-normal tracking-tight text-foreground sm:text-5xl">
+            <h1 className="mt-3 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl leading-tight">
               {locale === "zh" ? project.titleZh : project.title}
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <p className="mt-4 text-xl text-muted">
+            <p className="mt-5 text-lg text-muted leading-relaxed">
               {locale === "zh" ? project.descriptionZh : project.description}
             </p>
           </FadeIn>
@@ -57,7 +57,7 @@ export function CaseStudyLayout({ project, children }: CaseStudyLayoutProps) {
               {(locale === "zh" ? project.tagsZh : project.tags).map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-muted/50 px-3 py-1 text-xs text-muted"
+                  className="rounded-full bg-card border border-border px-3 py-1 text-xs text-muted"
                 >
                   {tag}
                 </span>
@@ -68,9 +68,9 @@ export function CaseStudyLayout({ project, children }: CaseStudyLayoutProps) {
       </Container>
 
       {/* Hero Image */}
-      <Container className="mb-16">
+      <Container className="mb-20">
         <FadeIn delay={0.2}>
-          <div className="relative aspect-video overflow-hidden rounded-xl bg-muted">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-muted">
             <Image
               src={project.image}
               alt={locale === "zh" ? project.titleZh : project.title}
@@ -82,10 +82,10 @@ export function CaseStudyLayout({ project, children }: CaseStudyLayoutProps) {
         </FadeIn>
       </Container>
 
-      {/* Content with scroll fade-in */}
+      {/* Content */}
       <Container>
         <FadeInSection>
-          <div className="mx-auto max-w-3xl prose prose-neutral dark:prose-invert prose-headings:font-normal prose-headings:tracking-tight prose-p:text-muted prose-li:text-muted prose-strong:text-foreground prose-a:text-foreground prose-pre:bg-muted/50 prose-pre:border prose-pre:border-border">
+          <div className="mx-auto max-w-[42rem] prose prose-neutral dark:prose-invert prose-headings:font-semibold prose-headings:tracking-tight prose-p:text-muted prose-li:text-muted prose-strong:text-foreground prose-a:text-foreground prose-pre:bg-muted/50 prose-pre:border prose-pre:border-border">
             {children}
           </div>
         </FadeInSection>
