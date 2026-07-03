@@ -93,18 +93,20 @@ I noticed something interesting: as a product manager, I was already spending ti
 
 ### Technical Architecture
 
-- **Feishu Entry**: Private chat, group @mention, and topic threads — zero-friction access for all users
-- **Agent Framework**: Built on Claude Code Agent SDK, supporting **20-turn** multi-turn conversations, screenshot understanding, and file delivery
-- **Knowledge Base**: **8 Markdown operation manuals** + complete data warehouse schema documentation + business source code submodule (GitLab)
-- **Data Access**: DataWorks read-only token, Agent queries the data warehouse directly
-- **Deployment**: Matrix (Pre/Prod) + Docker + CI/CD automated pipeline
-- **Observability**: OneTrack analytics + Shujing BI dashboard — monitoring request volume, success rate, latency, and token consumption
-- **CLI Extension**: **106 CLI commands** developed, encapsulating core platform capabilities as command-line tools
-
-<div className="not-prose my-8">
+<div className="not-prose my-6">
 <picture>
 <img src="/images/projects/arch-en.svg" alt="IDP Agent Architecture" width="800" height="480" className="w-full rounded-xl border border-border bg-card" />
 </picture>
+</div>
+
+<div className="not-prose mt-4 text-xs text-muted/70 leading-relaxed space-y-1">
+<p><strong className="text-muted">Feishu Entry</strong> — Private chat, group @mention, and topic threads</p>
+<p><strong className="text-muted">Agent Framework</strong> — Claude Code Agent SDK, 20-turn conversations, screenshot understanding, file delivery</p>
+<p><strong className="text-muted">Knowledge Base</strong> — 8 Markdown manuals + data warehouse schema + business source code submodule</p>
+<p><strong className="text-muted">Data Access</strong> — DataWorks read-only token, direct data warehouse queries</p>
+<p><strong className="text-muted">Deployment</strong> — Matrix (Pre/Prod) + Docker + CI/CD</p>
+<p><strong className="text-muted">Observability</strong> — OneTrack analytics + Shujing BI dashboard</p>
+<p><strong className="text-muted">CLI Extension</strong> — 106 commands covering core platform capabilities</p>
 </div>
 
 </En>
@@ -156,18 +158,20 @@ I noticed something interesting: as a product manager, I was already spending ti
 
 ### 技术架构
 
-- **飞书入口**：私聊、群聊 @、话题回复三种交互方式，用户零门槛使用
-- **Agent 框架**：基于 Claude Code Agent SDK，支持 **20 轮**多轮对话、截图理解、文件回传
-- **知识库**：**8 份 Markdown 操作手册** + 数仓表结构完整梳理 + 业务源码 submodule
-- **数据能力**：接入 DataWorks 只读 Token，Agent 直接查数仓回答
-- **部署**：Matrix（Pre/Prod）+ Docker + CI/CD 自动化流水线
-- **可观测性**：OneTrack 埋点 + 数鲸 BI 看板，监控请求量、成功率、耗时、token 消耗
-- **CLI 扩展**：累计完成 **106 个 CLI 命令**，将平台核心能力封装为命令行工具
-
-<div className="not-prose my-8">
+<div className="not-prose my-6">
 <picture>
 <img src="/images/projects/arch-zh.svg" alt="IDP Agent 技术架构" width="800" height="480" className="w-full rounded-xl border border-border bg-card" />
 </picture>
+</div>
+
+<div className="not-prose mt-4 text-xs text-muted/70 leading-relaxed space-y-1">
+<p><strong className="text-muted">飞书入口</strong> — 私聊、群聊 @、话题回复，零门槛使用</p>
+<p><strong className="text-muted">Agent 框架</strong> — Claude Code Agent SDK，20 轮多轮对话、截图理解、文件回传</p>
+<p><strong className="text-muted">知识库</strong> — 8 份 Markdown 操作手册 + 数仓表结构 + 业务源码 submodule</p>
+<p><strong className="text-muted">数据能力</strong> — DataWorks 只读 Token，直接查数仓</p>
+<p><strong className="text-muted">部署</strong> — Matrix（Pre/Prod）+ Docker + CI/CD</p>
+<p><strong className="text-muted">可观测性</strong> — OneTrack 埋点 + 数鲸 BI 看板</p>
+<p><strong className="text-muted">CLI 扩展</strong> — 106 个命令覆盖平台核心能力</p>
 </div>
 
 </Zh>
