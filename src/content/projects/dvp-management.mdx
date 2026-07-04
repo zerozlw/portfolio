@@ -1,0 +1,228 @@
+---
+title: "Automated Change Impact Analysis Engine"
+titleZh: "自动化变更影响分析引擎"
+description: "Explore new business models for efficiency and lean operations."
+descriptionZh: "探索新的业务模型来提效。"
+date: "2025-12-01"
+image: "/images/projects/dvp-hero.jpg"
+tags: ["Algorithm", "Automotive", "Platform"]
+tagsZh: ["算法", "汽车", "平台"]
+featured: true
+order: 2
+---
+
+<En>
+
+## Background
+
+### The Problem
+
+When an engineering change happens in vehicle R&D, you need to trace its ripple effect on test tasks and sample car configurations — spanning MVPS validation rules, BOM structures, and vehicle configurations. These pieces of knowledge are scattered across different people's heads and scattered documents. Previously this was done manually with Excel, taking days. One mistake in information transfer can lead to **wasted sample cars, project delays, and even millions in losses**.
+
+### The Insight
+
+Every time a change occurs, someone is mentally acting as an "impact analysis engine" — figuring out which tests are affected, which sample cars need adjustment, and what the validation implications are. This is cognitively expensive, error-prone, and impossible to scale. What if we could **build a shared engine**:connecting engineering change data, BOM structures, sample car configurations, and validation experience into an automated pipeline, replacing manual tracing — the most time-consuming and error-prone part of the process? This would dramatically reduce the barrier and time cost of change planning.
+
+</En>
+
+<Zh>
+
+## 背景
+
+### 问题
+
+在整车研发中，一个工程变更发生后，需要追溯它对试验任务和样车配置的连锁影响——涉及 MVPS 验证规则、BOM 结构、整车配置等多个维度，这些知识散落在不同人脑子里和零散文档中。之前完全靠人工拿 Excel 一个个对，耗时好几天，一旦信息传递出差错，就可能导致**样车浪费、项目延期，甚至百万级的经济损失**。
+
+### 灵感
+
+每次发生变更，都有一个人在脑子里当"影响分析引擎"——判断哪些试验受影响、哪些样车要调整、验证层面有什么后果。认知负荷极高，容易出错，根本无法规模化。倘若我们抽象规则，做出一个**共用的"引擎"**：把工程变更数据、BOM 结构、样车配置和验证经验串成自动化流水线，用引擎替代人工追溯这个最耗时、最容易出错的环节。将会大大减少变更策划的门槛和耗时。
+
+</Zh>
+
+<En>
+
+## What I Did
+
+Building this engine required a three-phase approach: first, consolidating scattered data assets (sample cars, BOM, test plans); second, encoding expert knowledge into computable rules; and third, constructing an automated pipeline from engineering change to test task adjustment.
+
+<img src="/images/projects/dvp-process-en.svg" alt="Process flow" className="w-full" />
+
+<div className="not-prose mt-3 text-xs text-muted/70">
+一个车门把手引发的蝴蝶效应：一张工程变更单要求把车门把手从零件 A 换成零件 B。引擎拿到这张单子后，先查 BOM 发现这个把手关联了 12 项试验任务，再通过 MVPS 规则判定其中 2 项是强关联——贴合测试和水密封测试必须重做，风噪测试影响较弱可以继续。试验计划一改，样车 #1024 因为装了旧把手需要重新分配，#1025 不受影响。整个过程，从一张变更单到所有计划同步更新，秒级完成。
+</div>
+
+### Data Infrastructure
+
+Established the data foundation for the impact analysis engine, including sample car configurations, BOM structures, and test plans across all vehicle programs. Successfully onboarded **1,332 test task records** for the XX project and integrated BOM data to enable part-to-test correlation mapping.
+
+### Change Impact Analysis Algorithm
+
+Designed and implemented the automated change impact analysis engine — a system that traces the full downstream effect of a single engineering change.
+
+<img src="/images/projects/dvp-algo-en.svg" alt="Algorithm architecture" className="w-full" />
+
+<div className="not-prose mt-2 text-xs text-muted/70 space-y-0">
+<p><strong>Data Integration Layer</strong> — Unified ingestion of EWO/PWO/DWO change orders, BOM hierarchical structures, sample car configurations, and MVPS validation experience library into a single analysis context.</p>
+<p><strong>Correlation Engine</strong> — Part-to-test association analysis based on MVPS rules, computing correlation strength between changed parts and affected test tasks. Determines which tests must be redone, which can continue, and evaluates sample car usability.</p>
+<p><strong>Output Generator</strong> — Produces actionable deliverables: updated test plans, sample car reassignment recommendations, and impact traceability reports.</p>
+</div>
+
+</En>
+
+<Zh>
+
+## 我的行动
+
+搭建这个引擎分三步走：先整合散落在各系统中的数据资产（样车、BOM、试验计划），再将专家经验抽象为可计算的规则，最终构建一条从工程变更到试验任务调整的自动化链路。
+
+<img src="/images/projects/dvp-process-zh.svg" alt="流程图" className="w-full" />
+
+<div className="not-prose mt-3 text-xs text-muted/70">
+一个车门把手引发的蝴蝶效应：一张工程变更单要求把车门把手从零件 A 换成零件 B。引擎拿到这张单子后，先查 BOM 发现这个把手关联了 12 项试验任务，再通过 MVPS 规则判定其中 2 项是强关联——贴合测试和水密封测试必须重做，风噪测试影响较弱可以继续。试验计划一改，样车 #1024 因为装了旧把手需要重新分配，#1025 不受影响。整个过程，从一张变更单到所有计划同步更新，秒级完成。
+</div>
+
+### 数据基建
+
+搭建了影响分析引擎运行所需的数据基础，涵盖所有车型项目的样车配置、BOM 结构及试验计划。成功将 XX 项目 **1332 条试验任务**数据上线平台，并完成 BOM 数据接入，建立了零件与试验的关联映射关系。
+
+### 变更影响分析算法
+
+设计并实现了自动化变更影响分析引擎——一个用于追溯单个工程变更全链路下游影响的系统。
+
+<img src="/images/projects/dvp-algo-zh.svg" alt="算法架构" className="w-full" />
+
+<div className="not-prose mt-2 text-xs text-muted/70 space-y-0">
+<p><strong>数据整合层</strong> — 将 EWO/PWO/DWO 变更单、BOM 层级结构、样车配置与 MVPS 验证经验库统一接入分析上下文。</p>
+<p><strong>关联引擎</strong> — 基于 MVPS 规则执行零件-试验关联分析，计算变更零件与受影响试验任务之间的关联强度，判定哪些试验必须重做、哪些可以继续，并评估样车可用性。</p>
+<p><strong>输出生成器</strong> — 生成可执行的交付物：变更后的试验计划、样车重新分配方案及影响追溯报告。</p>
+</div>
+
+</Zh>
+
+<En>
+
+## Innovation
+
+**Built a human-in-the-loop learning mechanism.** Every time the engine produces an impact analysis, practitioners rate its suggestions. This feedback continuously refines the MVPS correlation rules, turning operational experience into structured system knowledge — the engine gets smarter with every change it processes.
+
+</En>
+
+<Zh>
+
+## 创新性
+
+**构建了人机协同的学习机制。** 引擎每次产出影响分析后，由业务人员对其建议进行评价。反馈数据持续校准 MVPS 关联规则，将一线操作经验转化为结构化的系统知识——引擎在每一次变更处理中变得更强。
+
+</Zh>
+
+<En>
+
+## Impact
+
+This platform now serves the **entire vehicle test department (500+ users)** across all vehicle programs. Every DVP, sample car, and test plan dataset has been migrated to the platform.
+
+<div className="not-prose my-8">
+<div className="grid grid-cols-1 gap-8 md:grid-cols-5 items-start">
+<div className="md:col-span-3 space-y-3">
+
+- **Test Planning**: 1,332 test tasks for XX project successfully onboarded
+- **Change Evaluation**: From **days** of manual cross-checking → **seconds** of automated assessment
+- **Coverage**: All vehicle programs' DVP and sample car data on the platform
+- **Users**: **500+** vehicle test department members
+
+</div>
+</div>
+</div>
+
+### Efficiency Gains
+
+<div className="not-prose my-6 overflow-x-auto">
+<table className="w-full text-xs border-collapse">
+<thead>
+<tr className="border-b-2 border-border">
+<th className="text-left py-3 px-4 font-semibold text-foreground text-xs uppercase tracking-wider">Metric</th>
+<th className="text-left py-3 px-4 font-semibold text-foreground text-xs uppercase tracking-wider">Before</th>
+<th className="text-left py-3 px-4 font-semibold text-foreground text-xs uppercase tracking-wider">After</th>
+<th className="text-left py-3 px-4 font-semibold text-foreground text-xs uppercase tracking-wider">Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr className="border-b border-border/50 hover:bg-card transition-colors">
+<td className="py-3 px-4 text-muted whitespace-nowrap">Change impact assessment</td>
+<td className="py-3 px-4 text-muted whitespace-nowrap">Days (manual cross-check)</td>
+<td className="py-3 px-4 text-muted whitespace-nowrap">Seconds (automated)</td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">1000x+</span></td>
+</tr>
+<tr className="border-b border-border/50 hover:bg-card transition-colors">
+<td className="py-3 px-4 text-muted whitespace-nowrap">Test task onboarding</td>
+<td className="py-3 px-4 text-muted whitespace-nowrap">Manual Excel management</td>
+<td className="py-3 px-4 text-muted whitespace-nowrap">1,332 tasks live on platform</td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">Full digitization</span></td>
+</tr>
+<tr className="hover:bg-card transition-colors">
+<td className="py-3 px-4 text-muted whitespace-nowrap">User coverage</td>
+<td className="py-3 px-4 text-muted whitespace-nowrap">Fragmented Excel workflows</td>
+<td className="py-3 px-4 text-muted whitespace-nowrap">500+ unified platform users</td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">All programs</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</En>
+
+<Zh>
+
+## 影响
+
+该平台现已覆盖**整车测试部全部成员（500+人）**，所有车型项目的 DVP、样车、试验计划数据均已迁移上平台。
+
+<div className="not-prose my-8">
+<div className="grid grid-cols-1 gap-8 md:grid-cols-5 items-start">
+<div className="md:col-span-3 space-y-3">
+
+- **试验计划**：XX 项目 **1332 条试验任务**数据成功上线
+- **变更评估**：从人工校对的**数天**缩短至**秒级**自动完成
+- **覆盖范围**：所有车型项目的 DVP、样车数据全部上平台
+- **用户规模**：整车测试部 **500+** 名成员
+
+</div>
+</div>
+</div>
+
+### 提效收益
+
+<div className="not-prose my-6 overflow-x-auto">
+<table className="w-full text-xs border-collapse">
+<thead>
+<tr className="border-b-2 border-border">
+<th className="text-left py-3 px-4 font-semibold text-foreground text-xs uppercase tracking-wider">指标</th>
+<th className="text-left py-3 px-4 font-semibold text-foreground text-xs uppercase tracking-wider">Before</th>
+<th className="text-left py-3 px-4 font-semibold text-foreground text-xs uppercase tracking-wider">After</th>
+<th className="text-left py-3 px-4 font-semibold text-foreground text-xs uppercase tracking-wider">提效幅度</th>
+</tr>
+</thead>
+<tbody>
+<tr className="border-b border-border/50 hover:bg-card transition-colors">
+<td className="py-3 px-4 text-muted whitespace-nowrap">变更影响评估</td>
+<td className="py-3 px-4 text-muted whitespace-nowrap">数天（人工校对）</td>
+<td className="py-3 px-4 text-muted whitespace-nowrap">秒级（自动完成）</td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">1000 倍+</span></td>
+</tr>
+<tr className="border-b border-border/50 hover:bg-card transition-colors">
+<td className="py-3 px-4 text-muted whitespace-nowrap">试验任务上线</td>
+<td className="py-3 px-4 text-muted whitespace-nowrap">Excel 手动管理</td>
+<td className="py-3 px-4 text-muted whitespace-nowrap">1332 条任务上线</td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">全面数字化</span></td>
+</tr>
+<tr className="hover:bg-card transition-colors">
+<td className="py-3 px-4 text-muted whitespace-nowrap">用户覆盖</td>
+<td className="py-3 px-4 text-muted whitespace-nowrap">分散的 Excel 工作流</td>
+<td className="py-3 px-4 text-muted whitespace-nowrap">500+ 统一平台用户</td>
+<td className="py-3 px-4"><span className="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded text-xs font-semibold">全项目覆盖</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</Zh>

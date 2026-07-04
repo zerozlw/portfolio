@@ -11,10 +11,18 @@ const featuredProjects = [
   {
     slug: "enterprise-ai-agent",
     titleEn: "Enterprise AI Agent",
-    titleZh: "企业级 AI Agent",
-    descriptionEn: "An AI agent that automates complex enterprise workflows",
-    descriptionZh: "自动化复杂企业工作流的 AI Agent",
+    titleZh: "可复用的企业级 AI Agent",
+    descriptionEn: "What if enterprise platforms had their own brain?",
+    descriptionZh: "如何让企业平台拥有一个自己的大脑？",
     image: "/images/projects/idp-agent-architecture.png",
+  },
+  {
+    slug: "dvp-management",
+    titleEn: "Change Impact Analysis Engine",
+    titleZh: "自动化变更影响分析引擎",
+    descriptionEn: "Explore new business models for efficiency and lean operations.",
+    descriptionZh: "探索新的业务模型来提效。",
+    image: "/images/projects/dvp-hero.jpg",
   },
   {
     slug: "nl-query",
@@ -23,14 +31,6 @@ const featuredProjects = [
     descriptionEn: "Ask questions in plain English, get answers from your data",
     descriptionZh: "用自然语言提问，从数据中获取答案",
     image: "/images/projects/nl-query-hero.png",
-  },
-  {
-    slug: "knowledge-expert",
-    titleEn: "Knowledge Expert",
-    titleZh: "知识专家",
-    descriptionEn: "AI-powered knowledge base for engineering teams",
-    descriptionZh: "面向工程团队的 AI 知识库",
-    image: "/images/projects/knowledge-hero.png",
   },
 ];
 

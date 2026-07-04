@@ -205,6 +205,20 @@ body {
   margin-bottom: 1rem;
 }
 
+/* ========== Not-prose cleanup ========== */
+.not-prose > *:last-child {
+  margin-bottom: 0;
+}
+
+.not-prose p {
+  margin: 0;
+}
+
+.not-prose p strong {
+  color: inherit;
+  font-weight: 600;
+}
+
 /* ========== Global ========== */
 html {
   scroll-behavior: smooth;

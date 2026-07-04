@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" fill="none" font-family="PingFang SC,Inter,system-ui,sans-serif">
+  <text x="350" y="22" text-anchor="middle" font-size="10" fill="#999">一个车门把手引发的蝴蝶效应</text>
+
+  <!-- Step 1: EWO -->
+  <rect x="220" y="35" width="260" height="50" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="350" y="55" text-anchor="middle" font-size="10" font-weight="500" fill="#555">工程变更单 (EWO)</text>
+  <text x="350" y="72" text-anchor="middle" font-size="9" fill="#999">车门把手: <tspan fill="#a78bfa" font-weight="600">零件A → 零件B</tspan></text>
+
+  <line x1="350" y1="85" x2="350" y2="105" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="347,105 353,105 350,111" fill="#d0d0d0"/>
+
+  <!-- Step 2: BOM -->
+  <rect x="120" y="110" width="460" height="50" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="350" y="130" text-anchor="middle" font-size="10" font-weight="500" fill="#555">BOM 影响分析</text>
+  <text x="350" y="147" text-anchor="middle" font-size="9" fill="#999"><tspan fill="#a78bfa" font-weight="600">车门把手</tspan> 出现在 3 个车型配置的 12 项试验任务中</text>
+
+  <line x1="350" y1="160" x2="350" y2="180" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="347,180 353,180 350,186" fill="#d0d0d0"/>
+
+  <!-- Step 3: Correlation -->
+  <rect x="80" y="185" width="540" height="60" rx="8" fill="#f5f5f5" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="350" y="205" text-anchor="middle" font-size="10" font-weight="500" fill="#555">关联性分析</text>
+
+  <rect x="100" y="215" width="180" height="22" rx="4" fill="#ede9fe" stroke="#a78bfa"/>
+  <text x="190" y="230" text-anchor="middle" font-size="8" fill="#7c3aed">强关联: 车门把手贴合测试</text>
+
+  <rect x="295" y="215" width="130" height="22" rx="4" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="360" y="230" text-anchor="middle" font-size="8" fill="#999">弱关联: 风噪测试</text>
+
+  <rect x="440" y="215" width="160" height="22" rx="4" fill="#ede9fe" stroke="#a78bfa"/>
+  <text x="520" y="230" text-anchor="middle" font-size="8" fill="#7c3aed">强关联: 水密封测试</text>
+
+  <line x1="250" y1="245" x2="250" y2="270" stroke="#a78bfa" stroke-width="1"/>
+  <polygon points="247,270 253,270 250,276" fill="#a78bfa"/>
+
+  <line x1="450" y1="245" x2="450" y2="270" stroke="#a78bfa" stroke-width="1"/>
+  <polygon points="447,270 453,270 450,276" fill="#a78bfa"/>
+
+  <!-- Step 4: Test Plan -->
+  <rect x="80" y="275" width="540" height="55" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="350" y="295" text-anchor="middle" font-size="10" font-weight="500" fill="#555">试验计划更新</text>
+
+  <rect x="100" y="305" width="180" height="18" rx="4" fill="#ede9fe" stroke="#a78bfa"/>
+  <text x="190" y="317" text-anchor="middle" font-size="8" fill="#7c3aed">必须重做: 贴合 + 密封测试</text>
+
+  <rect x="300" y="305" width="160" height="18" rx="4" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="380" y="317" text-anchor="middle" font-size="8" fill="#999">可继续: 风噪测试</text>
+
+  <line x1="350" y1="330" x2="350" y2="350" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="347,350 353,350 350,356" fill="#d0d0d0"/>
+
+  <!-- Step 5: Sample Car -->
+  <rect x="120" y="355" width="460" height="50" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="350" y="375" text-anchor="middle" font-size="10" font-weight="500" fill="#555">样车使用计划重新编排</text>
+
+  <rect x="140" y="385" width="200" height="14" rx="4" fill="#ede9fe" stroke="#a78bfa"/>
+  <text x="240" y="395" text-anchor="middle" font-size="8" fill="#7c3aed"><tspan fill="#a78bfa" font-weight="600">样车 #1024</tspan>: 重新分配 (车门把手受影响)</text>
+
+  <rect x="360" y="385" width="200" height="14" rx="4" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="460" y="395" text-anchor="middle" font-size="8" fill="#999">样车 #1025: 无变化</text>
+
+</svg>

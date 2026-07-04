@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 180" fill="none" font-family="PingFang SC,Inter,system-ui,sans-serif">
+  <text x="350" y="22" text-anchor="middle" font-size="10" fill="#999">多层级影响分析引擎架构</text>
+
+  <!-- Layer 1: Data Integration -->
+  <rect x="10" y="35" width="180" height="130" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="100" y="55" text-anchor="middle" font-size="10" font-weight="500" fill="#555">数据整合层</text>
+  <rect x="25" y="65" width="150" height="16" rx="3" fill="#fff" stroke="#eaeaea"/>
+  <text x="100" y="77" text-anchor="middle" font-size="8" fill="#999">EWO / PWO / DWO</text>
+  <rect x="25" y="86" width="150" height="16" rx="3" fill="#fff" stroke="#eaeaea"/>
+  <text x="100" y="98" text-anchor="middle" font-size="8" fill="#999">BOM 结构</text>
+  <rect x="25" y="107" width="150" height="16" rx="3" fill="#fff" stroke="#eaeaea"/>
+  <text x="100" y="119" text-anchor="middle" font-size="8" fill="#999">样车配置</text>
+  <rect x="25" y="128" width="150" height="16" rx="3" fill="#fff" stroke="#eaeaea"/>
+  <text x="100" y="140" text-anchor="middle" font-size="8" fill="#999">MVPS 验证规则</text>
+
+  <line x1="200" y1="100" x2="240" y2="100" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="237,97 243,97 240,103" fill="#d0d0d0"/>
+
+  <!-- Layer 2: Correlation Engine -->
+  <rect x="250" y="35" width="200" height="130" rx="8" fill="#f5f5f5" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="350" y="55" text-anchor="middle" font-size="10" font-weight="500" fill="#555">关联引擎</text>
+  <rect x="265" y="65" width="170" height="16" rx="3" fill="#fff" stroke="#eaeaea"/>
+  <text x="350" y="77" text-anchor="middle" font-size="8" fill="#999">零件 → 试验映射</text>
+  <rect x="265" y="86" width="170" height="16" rx="3" fill="#fff" stroke="#eaeaea"/>
+  <text x="350" y="98" text-anchor="middle" font-size="8" fill="#999">强关联 / 弱关联 分析</text>
+  <rect x="265" y="107" width="170" height="16" rx="3" fill="#fff" stroke="#eaeaea"/>
+  <text x="350" y="119" text-anchor="middle" font-size="8" fill="#999">必须重做 vs 可继续</text>
+  <rect x="265" y="128" width="170" height="16" rx="3" fill="#fff" stroke="#eaeaea"/>
+  <text x="350" y="140" text-anchor="middle" font-size="8" fill="#999">样车可用性评估</text>
+  <text x="350" y="162" text-anchor="middle" font-size="7" fill="#a78bfa">核心逻辑</text>
+
+  <line x1="460" y1="100" x2="500" y2="100" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="497,97 503,97 500,103" fill="#d0d0d0"/>
+
+  <!-- Layer 3: Output -->
+  <rect x="510" y="35" width="170" height="130" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="595" y="55" text-anchor="middle" font-size="10" font-weight="500" fill="#555">输出</text>
+  <rect x="525" y="65" width="140" height="16" rx="3" fill="#fff" stroke="#eaeaea"/>
+  <text x="595" y="77" text-anchor="middle" font-size="8" fill="#999">变更后的试验计划</text>
+  <rect x="525" y="86" width="140" height="16" rx="3" fill="#fff" stroke="#eaeaea"/>
+  <text x="595" y="98" text-anchor="middle" font-size="8" fill="#999">样车使用排期</text>
+  <rect x="525" y="107" width="140" height="16" rx="3" fill="#fff" stroke="#eaeaea"/>
+  <text x="595" y="119" text-anchor="middle" font-size="8" fill="#999">影响追溯报告</text>
+  <text x="595" y="145" text-anchor="middle" font-size="7" fill="#16a34a">数天 → 秒级</text>
+</svg>
