@@ -25,12 +25,12 @@ const featuredProjects = [
     image: "/images/projects/dvp-hero.jpg",
   },
   {
-    slug: "nl-query",
-    titleEn: "Natural Language Query",
-    titleZh: "自然语言查询",
-    descriptionEn: "Ask questions in plain English, get answers from your data",
-    descriptionZh: "用自然语言提问，从数据中获取答案",
-    image: "/images/projects/nl-query-hero.png",
+    slug: "monica-ai",
+    titleEn: "AI Browser Extension Analytics",
+    titleZh: "AI 浏览器插件产品分析",
+    descriptionEn: "User research-driven product optimization that halved the churn rate.",
+    descriptionZh: "用户调研驱动的产品优化，将卸载率砍半。",
+    image: "/images/projects/monica-hero.png",
   },
 ];
 
