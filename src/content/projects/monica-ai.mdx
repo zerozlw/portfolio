@@ -1,6 +1,6 @@
 ---
-title: "AI Browser Extension Product Analytics"
-titleZh: "AI 浏览器插件产品分析与功能优化"
+title: "User Research Reduces Churn"
+titleZh: "用户调研如何帮助减少用户流失"
 description: "User research-driven product optimization that halved the churn rate."
 descriptionZh: "用户调研驱动的产品优化，将卸载率砍半。"
 date: "2024-03-01"
@@ -15,13 +15,11 @@ order: 3
 
 ## Background
 
-Monica is an AI browser extension that brings ChatGPT-level capabilities directly into the browser — chat, quick actions, reading assistant, ChatPDF, YouTube summary, and more. As the product grew more complex, a pattern emerged: **most users only scratched the surface**. They used Chat and Quick Actions, ignored everything else, and had no reason to upgrade to paid plans.
+Monica is an AI browser extension targeting **overseas users**, bringing ChatGPT-level capabilities directly into the browser — chat, quick actions, reading assistant, ChatPDF, YouTube summary, and more. As the product grew more complex, a pattern emerged: **most users only scratched the surface**. They used Chat and Quick Actions, ignored everything else, and had no reason to upgrade to paid plans.
 
-The core question: **Why aren't users discovering the full value of the product, and how do we fix it?**
+Meanwhile, user feedback was flowing in daily through email — feature requests, pain points, and usage questions. These signals were scattered and unstructured, making it hard to prioritize what to build next.
 
-### The Insight
-
-The problem wasn't feature quantity — it was **feature discoverability** and **value communication**. Users were satisfied with basic features, had no motivation to explore further, and didn't understand what they were missing. To fix this, we needed to understand users deeply before designing solutions.
+The core challenge: **understand our overseas users deeply enough to make product decisions that actually move the needle on retention and conversion**.
 
 </En>
 
@@ -29,13 +27,11 @@ The problem wasn't feature quantity — it was **feature discoverability** and *
 
 ## 背景
 
-Monica 是一款 AI 浏览器插件，将 ChatGPT 级别的能力直接嵌入浏览器——Chat、快捷操作、阅读助手、ChatPDF、YouTube 摘要等。随着产品功能日益复杂，一个现象浮现：**大部分用户只用了皮毛**。他们用 Chat 和 Quick Action，忽略其他功能，也没有升级付费的意愿。
+Monica 是一款面向**海外用户**的 AI 浏览器插件，将 ChatGPT 级别的能力直接嵌入浏览器——Chat、快捷操作、阅读助手、ChatPDF、YouTube 摘要等。随着产品功能日益复杂，一个现象浮现：**大部分用户只用了皮毛**。他们用 Chat 和 Quick Action，忽略其他功能，也没有升级付费的意愿。
 
-核心问题是：**用户为什么没有发现产品的全部价值，我们怎么解决？**
+与此同时，用户反馈每天从邮箱涌入——功能请求、使用痛点、使用疑问。这些信号分散且无结构，很难判断优先级。
 
-### 灵感
-
-问题不在功能数量，而在**功能可发现性**和**价值传达**。用户满足于基础功能，没有探索动力，也不理解自己错过了什么。要解决这个问题，我们需要先深入理解用户，再设计解决方案。
+核心挑战：**深入理解海外用户，做出真正能提升留存和转化的产品决策**。
 
 </Zh>
 
@@ -43,55 +39,45 @@ Monica 是一款 AI 浏览器插件，将 ChatGPT 级别的能力直接嵌入浏
 
 ## What I Did
 
-### User Research
+**User Research.** Participated in the full research cycle, combining **survey data** (20,000 responses) with **daily email feedback** for comprehensive analysis.
 
-Led the full-cycle user research process:
+We ran two parallel research tracks:
 
-- **Quantitative**: Analyzed 20,000 survey responses to identify user segments and behavior patterns
-- **Qualitative**: Conducted 11 in-depth interviews (45 min each) with high-frequency US users — 2 paid, 9 free
-- **Key insight**: Free users were "satisfied but shallow" — they used Chat (70-75% penetration) and Quick Actions (15-20%), but barely touched other features. Most were students who couldn't afford paid plans.
+- **Email feedback**: Collected daily user feedback from inbox, replied to users, followed up on issues, and identified recurring patterns. When a problem was mentioned repeatedly, it became a priority.
+- **Overseas interviews**: Semi-structured interviews with high-frequency users across different countries and regions, confirming paid vs. free user motivations and pain points.
 
-### User Segmentation & Strategy
+Through cross-validation of both methods, we determined which features were worth optimizing, used competitive analysis to shape the approach, and measured results through feedback data and retention rates.
 
-Designed a **4-quadrant user classification** framework:
-
-<div className="not-prose my-4 overflow-x-auto">
-<table className="w-full text-xs border-collapse">
-<thead>
-<tr className="border-b-2 border-border">
-<th className="text-left py-2 px-3"></th>
-<th className="text-left py-2 px-3 font-semibold text-foreground text-xs uppercase tracking-wider">High Loyalty</th>
-<th className="text-left py-2 px-3 font-semibold text-foreground text-xs uppercase tracking-wider">Low Loyalty</th>
-</tr>
-</thead>
-<tbody>
-<tr className="border-b border-border/50">
-<td className="py-2 px-3 font-medium text-foreground">Paid</td>
-<td className="py-2 px-3 text-muted">Retain & deepen</td>
-<td className="py-2 px-3 text-muted">Convert to loyal</td>
-</tr>
-<tr>
-<td className="py-2 px-3 font-medium text-foreground">Free</td>
-<td className="py-2 px-3 text-muted">Convert to paid</td>
-<td className="py-2 px-3 text-muted">Re-engage or churn</td>
-</tr>
-</tbody>
-</table>
+<div className="not-prose my-6">
+<img src="/images/projects/monica-research-en.svg" alt="Research process" className="w-full rounded-xl bg-white/70" />
 </div>
 
-This became the foundation for targeted product strategies — different tactics for different user groups.
+**What we learned from users.** The research revealed clear patterns across user groups:
 
-### Feature Optimization
+> *"I use Monica every day for work emails and document polishing. The sidebar is convenient — I don't need to open a new tab like ChatGPT."* — Unpaid user, UX Designer
 
-Based on research insights, designed and pushed forward three key optimizations:
+> *"40 free queries are enough for me. I'm a student, I can't afford paid plans."* — Unpaid user, Student
 
-- **Language Translation**: Enhanced for non-native English speakers (9/11 interviewees) who used Monica primarily for email and document polishing
-- **Quick Toolbar**: Streamlined the most-used feature path, reducing friction for daily tasks
-- **PDF Reader (ChatPDF)**: Optimized for academic use cases — students reading 20-60 page papers needed multi-PDF comparison and better translation that preserves images
+> *"I subscribed for YouTube Summary. Before watching a video, I check the summary to see if it's worth my time."* — Paid user, AI Engineer, $240K+ income
+
+> *"I used Monica for my master's thesis — reading 20-60 page papers with ChatPDF. But sometimes the PDF uploads but Monica can't read it."* — Paid user, Special Education Teacher
+
+**Three user groups emerged, each with distinct needs:**
+
+**Group 1: Free users who don't explore (7/9 interviewees).** They used only Chat and Quick Actions, never discovered other features. Some didn't even know PDF reader or YouTube summary existed. They were satisfied with basics and had no motivation to upgrade.
+→ Optimized the **Quick Toolbar** to surface high-value features upfront.
+
+**Group 2: Non-native English speakers (9/11 interviewees).** They used Monica primarily for email and document polishing — a workflow we hadn't specifically optimized for.
+→ Enhanced **Language Translation** to better serve their document polishing workflow.
+
+**Group 3: Students needing academic tools (3/9 interviewees).** They needed to read 20-60 page papers, compare multiple PDFs, and preserve images during translation — features ChatPDF didn't handle well.
+→ Optimized **PDF Reader (ChatPDF)** for academic use cases: multi-PDF comparison and image-preserving translation.
 
 <div className="not-prose my-6">
 <img src="/images/projects/monica-features.jpg" alt="Monica features" className="w-full rounded-xl bg-white/70" />
 </div>
+
+**Some requests we chose not to pursue.** Users asked for many features, but not all were worth building. For example, several users wanted vibe coding capabilities or adding niche languages to translation. Given cost, ROI, and engineering bandwidth, we deprioritized these — a reminder that saying no is as important as saying yes.
 
 </En>
 
@@ -99,79 +85,45 @@ Based on research insights, designed and pushed forward three key optimizations:
 
 ## 我的行动
 
-### 用户研究
+**用户研究。** 参与了完整的调研流程，将**调研数据**与**邮箱反馈数据**结合分析。
 
-主导了完整的用户研究流程：
+我们同时推进两条调研线：
 
-- **定量分析**：分析 2 万份问卷数据，识别用户分群和行为模式
-- **定性深访**：对 11 位高频美国用户进行深度访谈（每人 45 分钟），其中 2 位付费用户、9 位免费用户
-- **核心洞察**：免费用户"满足但浅层"——Chat 渗透率 70-75%，Quick Action 15-20%，但几乎不触碰其他功能。大部分是学生党，没有付费能力。
+- **邮箱反馈**：每日定时挖掘有价值的邮箱反馈，给予反馈并追问用户。如果一个问题被反复提及，就会形成"这个问题相对重要"的结论。
+- **海外访谈**：抽取高频用户中不同国家和地区的用户进行半结构化访谈，确认付费用户和免费用户的使用动机和痛点。
 
-### 用户分层与策略
+通过两种调研方法交叉验证，我们向上层说明哪些功能值得推进优化，并通过竞品分析确认优化的形态和方向，最后通过反馈数据及留存率来判断方案结果，形成闭环。
 
-设计了**四象限用户分类**框架：
-
-<div className="not-prose my-4 overflow-x-auto">
-<table className="w-full text-xs border-collapse">
-<thead>
-<tr className="border-b-2 border-border">
-<th className="text-left py-2 px-3"></th>
-<th className="text-left py-2 px-3 font-semibold text-foreground text-xs uppercase tracking-wider">高忠诚度</th>
-<th className="text-left py-2 px-3 font-semibold text-foreground text-xs uppercase tracking-wider">低忠诚度</th>
-</tr>
-</thead>
-<tbody>
-<tr className="border-b border-border/50">
-<td className="py-2 px-3 font-medium text-foreground">付费</td>
-<td className="py-2 px-3 text-muted">留存 & 深挖</td>
-<td className="py-2 px-3 text-muted">转化为忠诚</td>
-</tr>
-<tr>
-<td className="py-2 px-3 font-medium text-foreground">免费</td>
-<td className="py-2 px-3 text-muted">转化为付费</td>
-<td className="py-2 px-3 text-muted">重新激活或流失</td>
-</tr>
-</tbody>
-</table>
+<div className="not-prose my-6">
+<img src="/images/projects/monica-research-zh.svg" alt="调研流程" className="w-full rounded-xl bg-white/70" />
 </div>
 
-这成为差异化产品策略的基础——不同用户群体用不同策略。
+**用户说了什么。** 调研揭示了不同用户群体的清晰画像：
 
-### 功能优化
+> *"我每天用 Monica 处理工作邮件和润色文档。侧边栏很方便——不需要像 ChatGPT 那样开新标签页。"* — 免费用户，UX 设计师
 
-基于调研洞察，主导设计并推进了三项关键优化：
+> *"40 个免费 query 对我够用了。我是学生，买不起付费版。"* — 免费用户，学生
 
-- **语言翻译**：针对非英语母语用户（9/11 受访者）优化，他们主要用 Monica 润色邮件和文档
-- **快捷工具栏**：精简最高频功能路径，降低日常任务的操作摩擦
-- **PDF 阅读（ChatPDF）**：针对学术场景优化——学生需要阅读 20-60 页论文，需要多 PDF 对比和保留图片的翻译能力
+> *"我订阅是为了 YouTube Summary。看视频前先看摘要，判断值不值得花时间。"* — 付费用户，AI 工程师，收入 $240K+
+
+> *"我用 Monica 写硕士论文——读 20-60 页的课程文档。但有时候 PDF 上传成功了 Monica 却读不出来。"* — 付费用户，特殊教育老师
+
+**三类用户群体浮现，每类需求不同：**
+
+**群体 1：不探索功能的免费用户（7/9 受访者）。** 他们只用 Chat 和 Quick Actions，从未发现其他功能。部分用户甚至不知道 PDF 阅读和 YouTube 摘要的存在。他们满足于基础功能，没有升级动力。
+→ 优化**快捷工具栏**，将高价值功能前置展示。
+
+**群体 2：非英语母语用户（9/11 受访者）。** 他们主要用 Monica 润色邮件和文档——这是一个我们未专门优化的工作流。
+→ 增强**语言翻译**能力，更好地服务文档润色场景。
+
+**群体 3：需要学术工具的学生（3/9 受访者）。** 他们需要阅读 20-60 页论文、对比多个 PDF、翻译时保留图片——ChatPDF 之前做不好这些。
+→ 优化 **PDF 阅读（ChatPDF）**，支持多 PDF 对比和保留图片的翻译。
 
 <div className="not-prose my-6">
 <img src="/images/projects/monica-features.jpg" alt="Monica 功能" className="w-full rounded-xl bg-white/70" />
 </div>
 
-</Zh>
-
-<En>
-
-## Innovation
-
-**Data-Driven Product Decisions.** Every feature optimization was grounded in user research data, not assumptions. The 4-quadrant user classification framework became a reusable tool for prioritizing what to build, for whom, and why.
-
-**Research-to-Action Pipeline.** Established a complete flow: survey data → deep interviews → insight extraction → feature prioritization → design → measurement. This pipeline can be replicated for any product optimization cycle.
-
-**Cross-Cultural User Understanding.** Deep-dived into the needs of non-native English speakers in the US market — a segment often overlooked in AI tool design. The translation and PDF reader optimizations directly addressed their specific workflows.
-
-</En>
-
-<Zh>
-
-## 创新性
-
-**数据驱动的产品决策。** 每一项功能优化都基于用户调研数据而非假设。四象限用户分类框架成为可复用的工具，用于决定做什么、为谁做、为什么做。
-
-**调研到行动的完整链路。** 建立了完整流程：问卷数据 → 深度访谈 → 洞察提取 → 功能优先级 → 设计 → 效果度量。这条链路可复制到任何产品优化周期。
-
-**跨文化用户理解。** 深入研究了美国市场非英语母语用户的需求——这个在 AI 工具设计中常被忽视的群体。翻译和 PDF 阅读优化直接针对他们的工作流程。
+**有些需求我们选择不做。** 用户提了很多需求，但不是每个都值得做。比如有用户希望增加 vibe coding 能力，或者翻译新增小语种。结合成本、投入产出比和工程资源，我们选择不优先推进——**说不做和说做一样重要**。
 
 </Zh>
 

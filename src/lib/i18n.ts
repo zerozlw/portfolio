@@ -67,7 +67,7 @@ export const translations: Record<Locale, Translations> = {
       resume: "Experience",
     },
     home: {
-      name: "曾政",
+      name: "Zoe Zeng",
       roleLine: "Agent Product Manager | Enterprise Platform | Enterprise AI",
       expLine: "2 Years of Product Experience | Xiaomi EV",
       tagline: "Building AI Products for Enterprise Workflows.",

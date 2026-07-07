@@ -20,14 +20,14 @@ const featuredProjects = [
     slug: "dvp-management",
     titleEn: "Change Impact Analysis Engine",
     titleZh: "自动化变更影响分析引擎",
-    descriptionEn: "Explore new business models for efficiency and lean operations.",
-    descriptionZh: "探索新的业务模型来提效。",
+    descriptionEn: "What if we turned the human analysis engine into a reusable one?",
+    descriptionZh: "如果把人脑这台分析引擎通用化，会怎样？",
     image: "/images/projects/dvp-hero.jpg",
   },
   {
     slug: "monica-ai",
     titleEn: "AI Browser Extension Analytics",
-    titleZh: "AI 浏览器插件产品分析",
+    titleZh: "用户调研如何帮助减少用户流失",
     descriptionEn: "User research-driven product optimization that halved the churn rate.",
     descriptionZh: "用户调研驱动的产品优化，将卸载率砍半。",
     image: "/images/projects/monica-hero.png",
@@ -46,8 +46,8 @@ export function FeaturedProjects() {
           {featuredProjects.map((project, index) => (
             <FadeIn key={project.slug} delay={index * 0.1}>
               <Link href={`/projects/${project.slug}`} className="group block">
-                <div className="overflow-hidden rounded-xl border border-border bg-white/70 transition-all duration-300 hover:shadow-lg hover:bg-white/90">
-                  <div className="relative aspect-video overflow-hidden bg-white/50">
+                <div className="overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg">
+                  <div className="relative aspect-video overflow-hidden">
                     <Image
                       src={project.image}
                       alt={locale === "zh" ? project.titleZh : project.titleEn}
