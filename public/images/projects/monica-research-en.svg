@@ -1,45 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 220" fill="none" font-family="Inter,system-ui,sans-serif">
-  <text x="350" y="22" text-anchor="middle" font-size="10" fill="#999">Research Process: Two tracks running in parallel</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 200" fill="none">
+  <rect width="820" height="200" fill="#fafafa" rx="12"/>
+  <text x="410" y="22" text-anchor="middle" font-size="11" fill="#999" font-family="Inter,sans-serif">Two tracks running in parallel</text>
 
-  <!-- Track 1: Email Feedback -->
-  <rect x="20" y="35" width="310" height="170" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="175" y="55" text-anchor="middle" font-size="10" font-weight="500" fill="#555">Daily Email Feedback</text>
+  <rect x="10" y="35" width="100" height="55" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="60" y="55" text-anchor="middle" font-size="10" font-weight="500" fill="#555" font-family="Inter,sans-serif">Daily Email</text>
+  <text x="60" y="68" text-anchor="middle" font-size="9" fill="#999" font-family="Inter,sans-serif">Feedback</text>
 
-  <rect x="35" y="65" width="280" height="18" rx="4" fill="#fff" stroke="#eaeaea"/>
-  <text x="175" y="78" text-anchor="middle" font-size="8" fill="#999">Collect user feedback from inbox daily</text>
+  <line x1="110" y1="62" x2="130" y2="62" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="127,59 133,59 130,65" fill="#d0d0d0"/>
 
-  <rect x="35" y="90" width="280" height="18" rx="4" fill="#fff" stroke="#eaeaea"/>
-  <text x="175" y="103" text-anchor="middle" font-size="8" fill="#999">Reply & follow up with users</text>
+  <rect x="135" y="35" width="100" height="55" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="185" y="55" text-anchor="middle" font-size="10" font-weight="500" fill="#555" font-family="Inter,sans-serif">Identify</text>
+  <text x="185" y="68" text-anchor="middle" font-size="9" fill="#999" font-family="Inter,sans-serif">Patterns</text>
 
-  <rect x="35" y="115" width="280" height="18" rx="4" fill="#fff" stroke="#eaeaea"/>
-  <text x="175" y="128" text-anchor="middle" font-size="8" fill="#999">Identify recurring patterns</text>
+  <line x1="235" y1="62" x2="255" y2="62" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="252,59 258,59 255,65" fill="#d0d0d0"/>
 
-  <rect x="35" y="145" width="280" height="18" rx="4" fill="#ede9fe" stroke="#a78bfa"/>
-  <text x="175" y="158" text-anchor="middle" font-size="8" fill="#7c3aed">If issue repeats → prioritize</text>
+  <rect x="260" y="35" width="100" height="55" rx="6" fill="#ede9fe" stroke="#a78bfa"/>
+  <text x="310" y="55" text-anchor="middle" font-size="10" font-weight="500" fill="#7c3aed" font-family="Inter,sans-serif">Prioritize</text>
+  <text x="310" y="68" text-anchor="middle" font-size="9" fill="#999" font-family="Inter,sans-serif">if repeated</text>
 
-  <rect x="35" y="172" width="280" height="24" rx="4" fill="#f0fdf4" stroke="#bbf7d0"/>
-  <text x="175" y="188" text-anchor="middle" font-size="8" fill="#16a34a">→ Requirement Evaluation</text>
+  <rect x="10" y="110" width="100" height="55" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="60" y="130" text-anchor="middle" font-size="10" font-weight="500" fill="#555" font-family="Inter,sans-serif">20K Survey</text>
+  <text x="60" y="143" text-anchor="middle" font-size="9" fill="#999" font-family="Inter,sans-serif">+ 11 Interviews</text>
 
-  <!-- Track 2: Overseas Surveys -->
-  <rect x="370" y="35" width="310" height="170" rx="8" fill="#f5f5f5" stroke="#eaeaea"/>
-  <text x="525" y="55" text-anchor="middle" font-size="10" font-weight="500" fill="#555">Overseas User Interviews</text>
+  <line x1="110" y1="137" x2="130" y2="137" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="127,134 133,134 130,140" fill="#d0d0d0"/>
 
-  <rect x="385" y="65" width="280" height="18" rx="4" fill="#fff" stroke="#eaeaea"/>
-  <text x="525" y="78" text-anchor="middle" font-size="8" fill="#999">Semi-structured interviews with high-freq users</text>
+  <rect x="135" y="110" width="100" height="55" rx="6" fill="#fff" stroke="#eaeaea"/>
+  <text x="185" y="130" text-anchor="middle" font-size="10" font-weight="500" fill="#555" font-family="Inter,sans-serif">Segment</text>
+  <text x="185" y="143" text-anchor="middle" font-size="9" fill="#999" font-family="Inter,sans-serif">Users</text>
 
-  <rect x="385" y="90" width="280" height="18" rx="4" fill="#fff" stroke="#eaeaea"/>
-  <text x="525" y="103" text-anchor="middle" font-size="8" fill="#999">Across different countries & regions</text>
+  <line x1="235" y1="137" x2="255" y2="137" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="252,134 258,134 255,140" fill="#d0d0d0"/>
 
-  <rect x="385" y="115" width="280" height="18" rx="4" fill="#fff" stroke="#eaeaea"/>
-  <text x="525" y="128" text-anchor="middle" font-size="8" fill="#999">Confirm paid vs free user motivations</text>
+  <rect x="260" y="110" width="100" height="55" rx="6" fill="#ede9fe" stroke="#a78bfa"/>
+  <text x="310" y="130" text-anchor="middle" font-size="10" font-weight="500" fill="#7c3aed" font-family="Inter,sans-serif">Cross-</text>
+  <text x="310" y="143" text-anchor="middle" font-size="9" fill="#999" font-family="Inter,sans-serif">validate</text>
 
-  <rect x="385" y="145" width="280" height="18" rx="4" fill="#ede9fe" stroke="#a78bfa"/>
-  <text x="525" y="158" text-anchor="middle" font-size="8" fill="#7c3aed">Cross-validate with email feedback</text>
+  <line x1="360" y1="62" x2="400" y2="97" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="397,94 403,94 400,100" fill="#d0d0d0"/>
+  <line x1="360" y1="137" x2="400" y2="107" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="397,104 403,104 400,110" fill="#d0d0d0"/>
 
-  <rect x="385" y="172" width="280" height="24" rx="4" fill="#f0fdf4" stroke="#bbf7d0"/>
-  <text x="525" y="188" text-anchor="middle" font-size="8" fill="#16a34a">→ Insight Extraction</text>
+  <rect x="405" y="82" width="90" height="50" rx="6" fill="#f5f5f5" stroke="#a78bfa"/>
+  <text x="450" y="104" text-anchor="middle" font-size="10" font-weight="500" fill="#7c3aed" font-family="Inter,sans-serif">Insight</text>
+  <text x="450" y="116" text-anchor="middle" font-size="9" fill="#999" font-family="Inter,sans-serif">Extraction</text>
 
-  <!-- Bottom: Decision -->
-  <rect x="150" y="200" width="400" height="18" rx="4" fill="#f5f5f5" stroke="#a78bfa"/>
-  <text x="350" y="213" text-anchor="middle" font-size="8" fill="#7c3aed">Cross-validated insights → Feature prioritization → Competitive analysis → Design → Measure</text>
+  <line x1="495" y1="107" x2="515" y2="107" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="512,104 518,104 515,110" fill="#d0d0d0"/>
+
+  <rect x="520" y="82" width="90" height="50" rx="6" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="565" y="104" text-anchor="middle" font-size="10" font-weight="500" fill="#555" font-family="Inter,sans-serif">Competitive</text>
+  <text x="565" y="116" text-anchor="middle" font-size="9" fill="#999" font-family="Inter,sans-serif">Analysis</text>
+
+  <line x1="610" y1="107" x2="630" y2="107" stroke="#d0d0d0" stroke-width="1"/>
+  <polygon points="627,104 633,104 630,110" fill="#d0d0d0"/>
+
+  <rect x="635" y="82" width="80" height="50" rx="6" fill="#f5f5f5" stroke="#eaeaea"/>
+  <text x="675" y="104" text-anchor="middle" font-size="10" font-weight="500" fill="#555" font-family="Inter,sans-serif">Design</text>
+  <text x="675" y="116" text-anchor="middle" font-size="9" fill="#999" font-family="Inter,sans-serif">&amp; Ship</text>
+
+  <rect x="450" y="150" width="200" height="22" rx="4" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="550" y="165" text-anchor="middle" font-size="9" fill="#16a34a" font-family="Inter,sans-serif">Measure: Penetration + Retention</text>
 </svg>

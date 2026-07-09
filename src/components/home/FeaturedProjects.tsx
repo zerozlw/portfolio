@@ -29,7 +29,7 @@ const featuredProjects = [
     titleEn: "AI Browser Extension Analytics",
     titleZh: "产品经理如何发现值得做的需求",
     descriptionEn: "User research-driven product optimization that halved the churn rate.",
-    descriptionZh: "用户调研驱动的产品优化，将卸载率砍半。",
+    descriptionZh: "一次海外产品的用户研究帮助我们将卸载率砍半。",
     image: "/images/projects/monica-hero.png",
   },
 ];
