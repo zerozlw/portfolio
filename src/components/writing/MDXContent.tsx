@@ -1,6 +1,8 @@
 import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
 import { CopyButton } from "@/components/ui/CopyButton";
 import { En, Zh } from "@/components/writing/BilingualContent";
+import { LightboxProvider, ClickableImage } from "@/components/ui/ImageLightbox";
+import Figure from "@/components/ui/Figure";
 
 function Pre({ children, ...props }: React.HTMLAttributes<HTMLPreElement>) {
   const text =
@@ -27,6 +29,8 @@ const components = {
   pre: Pre,
   En,
   Zh,
+  img: ClickableImage,
+  Figure,
 };
 
 interface MDXContentProps {
@@ -35,8 +39,10 @@ interface MDXContentProps {
 
 export function MDXContent({ source }: MDXContentProps) {
   return (
-    <div className="prose prose-neutral dark:prose-invert prose-headings:font-normal prose-headings:tracking-tight prose-p:text-muted prose-li:text-muted prose-strong:text-foreground prose-a:text-foreground prose-pre:bg-muted/50 prose-pre:border prose-pre:border-border max-w-none">
-      <MDXRemote source={source} components={components} />
-    </div>
+    <LightboxProvider>
+      <div className="prose prose-neutral dark:prose-invert prose-headings:font-normal prose-headings:tracking-tight prose-p:text-muted prose-li:text-muted prose-strong:text-foreground prose-a:text-foreground prose-pre:bg-muted/50 prose-pre:border prose-pre:border-border max-w-none">
+        <MDXRemote source={source} components={components} />
+      </div>
+    </LightboxProvider>
   );
 }

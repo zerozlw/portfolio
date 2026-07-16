@@ -32,6 +32,7 @@ export interface Translations {
     description: string;
     live: string;
     experiment: string;
+    building: string;
     archived: string;
   };
   about: {
@@ -92,6 +93,7 @@ export const translations: Record<Locale, Translations> = {
       description: "Things I'm exploring, building, and breaking.",
       live: "live",
       experiment: "experiment",
+      building: "building",
       archived: "archived",
     },
     about: {
@@ -158,6 +160,7 @@ export const translations: Record<Locale, Translations> = {
       description: "我正在探索、构建和尝试的东西。",
       live: "进行中",
       experiment: "实验中",
+      building: "开发中",
       archived: "已归档",
     },
     about: {

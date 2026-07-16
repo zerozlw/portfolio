@@ -45,7 +45,7 @@ Every time a change occurs, someone is mentally acting as an "impact analysis en
 
 Building this engine required a three-phase approach: first, consolidating scattered data assets (sample cars, BOM, test plans); second, encoding expert knowledge into computable rules; and third, constructing an automated pipeline from engineering change to test task adjustment.
 
-<img src="/images/projects/dvp-process-en.svg" alt="Process flow" className="w-full" />
+![Process flow](/images/projects/dvp-process-en.svg)
 
 <div className="not-prose mt-3 text-xs text-muted/70">
 一个车门把手引发的蝴蝶效应：一张工程变更单要求把车门把手从零件 A 换成零件 B。引擎拿到这张单子后，先查 BOM 发现这个把手关联了 12 项试验任务，再通过 MVPS 规则判定其中 2 项是强关联——贴合测试和水密封测试必须重做，风噪测试影响较弱可以继续。试验计划一改，样车 #1024 因为装了旧把手需要重新分配，#1025 不受影响。整个过程，从一张变更单到所有计划同步更新，秒级完成。
@@ -59,7 +59,7 @@ Established the data foundation for the impact analysis engine, including sample
 
 Designed and implemented the automated change impact analysis engine — a system that traces the full downstream effect of a single engineering change.
 
-<img src="/images/projects/dvp-algo-en.svg" alt="Algorithm architecture" className="w-full" />
+![Algorithm architecture](/images/projects/dvp-algo-en.svg)
 
 <div className="not-prose mt-2 text-xs text-muted/70 space-y-0">
 <p><strong>Data Integration Layer</strong> — Unified ingestion of EWO/PWO/DWO change orders, BOM hierarchical structures, sample car configurations, and MVPS validation experience library into a single analysis context.</p>
@@ -75,7 +75,7 @@ Designed and implemented the automated change impact analysis engine — a syste
 
 搭建这个引擎分三步走：先整合散落在各系统中的数据资产（样车、BOM、试验计划），再将专家经验抽象为可计算的规则，最终构建一条从工程变更到试验任务调整的自动化链路。
 
-<img src="/images/projects/dvp-process-zh.svg" alt="流程图" className="w-full" />
+![流程图](/images/projects/dvp-process-zh.svg)
 
 <div className="not-prose mt-3 text-xs text-muted/70">
 一个车门把手引发的蝴蝶效应：一张工程变更单要求把车门把手从零件 A 换成零件 B。引擎拿到这张单子后，先查 BOM 发现这个把手关联了 12 项试验任务，再通过 MVPS 规则判定其中 2 项是强关联——贴合测试和水密封测试必须重做，风噪测试影响较弱可以继续。试验计划一改，样车 #1024 因为装了旧把手需要重新分配，#1025 不受影响。整个过程，从一张变更单到所有计划同步更新，秒级完成。
@@ -89,7 +89,7 @@ Designed and implemented the automated change impact analysis engine — a syste
 
 设计并实现了自动化变更影响分析引擎——一个用于追溯单个工程变更全链路下游影响的系统。
 
-<img src="/images/projects/dvp-algo-zh.svg" alt="算法架构" className="w-full" />
+![算法架构](/images/projects/dvp-algo-zh.svg)
 
 <div className="not-prose mt-2 text-xs text-muted/70 space-y-0">
 <p><strong>数据整合层</strong> — 将 EWO/PWO/DWO 变更单、BOM 层级结构、样车配置与 MVPS 验证经验库统一接入分析上下文。</p>

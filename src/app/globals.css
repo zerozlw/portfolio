@@ -231,7 +231,14 @@ html {
 
 /* ========== Images in MDX ========== */
 .not-prose img {
+  border-radius: 0.75rem;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .not-prose img {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .not-prose img:hover {
@@ -243,4 +250,14 @@ html {
 .dark .not-prose img:hover {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Monica project link */
+a.monica-link {
+  color: #a78bfa;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+a.monica-link:hover {
+  color: #c4b5fd;
 }

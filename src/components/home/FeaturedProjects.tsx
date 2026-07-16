@@ -26,10 +26,10 @@ const featuredProjects = [
   },
   {
     slug: "monica-ai",
-    titleEn: "AI Browser Extension Analytics",
-    titleZh: "产品经理如何发现值得做的需求",
+    titleEn: "User Research Reduces Churn",
+    titleZh: "从一封卸载问卷到流失率砍半",
     descriptionEn: "User research-driven product optimization that halved the churn rate.",
-    descriptionZh: "一次海外产品的用户研究帮助我们将卸载率砍半。",
+    descriptionZh: "从一封卸载问卷出发，通过用户研究将流失率砍半。",
     image: "/images/projects/monica-hero.png",
   },
 ];
@@ -46,7 +46,7 @@ export function FeaturedProjects() {
           {featuredProjects.map((project, index) => (
             <FadeIn key={project.slug} delay={index * 0.1}>
               <Link href={`/projects/${project.slug}`} className="group block">
-                <div className="overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg">
+                <div className="overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg min-w-0">
                   <div className="relative aspect-video overflow-hidden">
                     <Image
                       src={project.image}
@@ -55,15 +55,19 @@ export function FeaturedProjects() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-medium text-foreground">
+                  <div className="p-6 overflow-hidden min-w-0">
+                    <h3 className="text-lg font-medium text-foreground whitespace-nowrap overflow-hidden text-ellipsis max-w-full min-w-0 block">
                       {locale === "zh" ? project.titleZh : project.titleEn}
                     </h3>
-                    <p className="mt-2 text-sm text-muted">
-                      {locale === "zh"
-                        ? project.descriptionZh
-                        : project.descriptionEn}
-                    </p>
+                    {locale === "zh" ? (
+                      <p className="mt-2 text-sm text-muted whitespace-nowrap overflow-hidden text-ellipsis">
+                        {project.descriptionZh}
+                      </p>
+                    ) : (
+                      <p className="mt-2 text-sm text-muted line-clamp-2">
+                        {project.descriptionEn}
+                      </p>
+                    )}
                   </div>
                 </div>
               </Link>
