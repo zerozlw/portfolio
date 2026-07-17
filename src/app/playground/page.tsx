@@ -171,11 +171,24 @@ function PlaygroundCard({
     mouseX.set(x);
     mouseY.set(y);
 
-    // Update CSS custom properties for light reflection
+    // Update CSS custom properties for light effects
     const percentX = ((e.clientX - rect.left) / rect.width) * 100;
     const percentY = ((e.clientY - rect.top) / rect.height) * 100;
     cardRef.current?.style.setProperty("--mouse-x", `${percentX}%`);
     cardRef.current?.style.setProperty("--mouse-y", `${percentY}%`);
+
+    // Light angle for text color shift (0-1 range)
+    const lightAngle = (x / (rect.width / 2) + 1) / 2;
+    cardRef.current?.style.setProperty("--light-angle", `${lightAngle}`);
+
+    // Compute text color: lighter when mouse is near center, darker at edges
+    const dist = Math.sqrt(x * x + y * y);
+    const maxDist = Math.sqrt(rect.width * rect.width + rect.height * rect.height) / 2;
+    const brightness = 1 - (dist / maxDist) * 0.3; // 0.7 to 1.0
+    const r = Math.round(parseInt(item.accentDark.slice(1, 3), 16) * brightness);
+    const g = Math.round(parseInt(item.accentDark.slice(3, 5), 16) * brightness);
+    const b = Math.round(parseInt(item.accentDark.slice(5, 7), 16) * brightness);
+    cardRef.current?.style.setProperty("--text-color", `rgb(${r},${g},${b})`);
   };
 
   const handleMouseLeave = () => {
@@ -290,8 +303,9 @@ function PlaygroundCard({
             <h3
               className="text-xl font-bold tracking-tight"
               style={{
-                color: item.accentDark,
-                textShadow: `0 1px 0 rgba(255,255,255,0.8), 0 -0.5px 0 rgba(0,0,0,0.05)`,
+                color: "var(--text-color, " + item.accentDark + ")",
+                textShadow: `0 1px 0 rgba(255,255,255,0.4)`,
+                transition: "color 0.15s ease",
               }}
             >
               {item.title}
@@ -318,7 +332,7 @@ function PlaygroundCard({
 
           <p
               className="mt-2 flex-1 text-sm leading-relaxed"
-              style={{ color: "#6b7280", textShadow: `0 1px 0 rgba(255,255,255,0.6)` }}
+              style={{ color: "#6b7280", textShadow: `0 1px 0 rgba(255,255,255,0.3)` }}
             >
             {item.description}
           </p>
