@@ -48,7 +48,7 @@ Building this engine required a three-phase approach: first, consolidating scatt
 ![Process flow](/images/projects/dvp-process-en.svg)
 
 <div className="not-prose mt-3 text-xs text-muted/70">
-一个车门把手引发的蝴蝶效应：一张工程变更单要求把车门把手从零件 A 换成零件 B。引擎拿到这张单子后，先查 BOM 发现这个把手关联了 12 项试验任务，再通过 MVPS 规则判定其中 2 项是强关联——贴合测试和水密封测试必须重做，风噪测试影响较弱可以继续。试验计划一改，样车 #1024 因为装了旧把手需要重新分配，#1025 不受影响。整个过程，从一张变更单到所有计划同步更新，秒级完成。
+The butterfly effect of a single door handle: An engineering change order requests replacing door handle Part A with Part B. The engine picks up the order, checks the BOM and finds this handle is linked to 12 test tasks. Applying MVPS rules, it determines 2 are strongly correlated — fit test and water seal test must be re-done, while wind noise test has minor impact and can continue. With the test plan updated, prototype car #1024 (equipped with the old handle) needs reassignment, while #1025 is unaffected. The entire process — from a single change order to all plans synchronized — completes in seconds.
 </div>
 
 ### Data Infrastructure
