@@ -291,7 +291,7 @@ function PlaygroundCard({
               className="text-xl font-bold tracking-tight"
               style={{
                 color: item.accentDark,
-                textShadow: `0 1px 2px ${item.accent}15`,
+                textShadow: `0 1px 0 rgba(255,255,255,0.8), 0 -0.5px 0 rgba(0,0,0,0.05)`,
               }}
             >
               {item.title}
@@ -318,7 +318,7 @@ function PlaygroundCard({
 
           <p
               className="mt-2 flex-1 text-sm leading-relaxed"
-              style={{ color: "#6b7280", textShadow: `0 0.5px 1px rgba(255,255,255,0.5)` }}
+              style={{ color: "#6b7280", textShadow: `0 1px 0 rgba(255,255,255,0.6)` }}
             >
             {item.description}
           </p>
@@ -330,7 +330,7 @@ function PlaygroundCard({
                 style={{
                   backgroundColor: `${item.accent}18`,
                   color: item.accent,
-                  boxShadow: `inset 0 1px 0 ${item.accent}10, 0 1px 2px ${item.accent}08`,
+                  boxShadow: `inset 0 1px 0 rgba(255,255,255,0.6)`,
                 }}
               >
                 {statusLabel}
@@ -342,7 +342,7 @@ function PlaygroundCard({
                   style={{
                     borderColor: `${item.accent}25`,
                     color: `${item.accentDark}99`,
-                    boxShadow: `inset 0 1px 0 rgba(255,255,255,0.5), 0 1px 1px rgba(0,0,0,0.03)`,
+                    boxShadow: `inset 0 1px 0 rgba(255,255,255,0.6)`,
                   }}
                 >
                   {tag}
