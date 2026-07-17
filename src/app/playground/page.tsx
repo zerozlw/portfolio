@@ -195,12 +195,11 @@ function PlaygroundCard({
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      onClick={(e) => {
-        const target = e.target as HTMLElement;
-        const anchor = target.closest("a");
-        if (anchor) {
-          e.stopPropagation();
-          window.open(anchor.href, anchor.target || "_blank");
+      onClick={() => {
+        if ("url" in item && item.url) {
+          window.open(item.url, "_blank");
+        } else if ("github" in item && item.github) {
+          window.open(item.github, "_blank");
         }
       }}
       initial={{
@@ -339,29 +338,6 @@ function PlaygroundCard({
                 </span>
               ))}
             </div>
-
-            {"url" in item && item.url && (
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors"
-                style={{ color: item.accent }}
-              >
-                {locale === "zh" ? "在线体验" : "Try it live"}
-                <span className="transition-transform group-hover:translate-x-1">→</span>
-              </a>
-            )}
-            {"github" in item && item.github && (
-              <a
-                href={item.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-1.5 block text-sm text-gray-400 transition-colors hover:text-gray-600"
-              >
-                GitHub →
-              </a>
-            )}
           </div>
         </div>
       </motion.div>
