@@ -157,6 +157,10 @@ function PlaygroundCard({
   const magneticX = useSpring(useTransform(mouseX, [-150, 150], [-12, 12]), springConfig);
   const magneticY = useSpring(useTransform(mouseY, [-150, 150], [-12, 12]), springConfig);
 
+  // 3D tilt based on mouse
+  const rotateYSpring = useSpring(useTransform(mouseX, [-150, 150], [-12, 12]), springConfig);
+  const rotateXSpring = useSpring(useTransform(mouseY, [-150, 150], [10, -10]), springConfig);
+
   const handleMouseMove = (e: React.MouseEvent) => {
     const rect = cardRef.current?.getBoundingClientRect();
     if (!rect) return;
@@ -219,6 +223,8 @@ function PlaygroundCard({
         style={{
           x: magneticX,
           y: magneticY,
+          rotateX: rotateXSpring,
+          rotateY: rotateYSpring,
           background: `linear-gradient(145deg, ${item.accentLight}, #ffffff)`,
           boxShadow: `
             0 1px 2px rgba(0,0,0,0.04),
