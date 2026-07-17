@@ -4,7 +4,8 @@ import { Container } from "@/components/layout/Container";
 import { FadeIn } from "@/components/shared/FadeIn";
 import { ExternalLink } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { useRef } from "react";
 
 const experimentsEn = [
   {
@@ -146,8 +147,33 @@ function PlaygroundCard({
   statusLabel: string;
   total: number;
 }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Magnetic mouse tracking
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { stiffness: 150, damping: 15, mass: 0.1 };
+  const magneticX = useSpring(useTransform(mouseX, [-150, 150], [-12, 12]), springConfig);
+  const magneticY = useSpring(useTransform(mouseY, [-150, 150], [-12, 12]), springConfig);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = cardRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
   return (
     <motion.div
+      ref={cardRef}
       className="group relative shrink-0 cursor-pointer"
       style={{
         width: "280px",
@@ -155,6 +181,8 @@ function PlaygroundCard({
         zIndex: index,
         transformStyle: "preserve-3d",
       }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       initial={{
         y: item.yOffset,
         rotateX: item.rotate.x,
@@ -185,10 +213,12 @@ function PlaygroundCard({
         rotateZ: { duration: 3.2 + index * 0.4, repeat: Infinity, ease: "easeInOut" },
       }}
     >
-      {/* Card body — solid, premium */}
-      <div
+      {/* Card body — solid, premium, with magnetic offset */}
+      <motion.div
         className="relative h-full w-full rounded-2xl overflow-hidden"
         style={{
+          x: magneticX,
+          y: magneticY,
           background: `linear-gradient(145deg, ${item.accentLight}, #ffffff)`,
           boxShadow: `
             0 1px 2px rgba(0,0,0,0.04),
@@ -286,7 +316,7 @@ function PlaygroundCard({
             )}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Card edge / thickness illusion */}
       <div

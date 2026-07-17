@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鼠标互动效果 Demo</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, system-ui, sans-serif; background: #0a0a0a; color: #fff; overflow-x: hidden; }
+  .section { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; border-bottom: 1px solid #222; }
+  .section h2 { font-size: 2rem; font-weight: 600; margin-bottom: 0.5rem; z-index: 10; }
+  .section p { color: #888; font-size: 0.9rem; z-index: 10; }
+  .label { position: absolute; top: 2rem; left: 2rem; font-size: 0.75rem; color: #555; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* 1. Fluid Gradient Orbs */
+  #fluid-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  /* 2. Particle Field */
+  #particle-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  /* 3. Noise Wave */
+  #noise-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  /* 4. Magnetic Elements */
+  .magnetic-area { display: flex; gap: 2rem; z-index: 10; }
+  .magnetic-btn {
+    padding: 1rem 2.5rem; border-radius: 999px; border: 1px solid #333;
+    background: transparent; color: #fff; font-size: 1rem; cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), background 0.3s;
+  }
+  .magnetic-btn:hover { background: #fff; color: #000; }
+
+  /* 5. Aurora */
+  #aurora-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  /* 6. Cursor Trail */
+  #trail-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+
+<!-- 1. Fluid Gradient Orbs -->
+<div class="section" id="sec-fluid">
+  <span class="label">01</span>
+  <h2>流体渐变光球</h2>
+  <p>Fluid Gradient Orbs — 鼠标控制彩色光球移动</p>
+  <canvas id="fluid-canvas"></canvas>
+</div>
+
+<!-- 2. Particle Field -->
+<div class="section" id="sec-particle">
+  <span class="label">02</span>
+  <h2>粒子场</h2>
+  <p>Particle Field — 鼠标推开粒子</p>
+  <canvas id="particle-canvas"></canvas>
+</div>
+
+<!-- 3. Noise Wave -->
+<div class="section" id="sec-noise">
+  <span class="label">03</span>
+  <h2>噪声波纹</h2>
+  <p>Noise Wave — 鼠标搅动水面</p>
+  <canvas id="noise-canvas"></canvas>
+</div>
+
+<!-- 4. Magnetic Elements -->
+<div class="section" id="sec-magnetic">
+  <span class="label">04</span>
+  <h2>磁性吸附</h2>
+  <p>Magnetic Elements — 按钮被鼠标吸引</p>
+  <div class="magnetic-area">
+    <button class="magnetic-btn" data-magnetic>Projects</button>
+    <button class="magnetic-btn" data-magnetic>Playground</button>
+    <button class="magnetic-btn" data-magnetic>About</button>
+  </div>
+</div>
+
+<!-- 5. Aurora -->
+<div class="section" id="sec-aurora">
+  <span class="label">05</span>
+  <h2>Aurora 极光</h2>
+  <p>Aurora Background — 鼠标控制极光方向和颜色</p>
+  <canvas id="aurora-canvas"></canvas>
+</div>
+
+<!-- 6. Cursor Trail -->
+<div class="section" id="sec-trail">
+  <span class="label">06</span>
+  <h2>光标拖尾</h2>
+  <p>Cursor Trail — 彩色光点跟随鼠标</p>
+  <canvas id="trail-canvas"></canvas>
+</div>
+
+<script>
+// === Shared ===
+const mouse = { x: 0, y: 0 };
+document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+function getCanvas(id) {
+  const c = document.getElementById(id);
+  const ctx = c.getContext('2d');
+  function resize() { c.width = c.parentElement.clientWidth; c.height = c.parentElement.clientHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  return { c, ctx, resize };
+}
+
+// === 1. Fluid Gradient Orbs ===
+(function() {
+  const { c, ctx } = getCanvas('fluid-canvas');
+  const orbs = [
+    { x: 0, y: 0, r: 200, color: 'rgba(139,92,246,0.4)', vx: 0, vy: 0 },
+    { x: 0, y: 0, r: 180, color: 'rgba(59,130,246,0.35)', vx: 0, vy: 0 },
+    { x: 0, y: 0, r: 160, color: 'rgba(244,63,94,0.3)', vx: 0, vy: 0 },
+  ];
+  orbs.forEach(o => { o.x = c.width / 2; o.y = c.height / 2; });
+
+  function animate() {
+    ctx.clearRect(0, 0, c.width, c.height);
+    const mx = mouse.x - c.parentElement.getBoundingClientRect().left;
+    const my = mouse.y - c.parentElement.getBoundingClientRect().top;
+
+    orbs.forEach((o, i) => {
+      const tx = mx + Math.sin(Date.now() * 0.001 + i * 2) * 80;
+      const ty = my + Math.cos(Date.now() * 0.001 + i * 2) * 60;
+      o.vx += (tx - o.x) * 0.02;
+      o.vy += (ty - o.y) * 0.02;
+      o.vx *= 0.92;
+      o.vy *= 0.92;
+      o.x += o.vx;
+      o.y += o.vy;
+
+      const grad = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r);
+      grad.addColorStop(0, o.color);
+      grad.addColorStop(1, 'transparent');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, c.width, c.height);
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+// === 2. Particle Field ===
+(function() {
+  const { c, ctx } = getCanvas('particle-canvas');
+  const particles = [];
+  const COUNT = 120;
+  for (let i = 0; i < COUNT; i++) {
+    particles.push({
+      x: Math.random() * c.width,
+      y: Math.random() * c.height,
+      r: Math.random() * 2 + 1,
+      vx: 0, vy: 0,
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, c.width, c.height);
+    const mx = mouse.x - c.parentElement.getBoundingClientRect().left;
+    const my = mouse.y - c.parentElement.getBoundingClientRect().top;
+
+    particles.forEach(p => {
+      const dx = p.x - mx;
+      const dy = p.y - my;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 150) {
+        const force = (150 - dist) / 150;
+        p.vx += (dx / dist) * force * 3;
+        p.vy += (dy / dist) * force * 3;
+      }
+      p.vx *= 0.95;
+      p.vy *= 0.95;
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.x < 0) p.x = c.width;
+      if (p.x > c.width) p.x = 0;
+      if (p.y < 0) p.y = c.height;
+      if (p.y > c.height) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = dist < 150 ? `rgba(139,92,246,${0.8 - dist/300})` : 'rgba(255,255,255,0.15)';
+      ctx.fill();
+    });
+
+    // Draw lines between close particles
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 100) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(139,92,246,${0.15 - dist/800})`;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+// === 3. Noise Wave ===
+(function() {
+  const { c, ctx } = getCanvas('noise-canvas');
+  let time = 0;
+  const mx = { x: c.width / 2, y: c.height / 2 };
+
+  document.getElementById('sec-noise').addEventListener('mousemove', e => {
+    const rect = c.parentElement.getBoundingClientRect();
+    mx.x = e.clientX - rect.left;
+    mx.y = e.clientY - rect.top;
+  });
+
+  function animate() {
+    ctx.clearRect(0, 0, c.width, c.height);
+    time += 0.02;
+
+    const cols = 40;
+    const rows = 25;
+    const w = c.width / cols;
+    const h = c.height / rows;
+
+    for (let i = 0; i < cols; i++) {
+      for (let j = 0; j < rows; j++) {
+        const x = i * w + w / 2;
+        const y = j * h + h / 2;
+        const dx = x - mx.x;
+        const dy = y - mx.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const influence = Math.max(0, 1 - dist / 250);
+        const wave = Math.sin(x * 0.01 + time) * Math.cos(y * 0.01 + time * 0.7);
+        const offset = wave * 15 + influence * 30;
+
+        const alpha = 0.1 + influence * 0.4;
+        ctx.fillStyle = `rgba(139,92,246,${alpha})`;
+        ctx.fillRect(x - w / 3 + offset * 0.5, y - h / 3 + offset * 0.3, w / 1.5, h / 1.5);
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+// === 4. Magnetic Elements ===
+(function() {
+  const btns = document.querySelectorAll('[data-magnetic]');
+  btns.forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0, 0)';
+    });
+  });
+})();
+
+// === 5. Aurora ===
+(function() {
+  const { c, ctx } = getCanvas('aurora-canvas');
+  let time = 0;
+
+  function animate() {
+    ctx.clearRect(0, 0, c.width, c.height);
+    time += 0.005;
+
+    const mx = mouse.x - c.parentElement.getBoundingClientRect().left;
+    const my = mouse.y - c.parentElement.getBoundingClientRect().top;
+
+    for (let i = 0; i < 5; i++) {
+      const y = c.height * 0.2 + Math.sin(time + i * 0.8) * c.height * 0.3;
+      const grad = ctx.createLinearGradient(0, y - 100, 0, y + 100);
+      const hue = (mx / c.width) * 60 + 240 + i * 30;
+      grad.addColorStop(0, `hsla(${hue}, 80%, 60%, 0)`);
+      grad.addColorStop(0.5, `hsla(${hue}, 80%, 60%, ${0.15 - i * 0.02})`);
+      grad.addColorStop(1, `hsla(${hue}, 80%, 60%, 0)`);
+
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, y - 100, c.width, 200);
+
+      // Distort with mouse
+      const waveY = Math.sin(mx * 0.005 + time + i) * 20;
+      ctx.translate(0, waveY);
+      ctx.fillRect(0, y - 80, c.width, 160);
+      ctx.translate(0, -waveY);
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+// === 6. Cursor Trail ===
+(function() {
+  const { c, ctx } = getCanvas('trail-canvas');
+  const trail = [];
+  const MAX = 30;
+
+  function animate() {
+    ctx.clearRect(0, 0, c.width, c.height);
+    const mx = mouse.x - c.parentElement.getBoundingClientRect().left;
+    const my = mouse.y - c.parentElement.getBoundingClientRect().top;
+
+    trail.push({ x: mx, y: my, t: 1 });
+    if (trail.length > MAX) trail.shift();
+
+    for (let i = 0; i < trail.length; i++) {
+      trail[i].t -= 0.03;
+      const p = trail[i];
+      if (p.t <= 0) continue;
+
+      const size = p.t * 20 + 2;
+      const hue = (i / trail.length) * 60 + 260;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${hue}, 80%, 60%, ${p.t * 0.5})`;
+      ctx.fill();
+    }
+
+    // Keep only alive particles
+    while (trail.length > 0 && trail[0].t <= 0) trail.shift();
+
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+</script>
+</body>
+</html>
