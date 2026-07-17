@@ -276,7 +276,7 @@ function PlaygroundCard({
         />
 
         {/* Content */}
-        <div className="relative z-10 flex h-full flex-col p-7">
+        <div className="relative z-10 flex h-full flex-col p-7" style={{ pointerEvents: "auto" }}>
           <div className="flex items-start justify-between">
             <h3
               className="text-xl font-bold tracking-tight"
@@ -326,7 +326,6 @@ function PlaygroundCard({
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors"
                 style={{ color: item.accent }}
-                onClick={(e) => e.stopPropagation()}
               >
                 {locale === "zh" ? "在线体验" : "Try it live"}
                 <span className="transition-transform group-hover:translate-x-1">→</span>
@@ -338,7 +337,6 @@ function PlaygroundCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-1.5 block text-sm text-gray-400 transition-colors hover:text-gray-600"
-                onClick={(e) => e.stopPropagation()}
               >
                 GitHub →
               </a>
