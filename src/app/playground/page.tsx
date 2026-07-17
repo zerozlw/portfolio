@@ -163,6 +163,8 @@ function PlaygroundCard({
   const rotateYSpring = useSpring(useTransform(mouseX, [-150, 150], [-12, 12]), springConfig);
   const rotateXSpring = useSpring(useTransform(mouseY, [-150, 150], [10, -10]), springConfig);
 
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
   const handleMouseMove = (e: React.MouseEvent) => {
     const rect = cardRef.current?.getBoundingClientRect();
     if (!rect) return;
@@ -171,29 +173,31 @@ function PlaygroundCard({
     mouseX.set(x);
     mouseY.set(y);
 
-    // Update CSS custom properties for light effects
+    // Update CSS custom properties for light reflection
     const percentX = ((e.clientX - rect.left) / rect.width) * 100;
     const percentY = ((e.clientY - rect.top) / rect.height) * 100;
     cardRef.current?.style.setProperty("--mouse-x", `${percentX}%`);
     cardRef.current?.style.setProperty("--mouse-y", `${percentY}%`);
 
-    // Light angle for text color shift (0-1 range)
-    const lightAngle = (x / (rect.width / 2) + 1) / 2;
-    cardRef.current?.style.setProperty("--light-angle", `${lightAngle}`);
-
-    // Compute text color: lighter when mouse is near center, darker at edges
+    // Compute title text color: brighter when mouse is near, darker when far
     const dist = Math.sqrt(x * x + y * y);
     const maxDist = Math.sqrt(rect.width * rect.width + rect.height * rect.height) / 2;
-    const brightness = 1 - (dist / maxDist) * 0.3; // 0.7 to 1.0
-    const r = Math.round(parseInt(item.accentDark.slice(1, 3), 16) * brightness);
-    const g = Math.round(parseInt(item.accentDark.slice(3, 5), 16) * brightness);
-    const b = Math.round(parseInt(item.accentDark.slice(5, 7), 16) * brightness);
-    cardRef.current?.style.setProperty("--text-color", `rgb(${r},${g},${b})`);
+    const brightness = 0.7 + (1 - dist / maxDist) * 0.5; // 0.7 to 1.2
+    const clamp = (v: number) => Math.min(255, Math.max(0, Math.round(v)));
+    const r = clamp(parseInt(item.accentDark.slice(1, 3), 16) * brightness);
+    const g = clamp(parseInt(item.accentDark.slice(3, 5), 16) * brightness);
+    const b = clamp(parseInt(item.accentDark.slice(5, 7), 16) * brightness);
+    if (titleRef.current) {
+      titleRef.current.style.color = `rgb(${r},${g},${b})`;
+    }
   };
 
   const handleMouseLeave = () => {
     mouseX.set(0);
     mouseY.set(0);
+    if (titleRef.current) {
+      titleRef.current.style.color = "";
+    }
   };
 
   return (
@@ -301,11 +305,11 @@ function PlaygroundCard({
         <div className="relative z-10 flex h-full flex-col p-7" style={{ pointerEvents: "auto" }}>
           <div className="flex items-start justify-between">
             <h3
+              ref={titleRef}
               className="text-xl font-bold tracking-tight"
               style={{
-                color: "var(--text-color, " + item.accentDark + ")",
+                color: item.accentDark,
                 textShadow: `0 1px 0 rgba(255,255,255,0.4)`,
-                transition: "color 0.15s ease",
               }}
             >
               {item.title}
