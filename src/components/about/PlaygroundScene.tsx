@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const rides = [
   {
@@ -13,7 +12,6 @@ const rides = [
     description: "缓慢上升，俯瞰世界，发现不同角度。",
     descriptionZh: "Slowly rising to see the world from different angles.",
     color: "#8B5CF6",
-    lightColor: "#EDE9FE",
     emoji: "📸",
     icon: "🎡",
   },
@@ -26,7 +24,6 @@ const rides = [
     description: "每本书是一扇门，通往新世界。",
     descriptionZh: "Every book is a door to a new world.",
     color: "#3B82F6",
-    lightColor: "#DBEAFE",
     emoji: "📚",
     icon: "🏰",
   },
@@ -39,7 +36,6 @@ const rides = [
     description: "在约束中寻找刺激，起承转合。",
     descriptionZh: "Finding thrills within constraints.",
     color: "#F59E0B",
-    lightColor: "#FEF3C7",
     emoji: "🎮",
     icon: "🎢",
   },
@@ -52,7 +48,6 @@ const rides = [
     description: "需要耐心，每天浇水，慢慢生长。",
     descriptionZh: "Patience, daily watering, slow growth.",
     color: "#10B981",
-    lightColor: "#D1FAE5",
     emoji: "🌿",
     icon: "🏡",
   },
@@ -65,133 +60,98 @@ const rides = [
     description: "自由挥洒色彩的创意空间。",
     descriptionZh: "A creative space to freely splash colors.",
     color: "#F43F5E",
-    lightColor: "#FFE4E6",
     emoji: "🎨",
     icon: "🎨",
   },
 ];
 
-function RideCard({
-  ride,
-  index,
-  isActive,
-  onEnter,
-  onLeave,
-  locale,
-}: {
-  ride: (typeof rides)[number];
-  index: number;
-  isActive: boolean;
-  onEnter: () => void;
-  onLeave: () => void;
-  locale: string;
-}) {
-  // Slightly different rotation for each card to look scattered
-  const rotations = [
-    { x: -2, y: 3, z: -1.5 },
-    { x: 1, y: -2, z: 1 },
-    { x: -1, y: 4, z: -2 },
-    { x: 2, y: -1, z: 1.5 },
-    { x: -1.5, y: 2, z: -1 },
-  ];
-  const rot = rotations[index % rotations.length];
-
-  return (
-    <motion.div
-      className="group relative cursor-pointer"
-      style={{ perspective: "800px" }}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
-    >
-      <motion.div
-        className="relative overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] dark:border-gray-700 dark:bg-gray-800"
-        style={{
-          transformStyle: "preserve-3d",
-          width: "100%",
-          height: "280px",
-        }}
-        initial={{
-          rotateX: rot.x,
-          rotateY: rot.y,
-          rotateZ: rot.z,
-          y: index % 2 === 0 ? 8 : 0,
-        }}
-        whileHover={{
-          rotateX: 0,
-          rotateY: 0,
-          rotateZ: 0,
-          y: -12,
-          scale: 1.04,
-          boxShadow: `0 25px 50px -12px ${ride.color}30`,
-        }}
-        transition={{ type: "spring", stiffness: 300, damping: 25 }}
-      >
-        {/* Color top strip */}
-        <div className="h-1.5 w-full" style={{ background: `linear-gradient(90deg, ${ride.color}, ${ride.color}aa)` }} />
-
-        {/* Icon area */}
-        <div className="relative flex h-32 items-center justify-center overflow-hidden" style={{ background: `linear-gradient(135deg, ${ride.lightColor}, white)` }}>
-          {/* Background pattern */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle, ${ride.color} 1px, transparent 1px)`, backgroundSize: "20px 20px" }} />
-
-          {/* Main icon */}
-          <motion.div
-            className="relative z-10 text-6xl"
-            whileHover={{ scale: 1.15, rotate: 5 }}
-            transition={{ type: "spring", stiffness: 400, damping: 15 }}
-          >
-            {ride.icon}
-          </motion.div>
-
-          {/* Floating emoji */}
-          <div className="absolute right-4 top-4 text-lg opacity-30">{ride.emoji}</div>
-          <div className="absolute bottom-4 left-4 text-sm opacity-20">{ride.emoji}</div>
-        </div>
-
-        {/* Content */}
-        <div className="p-5">
-          <div className="mb-1 flex items-center gap-1.5">
-            <span className="inline-block h-2 w-2 rounded-full" style={{ background: ride.color }} />
-            <span className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: ride.color }}>
-              {locale === "zh" ? ride.hobbyZh : ride.hobby}
-            </span>
-          </div>
-          <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100">
-            {locale === "zh" ? ride.nameZh : ride.name}
-          </h3>
-          <p className="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
-            {locale === "zh" ? ride.descriptionZh : ride.description}
-          </p>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
-
 export function PlaygroundScene({ locale }: { locale: string }) {
   return (
-    <div className="relative">
-      {/* Ground accent */}
-      <div className="absolute -bottom-6 left-[5%] right-[5%] h-8 rounded-2xl bg-gradient-to-r from-green-200/40 via-blue-200/30 to-pink-200/40 blur-xl" />
+    <div className="relative overflow-hidden rounded-3xl">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-400 via-pink-300 to-amber-300 opacity-80 dark:opacity-40" />
+      <div className="absolute inset-0 bg-gradient-to-tl from-blue-400/60 via-transparent to-green-300/40" />
 
-      {/* Cards grid */}
-      <div className="relative grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
-        {rides.map((ride, i) => (
-          <RideCard
-            key={ride.id}
-            ride={ride}
-            index={i}
-            isActive={false}
-            onEnter={() => {}}
-            onLeave={() => {}}
-            locale={locale}
-          />
-        ))}
-      </div>
+      {/* Floating color blobs */}
+      <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-purple-500/30 blur-3xl" />
+      <div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-pink-500/30 blur-3xl" />
+      <div className="absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-400/20 blur-3xl" />
 
-      {/* Label */}
-      <div className="mt-8 text-center text-[11px] font-medium tracking-[0.15em] text-gray-400 dark:text-gray-500">
-        {locale === "zh" ? "ZOE 的游乐场" : "ZOE'S PLAYGROUND"}
+      {/* Content */}
+      <div className="relative z-10 p-8 sm:p-10">
+        {/* Title */}
+        <div className="mb-8 text-center">
+          <h2 className="text-2xl font-bold text-white drop-shadow-md">
+            {locale === "zh" ? "我的游乐场" : "My Playground"}
+          </h2>
+          <p className="mt-1 text-sm text-white/70">
+            {locale === "zh" ? "工作之余，每个爱好都是一座小乐园" : "Each hobby is a little land of its own"}
+          </p>
+        </div>
+
+        {/* Glassmorphism cards grid */}
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          {rides.map((ride, i) => (
+            <motion.div
+              key={ride.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              whileHover={{ y: -8, scale: 1.03 }}
+              className="group cursor-pointer"
+            >
+              <div
+                className="relative overflow-hidden rounded-2xl p-5 transition-all duration-300"
+                style={{
+                  background: "rgba(255, 255, 255, 0.15)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255, 255, 255, 0.25)",
+                  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
+                }}
+              >
+                {/* Icon */}
+                <div className="mb-4 flex h-16 items-center justify-center">
+                  <span className="text-5xl drop-shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                    {ride.icon}
+                  </span>
+                </div>
+
+                {/* Hobby tag */}
+                <div className="mb-1.5 flex items-center gap-1.5">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ background: ride.color }} />
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-white/60">
+                    {locale === "zh" ? ride.hobbyZh : ride.hobby}
+                  </span>
+                </div>
+
+                {/* Name */}
+                <h3 className="text-base font-bold text-white drop-shadow-sm">
+                  {locale === "zh" ? ride.nameZh : ride.name}
+                </h3>
+
+                {/* Description */}
+                <p className="mt-1.5 text-xs leading-relaxed text-white/60">
+                  {locale === "zh" ? ride.descriptionZh : ride.description}
+                </p>
+
+                {/* Hover glow */}
+                <div
+                  className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  style={{
+                    background: `radial-gradient(circle at 50% 30%, ${ride.color}30, transparent 70%)`,
+                  }}
+                />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom label */}
+        <div className="mt-8 text-center text-[11px] font-medium tracking-[0.15em] text-white/40">
+          {locale === "zh" ? "ZOE 的游乐场" : "ZOE'S PLAYGROUND"}
+        </div>
       </div>
     </div>
   );
