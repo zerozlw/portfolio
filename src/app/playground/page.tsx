@@ -196,7 +196,7 @@ function PlaygroundCard({
     mouseX.set(0);
     mouseY.set(0);
     if (titleRef.current) {
-      titleRef.current.style.color = "";
+      titleRef.current.style.color = item.accentDark;
     }
   };
 
