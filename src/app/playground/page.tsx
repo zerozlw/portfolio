@@ -168,6 +168,12 @@ function PlaygroundCard({
     const y = e.clientY - rect.top - rect.height / 2;
     mouseX.set(x);
     mouseY.set(y);
+
+    // Update CSS custom properties for light reflection
+    const percentX = ((e.clientX - rect.left) / rect.width) * 100;
+    const percentY = ((e.clientY - rect.top) / rect.height) * 100;
+    cardRef.current?.style.setProperty("--mouse-x", `${percentX}%`);
+    cardRef.current?.style.setProperty("--mouse-y", `${percentY}%`);
   };
 
   const handleMouseLeave = () => {
@@ -244,11 +250,28 @@ function PlaygroundCard({
           }}
         />
 
-        {/* Subtle inner glow on hover */}
+        {/* Material texture — subtle grain */}
         <div
-          className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{
-            background: `radial-gradient(ellipse at 30% 20%, ${item.accent}15, transparent 70%)`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+            backgroundSize: "128px 128px",
+          }}
+        />
+
+        {/* Light reflection — follows mouse */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          style={{
+            background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${item.accent}25, transparent 40%)`,
+          }}
+        />
+
+        {/* Metallic edge highlight */}
+        <div
+          className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          style={{
+            background: `linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%, rgba(255,255,255,0.05) 100%)`,
           }}
         />
 
