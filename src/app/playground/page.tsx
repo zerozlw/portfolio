@@ -20,6 +20,7 @@ const experimentsEn = [
     accent: "#8b5cf6",
     accentLight: "#ede9fe",
     accentDark: "#1e1b4b",
+    image: "/images/projects/meowup-stand.png",
   },
   {
     title: "Arti",
@@ -80,6 +81,7 @@ const experimentsZh = [
     accent: "#8b5cf6",
     accentLight: "#ede9fe",
     accentDark: "#1e1b4b",
+    image: "/images/projects/meowup-stand.png",
   },
   {
     title: "Arti",
@@ -193,6 +195,14 @@ function PlaygroundCard({
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onClick={(e) => {
+        const target = e.target as HTMLElement;
+        const anchor = target.closest("a");
+        if (anchor) {
+          e.stopPropagation();
+          window.open(anchor.href, anchor.target || "_blank");
+        }
+      }}
       initial={{
         y: item.yOffset,
         rotateX: item.rotate.x,
@@ -292,6 +302,17 @@ function PlaygroundCard({
               />
             )}
           </div>
+
+          {/* Cat illustration — appears on hover */}
+          {"image" in item && item.image && (
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500 group-hover:opacity-90 pointer-events-none">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="h-24 w-24 object-contain drop-shadow-lg transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-1"
+              />
+            </div>
+          )}
 
           <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-500">
             {item.description}
