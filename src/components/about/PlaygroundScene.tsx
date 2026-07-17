@@ -79,16 +79,6 @@ export function PlaygroundScene({ locale }: { locale: string }) {
 
       {/* Content */}
       <div className="relative z-10 p-8 sm:p-10">
-        {/* Title */}
-        <div className="mb-8 text-center">
-          <h2 className="text-2xl font-bold text-white drop-shadow-md">
-            {locale === "zh" ? "我的游乐场" : "My Playground"}
-          </h2>
-          <p className="mt-1 text-sm text-white/70">
-            {locale === "zh" ? "工作之余，每个爱好都是一座小乐园" : "Each hobby is a little land of its own"}
-          </p>
-        </div>
-
         {/* Glassmorphism cards grid */}
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {rides.map((ride, i) => (
@@ -148,10 +138,6 @@ export function PlaygroundScene({ locale }: { locale: string }) {
           ))}
         </div>
 
-        {/* Bottom label */}
-        <div className="mt-8 text-center text-[11px] font-medium tracking-[0.15em] text-white/40">
-          {locale === "zh" ? "ZOE 的游乐场" : "ZOE'S PLAYGROUND"}
-        </div>
       </div>
     </div>
   );
