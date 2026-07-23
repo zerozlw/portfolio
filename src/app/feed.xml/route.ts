@@ -1,5 +1,7 @@
 import { getAllArticles } from "@/lib/writing";
 
+export const dynamic = "force-static";
+
 export async function GET() {
   const articles = getAllArticles();
   const siteUrl = "https://zheng.dev";

@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { getProjectSlugs } from "@/lib/projects";
 import { getArticleSlugs } from "@/lib/writing";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = "https://zheng.dev";
 
